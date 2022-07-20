@@ -2,16 +2,18 @@
 using namespace std;
 
 int main(){
-    int num,s, i;
-    int arr[5];
+    int a, b, i;
+    int arr[6] = {0, };
     
-    s = 0;
-    for (i=0; i<5; i++){
-        cin >> arr[i];
-        s += arr[i];
+    cin >> a >> b;
+
+    for (i=a; i<=b; i++){
+        arr[i] = i;
     }
 
-    cout << "합은 " << s << "입니다" << endl;
-
+    for (i=a; i<=b; i++){
+        cout << arr[i];
+    }
+    cout << endl;
     return 0;
 }
