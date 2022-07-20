@@ -9,12 +9,12 @@ void input(){
 
 void process(){
     if (a=='A' && b=='B' && c=='C'){
-        flag = '1';
+        flag = 1;
     }
 }
 
 void output(){
-    if(flag=='1'){
+    if(flag==1){
         cout << "ABC를찾았다" << endl;
     }else{
         cout << "못찾았다" << endl;
