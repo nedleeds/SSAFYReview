@@ -5,9 +5,7 @@ int main(){
     char alpha;
     cin >> alpha;
 
-    for (int i='A'; i<=alpha; i++){
-        cout << char(i);
-    }
+    cout << char(int(alpha) + 'A'-'a') << endl;
 
     return 0;
 }
