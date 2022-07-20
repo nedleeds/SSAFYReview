@@ -1,17 +1,13 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-	char input;
-	cin >> input;
+int main(){
+    char alpha;
+    cin >> alpha;
 
-	int t = input - '0';
+    for (int i='A'; i<=alpha; i++){
+        cout << char(i);
+    }
 
-	if (input >= '0' && input <= '9') 
-	{
-		cout << t + 5;
-	}
-
-	return 0;
+    return 0;
 }
