@@ -1,16 +1,30 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    char x, y;
-    cin >> x >> y;
+char flag, a, b, c;
 
-    for (int i=0; i<4; i++){
-        for (int j=x; j<=y; j++){
-            cout << char(j) << " ";
-        }
-        cout << endl;
+void input(){
+    cin >> a >> b >> c;
+}
+
+void process(){
+    if (a=='A' && b=='B' && c=='C'){
+        flag = '1';
     }
+}
+
+void output(){
+    if(flag=='1'){
+        cout << "ABC를찾았다" << endl;
+    }else{
+        cout << "못찾았다" << endl;
+    }
+}
+
+int main(){
+    input();
+    process();
+    output();
 
     return 0;
 }
