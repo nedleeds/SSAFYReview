@@ -2,14 +2,15 @@
 using namespace std;
 
 int main(){
-    char c;
+    int num;
 
-    cin >> c;
+    cin >> num;
 
-    if ( 'a' <= c && c <= 'z'){
-        cout << "소문자입니다" << endl;
-    }else if ( 'A' <= c && c <= 'Z'){
-        cout << "대문자입니다" << endl;
+    for (int i=0; i<num; i++){
+        for (int j=0; j<num; j++){
+            cout << "#";
+        }
+        cout << endl;
     }
     
     return 0;
