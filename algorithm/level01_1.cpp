@@ -2,14 +2,15 @@
 using namespace std;
 
 int main(){
-    char alphas[3];
+    int num;
 
-    for (int i=0; i<3; ++i){
-        cin >> alphas[i];
-    }
+    cin >> num;
 
-    for (int j=0; j<3; ++j){
-        cout << int(alphas[j]) << endl;
+    for (int j=0; j<num; ++j){
+        for (int i=0; i<5; ++i){
+            cout << i+1 << " ";
+        }
+        cout << endl;
     }
     
     return 0;
