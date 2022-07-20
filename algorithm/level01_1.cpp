@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    int num;
+int main()
+{
+	char input;
+	cin >> input;
 
-    cin >> num;
+	int t = input - '0';
 
-    for (int i=0; i<num; i++){
-        for (int j=0; j<num; j++){
-            cout << "#";
-        }
-        cout << endl;
-    }
-    
-    return 0;
+	if (input >= '0' && input <= '9') 
+	{
+		cout << t + 5;
+	}
+
+	return 0;
 }
