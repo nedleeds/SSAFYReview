@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .image-wrapper{
+      height: 400px;
+      width: 800px;
+      background-image: url(./images/조정석.jpg);
+      background-size: cover;
+      border: 8px solid orange;
+      border-radius: 35px;
+      /* 아래 3줄은 정가운데 처리. */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* text-wrapper 위치 조정 */
+      position: relative
+    }
+    .image-wrapper>img{
+      height: 100px;
+      width: 100px;
+    }
+    .text-wrapper{
+      color : yellow;
+      font-size : 40px;
+      font-weight: bold;
+      position: absolute;
+      right: 525px;
+      top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-wrapper">
+      <img src="./images/play.png" alt="">
+      <div class="text-wrapper">
+        <div>너두</div>
+        <div>할 수 있어</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- 내 풀이 -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 300px;
+      height: 180px;
+      position: absolute;
+    }
+    .box1{
+      top: 20px;
+      left: 200px;
+      /* z-index : postion fixed, absolute, relative 등
+         3차원 요소가 적용된 경우만 동작.
+       */
+       z-index: 4;
+    }
+    .box1 > img{
+      width: 300px;
+      height: 180px;
+      border-radius: 5%;
+      border: 5px solid orange;
+    }
+    .box2{
+      /* background-color:hotpink; */
+      top: 85px;
+      left: 325px;
+      z-index: 6;
+    }
+    .box2 > img{
+      width: 60px;
+      height: 60px;
+    }
+    .box3{
+      top: 40px;
+      left: 215px;
+      z-index: 7;
+      font-size: 20px;
+      font-weight: bold;
+      color: greenyellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="box box1">
+    <img src="./images/조정석.jpg" alt="">
+  </div>
+  <div class="box box2">
+    <img src="./images/play.png" alt="">
+  </div>
+  <div class="box box3">너두 할 수 있어</div>
+</body>
+</html> -->

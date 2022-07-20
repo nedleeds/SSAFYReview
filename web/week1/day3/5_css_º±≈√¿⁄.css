@@ -1,0 +1,59 @@
+/* 전체 선택
+모든 요소에 적용 (*{...})
+ */
+
+ /* tag 셀렉터
+ 특정 태그에 사용 (ex. div)
+  */
+
+  /* 특정 id, class 에 접근
+  #id{}, .class{}
+   */
+
+   /*  attribute selector
+   selector[속성값]
+   a태그중 href 속성을 갖는 모든 요소
+   a[href]{}
+   ==> a[https://www.naver.com]{ ... }
+   ==> input[type="button"]{ ... }
+    */
+
+    /* 자식 
+    div의 직속 자식인 경우만 - 아빠-아들 관계만 가능. 할아버지-손자는 X
+    .a>.abc{ ... }
+    */
+
+    /* 후손 
+    .a의 후손인 .c를 찾는다. 할아버지-손자 O
+    .a .c{ ... }
+    */
+
+    /* 가상셀렉터
+    div:hover{ ... } -> hover 해당 셀렉터에 마우스가 올라가있는 상태
+    */
+    
+    /* link : 해당 링크가 방문하지 않았던 경우
+    a:link{ ... }
+    */
+
+    /* visited : 해당 링크가 방문했던 경우
+    a:visited{ ... }
+    */
+
+    /* active : 해당 셀렉터가 클릭된 상태
+    button:active{ ... }
+    */
+
+    /* focus : 해당 셀렉터에 포커스가 들어온 상태 
+    input:focus{ ... }
+    */
+
+    /* checked : 체크 셀렉터에서 체크 상태인 경우 
+    input[type="checkbox"]:checked{ ... }
+    */
+
+    /* enabled : 셀렉터가 사용가능한 상태 */
+
+    /* disabled : 셀렉터가 사용불가능한 상태 */
+
+

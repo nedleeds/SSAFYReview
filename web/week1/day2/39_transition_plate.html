@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    .box{
+      margin: 200px;
+      width: 300px;
+      height: 300px;
+      /* border: 5px solid black; */
+      background-image: url(./images/plate.png);
+      background-size: contain;
+      transition: all .5s ease-in-out 0.1s;
+      /* transition을 적용해야하는 css 속성 */
+      transition-property: width, height, background-color, transform;
+      /* transition-duration: 애니메이션 재생시간 */
+      transition-duration: 1s;
+      /* transition-timing-function: 가속도 설정; */
+      transition-timing-function: ease-in-out;
+      /* transition-delay 말 그대로 delay 시간.*/
+      /* transition-delay: 2s; */
+
+    }
+    .box:hover{
+      transform: rotate(360deg) scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+  </div>
+</body>
+</html>

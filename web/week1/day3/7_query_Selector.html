@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>My title</title>
+  </head>
+  <body>
+    
+    <script>
+      // document[혹은 query Selector로 가져온 것].querySelcector("선택지")
+      // $("선택자")
+      // 예전에는 getElementByID id를 가져오는 선택자 따로.
+      // getElementsByClassNames 등으로 따로따로 사용해야했기 때문에
+      //  "제이쿼리를 더 선호 했다."
+      
+      
+      // const h1 = document.quretSelector["a[href]"];
+      // console.log(a);
+      // a.textContent = '저쩔 피티'
+      
+      //   <h1>A heading</h1>
+      //   <a href="https://www.naver.com">Link text</a>
+
+        const input = document.querySelector("#query")
+        const button = document.querySelector("#search_btn");
+        function goChiken(value){
+            input.value = value;
+            button.click();
+        }
+    </script>
+  </body>
+</html>

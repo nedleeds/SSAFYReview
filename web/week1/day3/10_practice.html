@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <img src="이미지이미지" alt="altalt">
+
+    <script>
+        const img = document.querySelector('img');
+        console.log(img);
+        // getAttribute, setAttribute
+        const src = img.getAttribute("src");
+        console.log(src);
+        img.setAttribute("alt", "치킨마요");
+        console.log(img.getAttribute("alt"));
+        // split - 구분 문자를 기준으로 배열을 생성한다.
+        const abc = "AAA-BBB"
+        const abc_split = abc.split('-');
+        console.log(abc_split);
+    </script>
+
+</body>
+</html>

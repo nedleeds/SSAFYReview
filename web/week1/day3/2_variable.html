@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    // 변수로 다 퉁친다
+    // var let const
+    // int a = 5;
+    // 문자든 숫자든 개체든 true/false 든 모든게 들어간다.
+    var a = 5;
+    var b = "abc";
+    // 타입 명시가 안돼서 오류가 나오는 경우가 가끔 있다.
+    // 이러한 부분에서 typescript(Microsoft에서 만듦) 탄생.
+    console.log(a);
+    console.log(b);
+    a = "abcd";
+    b = 10;
+    console.log(a);
+    console.log(b);
+
+    // let, const
+    // let 은 값의 재할당이 가능하다.
+    // const 는 값의 재할당이 불가능하다.
+    const d = 150;
+    console.log(d);
+    // d = 'a';
+    // console.log(d); // -> error 발생
+    
+    // var 는 함수 레벨(함수 내에서만 유효) 스코트
+    function hello(){
+      var e = 51;
+      console.log('hello')
+      console.log(e)
+    }
+
+    // let과 const는 블록 레벨(블록 내에서만 유효) 스코프
+    // 사용하는 이유는 블록 안과 밖의 동일 변수명인 경우
+    // 코드가 꼬여버린다.
+    {
+      let f = 100;
+      const f2 = 1230;
+      console.log('f: '+ f);
+      console.log('f2: '+ f2);
+    }
+
+    
+  </script>
+</body>
+</html>

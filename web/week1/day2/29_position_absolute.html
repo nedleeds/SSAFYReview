@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .absolute{
+      background-color: darksalmon;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      /* 
+        position - fixed, relative, absolute
+        1) fixed : 원래 위치와 상관 없이 위치 지정이 가능.
+        2) relative : 원래 위치를 기준으로 삼는다.
+        3) absolute : 원래 위치와 상관없이 취지 지정이 가능하지만
+                      가까운 상위 요소가 3D요소(fixed, related, absolute 등이 있다면 
+                      해당 요소에 달라붙는다.)
+                      가까운 상위 요소가 position 요소가 없다면 최상단인 body 태그 달라붙는 곳
+       */
+    }
+    .parent{
+      background-color: darkslategray;
+      width: 300px;
+      height: 300px;
+      position: relative;
+    }
+    .child{
+      background-color:mediumseagreen;
+      position: absolute;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="absolute">absolute</div>
+    <div class="parent">
+      <div class="child">CHILDREN</div>
+    </div>
+  </div>
+</body>
+</html>

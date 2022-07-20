@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=
+  , initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Number 자료형 : ex) 5, -5, 0.12345
+    // 정수, 실수 전부 다~~~ Number 타입
+    
+    // typeof - 해당 타입 확인 가능.
+    console.log(typeof(50))
+    console.log(typeof(-50))
+    console.log(typeof(-5.10))
+    console.log(typeof(5==0))
+
+    // String
+    // 문자열 문자 하나도 String
+    console.log(typeof("Hi"))
+    // null - 값이 비어있다고 명시
+    // undefined - 아무것도 할당받지 않은 상태 ex) let a;
+    //           - 자바스크립트 엔진이 변수 초기화 시 사용.
+
+    // 배열
+    const a = [2, "b", 9, "c"]
+    console.log(a)
+    console.log(a[2])
+
+    // function
+    // 함수 선언식
+    function abc(){
+      alert("배고파아아아아아아")
+    }
+    // abc()
+    // 함수 표현식
+    const go = function(){
+      alert("가즈아아아아아아아아아")
+    }
+    // go()
+
+    // 객체
+    const result = {a:5, b:10};
+    console.log(result['b'])
+
+    // 호이스팅
+    // var를 사용하면, 선언을 늦게 하고 표현을 먼저해도 오류가 나지 X
+    // 따라서 let 과 const로 호이스팅이 동작하는 걸 막는다.
+    // 함수 표현식의 호이스팅 예제
+    console.log(a4)
+    var a4 = function(){
+      console.log("hi")
+    }
+    // 1. var a가 최상단으로 올라간다(변수의 호이스팅)
+    // 2. console.log(a)를 찍는다 undefined 출력
+    // 3. a = function(){}
+
+    // const는 기본적으로 call stack 에 대한 변경을 막았다.
+    // 객체의 값은 heap 메모리에 저장되기 때문에 변경이 가능하다.
+
+    // 형 변환
+    const x = 10;
+    const y = String(158);
+    const z = Number("87654")
+    console.log(y);
+    console.log(z);
+    // javascript 에서는 문자열 붙이기는 + 로 가능하다.
+    const k = "ABC" + "BCD"
+    const kk = "ABC" + 12345 + "0000" // ??? 이게 되네 ...?
+    console.log(k)
+    console.log(kk)
+
+    // '같다'라는 연산을 == , === 사용
+    // == 는 허용되는 범위가 넓음. 11 == '11'가 true로 나옴
+    // === 는 타입까지 비교하기 때문에 허용되는 범위가 줄어듦. 11 === '11' 는 false
+
+    // for문 만들기
+    for(let i=10; i>=1; i--){
+      console.log(i);
+    }
+
+    // while문 만들기
+    let aa = 1;
+    while(aa <= 10){
+      console.log(aa)
+      aa++
+    }
+
+    // // problem 1
+    // var a1, b1;
+    // a1 = prompt()
+    // b1 = prompt()
+    // for (i=a1; i<=b1; i++){
+    //   console.log(i)
+    // }
+
+    // problem 2
+    var string1, s;
+
+    string1 = prompt()
+    s = 0;
+    if ( string1=='BBQ' ){
+      for (i=1; i<31; i++){
+        s += i;
+      }
+      console.log(s)
+    }else if(string1=='KFC'){
+      for (i=1; i<31; i++){
+        if (i%2!==0){
+          console.log(i)
+        }
+      }
+    }else{
+      console.log("MOMS")
+    }
+
+    // // problem 3
+    // var v1, v2, v3;
+    // v1 = prompt();
+    // v2 = prompt();
+    // v3 = prompt();
+
+    // console.log(v1)
+    // console.log(v2)
+    // console.log(v3)
+
+    // if (v1>=v2 & v1>=v3){
+    //   console.log(v1)
+    // }
+    // if(v2>=v1 & v2>=v3){
+    //   console.log(v2)
+    // }
+    // if(v3>=v1 & v3>=v2){
+    //   console.log(v3)
+    // }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .notification-container{
+      width: 350px;
+      border: 1px solid #dddddd;
+      color: gray;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      padding: 20px 10px;
+    }
+    /*
+    자식선택자
+    부모요소 > 자식요소 
+     해당 클래스에 바로 직접적으로있는 자식클래스를 지칭 */
+    .notification-container > div{
+      margin-left: 30px;
+    }
+
+    .profile-name-wrapper{
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-name-wrapper>img{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .profile-name-wrapper>span{
+      margin-left: 20px;
+    }
+
+    .bell-wrapper>img{
+      width: 30px;
+      height: 30px;
+    }
+
+    .email-wrapper{
+      position: relative;
+    }
+    .email-notification{
+      position: absolute;
+      top: -9px;
+      right: -17px;
+      padding: 2px 5px;
+    font-size: 14px;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    }
+
+    .email-wrapper>img{
+      width: 30px;
+      height: 30px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- div>div4 -->
+  <div class="notification-container">
+    <div class="profile-name-wrapper">
+      <img src="./images/chicken.jpg"> <span>이동형</span>
+    </div>
+    <div class="bell-wrapper">
+      <img src="./images/bell.png">
+    </div>
+    <div class="email-wrapper">
+      <!-- 이미지 -->
+      <img src="./images/mail.png" alt="">
+      <!-- 알림창 -->
+      <div class="email-notification">99+</div>
+    </div>
+    <div class="menu-wrapper">
+      <img src="./images/matrix.png" width="30px" height="30px">
+    </div>
+  </div>
+</body>
+</html>

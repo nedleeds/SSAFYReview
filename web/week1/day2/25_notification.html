@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      display: flex;
+      flex-direction: row;
+      border: 1px solid black;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .picture{
+      flex: 1;
+      /* border: 1px solid black; */
+      background-image: url(./images/bart.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border: 1px solid black;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+    .name{
+      flex:1;
+      font-size: 40px;
+      text-align: center;
+    }
+    .bell{
+      flex:1;
+      background-image: url(./images/bell.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .email{
+      flex:1;
+      background-image: url(./images/email.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .matrix{
+      flex:1;
+      background-image: url(./images/matrix.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- <div class="circle"></div> -->
+    <div class="picture"></div>
+    <div class="name">이동형</div>
+    <div class="bell"></div>
+    <div class="email"></div>
+    <div class="matrix"></div>
+  </div>
+</body>
+</html>

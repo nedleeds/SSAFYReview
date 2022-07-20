@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .box{
+      background-color: bisque;
+      /* border: 1px solid black; */
+      width: 460px;
+      height: 29px;
+      padding: 7px 35px 10px 11px;
+    }
+    .language{
+      width: 100%;
+      background-color: white;
+      position: relative;
+      right: 10px;
+      display: flex;
+      align-items: right;
+      justify-content: right;
+    }
+    .logo{
+      width: 230px;
+      height: 44px;
+      margin-top: 10%;
+      background-image: url(../../Images/naver.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+    .signin-wrapper{
+      margin-top: 40px;
+    }
+    .id{
+      background-color: rgb(200, 236, 200);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: left
+    }
+    .id>input{
+      background-color: rgb(200, 236, 200);
+      width: 100%;
+      height: 100%;
+      border: 0px;
+    }
+    .passwd{
+      background-color: rgb(200, 236, 200);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+    }
+    .passwd>input{
+      background-color: rgb(200, 236, 200);
+      width: 100%;
+      height: 100%;
+      border: 0px;
+    }
+    .login{
+      background-color: forestgreen;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .retain-ip{
+      width: 500px;
+      background-color: white;
+      display: flex;
+      position: absolute;
+      align-items: center;
+    }
+    .ip{
+      display: flex;
+      flex:1;
+      align-items: center;
+    }
+    .blank{
+      display: flex;
+      flex: 30;
+      align-items: center;
+    }
+    .spn{
+      width: 40px;
+      position: relative;
+      /* border: 1px solid black; */
+      align-items: right;
+      text-align: center;
+      flex:1;
+    }
+    .IP{
+      font-weight: bold;
+      color: black;
+    }
+    .on{
+      font-weight: bold;
+      color: seagreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box language">
+      <select name="" id="">
+        <option value="ko">한국어</option>
+        <option value="eng">영어</option>
+    </select>
+    </div>
+    <div class="box logo"></div>
+    <div class="signin-wrapper">
+      <div class="box id">
+        <input type="text" placeholder="아이디">
+      </div>
+      <div class="box passwd">
+        <input type="password" placeholder="비밀번호">
+      </div>
+      <div class="box login">
+        
+        로그인
+      </div>
+      <div class="box retain-ip">
+        <div class="retain">
+          <input type="checkbox" name="로그인 상태 유지" id="">
+          로그인 상태 유지
+        </div>
+        <div class="blank"></div>
+        <div class="ip">
+          <div class="spn IP">IP</div>
+          <div class="spn">보안</div>
+          <div class="spn on">ON</div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</body>
+</html>

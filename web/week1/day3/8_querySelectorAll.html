@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>My title</title>
+  </head>
+  <body>
+    <div>
+      <p>안녕</p>
+      <p>안녕</p>
+      <p>안녕</p>
+      <p>안녕</p>
+      <p>안녕</p>
+      <p>안녕</p>
+      <p>안녕</p>
+      <p>안녕</p>
+      <p>안녕</p>
+      <p>안녕</p>
+    </div>
+
+    <p class="no-hello">안녕못해</p>
+    <p class="no-hello">안녕못해</p>
+    <p class="no-hello">안녕못해</p>
+    
+    <script>
+      // querySelectorAll(선택자)
+      // querySelector와 다르게 해당 선택자 조건을 만족하는 모든 정보들을 가져온다.
+      const allP = document.querySelectorAll("p");
+      console.log(allP)
+
+      // 1. 안녕만 가져오기
+      const allHello = document.querySelectorAll("div>p");
+      console.log(allHello)
+
+      // 2. 안녕못해만 가져오기
+      const sayNoHello = document.querySelectorAll(".no-hello");
+      console.log(sayNoHello)
+
+    </script>
+  </body>
+</html>
