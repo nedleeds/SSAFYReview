@@ -6,9 +6,9 @@ int main(){
 
     cin >> c;
 
-    if ( int('a') <= int(c) && int(c) <= int('z')){
+    if ( 'a' <= c && c <= 'z'){
         cout << "소문자입니다" << endl;
-    }else if ( int('A') <= int(c) && int(c) <= int('Z')){
+    }else if ( 'A' <= c && c <= 'Z'){
         cout << "대문자입니다" << endl;
     }
     
