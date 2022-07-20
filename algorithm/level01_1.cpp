@@ -1,19 +1,26 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    int a, b, i;
-    int arr[6] = {0, };
-    
-    cin >> a >> b;
+char arr[2];
 
-    for (i=a; i<=b; i++){
-        arr[i] = i;
-    }
+void INPUT(){
+    int i;
+    cin >> arr[0] >> arr[1];
+}
 
-    for (i=a; i<=b; i++){
-        cout << arr[i];
+void OUTPUT(){
+    int i;
+
+    for (i=0; i<2; i++){
+        cout << arr[i] << " ";
     }
     cout << endl;
+}
+
+int main(){
+    
+    INPUT();
+    OUTPUT();
+    
     return 0;
 }
