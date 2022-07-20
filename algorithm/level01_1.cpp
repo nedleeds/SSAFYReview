@@ -2,16 +2,14 @@
 using namespace std;
 
 int main(){
-    char num[4] = {'B', 'T', 'K', 'A'};
-    int a;
+    char c;
 
-    cin >> a;
+    cin >> c;
 
-    for (int i=0; i<a; i++){
-        for (int j=0; j<4; j++){
-            cout << num[j] << " ";
-        }
-        cout << endl;
+    if ( int('a') <= int(c) && int(c) <= int('z')){
+        cout << "소문자입니다" << endl;
+    }else if ( int('A') <= int(c) && int(c) <= int('Z')){
+        cout << "대문자입니다" << endl;
     }
     
     return 0;
