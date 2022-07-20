@@ -11,7 +11,7 @@ int main(){
         s += arr[i];
     }
 
-    cout << "합은" << s << "입니다" << endl;
+    cout << "합은 " << s << "입니다" << endl;
 
     return 0;
 }
