@@ -2,10 +2,16 @@
 using namespace std;
 
 int main(){
-    char num[6] = {'$','@','D','A','9','#'};
+    char num[4] = {'B', 'T', 'K', 'A'};
+    int a;
 
-    for (int j=0; j<6; ++j){
-        cout << num[j] << ":" << int(num[j]) << endl;
+    cin >> a;
+
+    for (int i=0; i<a; i++){
+        for (int j=0; j<4; j++){
+            cout << num[j] << " ";
+        }
+        cout << endl;
     }
     
     return 0;
