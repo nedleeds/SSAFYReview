@@ -2,15 +2,10 @@
 using namespace std;
 
 int main(){
-    int num;
+    char num[6] = {'$','@','D','A','9','#'};
 
-    cin >> num;
-
-    for (int j=0; j<num; ++j){
-        for (int i=0; i<5; ++i){
-            cout << i+1 << " ";
-        }
-        cout << endl;
+    for (int j=0; j<6; ++j){
+        cout << num[j] << ":" << int(num[j]) << endl;
     }
     
     return 0;
