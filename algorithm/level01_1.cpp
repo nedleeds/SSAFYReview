@@ -2,10 +2,15 @@
 using namespace std;
 
 int main(){
-    char alpha;
-    cin >> alpha;
+    char x, y;
+    cin >> x >> y;
 
-    cout << char(int(alpha) + 'A'-'a') << endl;
+    for (int i=0; i<4; i++){
+        for (int j=x; j<=y; j++){
+            cout << char(j) << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }
