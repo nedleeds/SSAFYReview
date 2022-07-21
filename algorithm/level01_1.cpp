@@ -2,17 +2,22 @@
 using namespace std;
 
 int main(){
-    char arr1[6] = {'#', '_', '#', '_', '#', '#'};
+    int arr[3][4] = {{4, 3, 1, 1},
+                     {3, 1, 2, 1},
+                     {0, 0, 1, 2}};
 
-    for (int i=0; i<6; i++){
-        if (arr1[i]=='#'){
-            cout << "샵";
-        }else if (arr1[i]=='_'){
-            cout << "무";
+    int n, cnt = 0;
+    cin >> n;
+
+    for (int i=0; i<3; i++){
+        for (int j=0; j<4; j++){
+            if(arr[i][j] == n){
+                cnt += 1;
+            }
         }
     }
-    cout << endl;
-
+    
+    cout << cnt << "개 존재합니다" << endl;
 
     return 0;
 }
