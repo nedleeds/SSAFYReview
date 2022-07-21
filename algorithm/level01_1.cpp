@@ -3,16 +3,19 @@ using namespace std;
 
 
 int main(){
-    char a;
-    int n;
+    int arr[3][3] = {0,};
+    int r, c, v;
 
-    cin >> a >> n;
+    cin >> r >> c >> v;
 
-    for (int j=0; j<n; j++){
-        for (int i=0; i<n; i++){
-            cout << a;
+    arr[r][c] = v;
+
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
+            cout << arr[i][j] << " ";
         }
         cout << endl;
     }
+
     return 0;
 }
