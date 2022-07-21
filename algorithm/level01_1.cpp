@@ -4,19 +4,14 @@ using namespace std;
 int a, b;
 
 int main(){
-    int arr[6], i;
+    int arr[6]={3, 4, 1, 6, 7, 5};
+    int i=0;
 
-    for (int i=0; i<6; i++){
-        cin >> arr[i];
-    }
-
-    for (int j=5; j>=0; j--){
-        cout << arr[j] << " ";
-        if (arr[j]==7){
-            break;
-        }
+    while (i<6){
+        cout << arr[i] << " ";
+        i++;
     }
     cout << endl;
-
+    
     return 0;
 }
