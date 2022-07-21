@@ -1,35 +1,20 @@
 #include <iostream>
 using namespace std;
 
-void starBox(){
-    for (int i=1; i<20; i=i+2){
-        cout << i << " ";
-    }
-}
-
-void macDoll(){
-    for (char c='H'; c>='A'; c--){
-        cout << c << " ";
-    }
-}
-
-void copyBean(){
-    for (int j=-5; j<6; j++){
-        cout << j << " ";
-    }
-}
-
 int main(){
-    int price;
-    cin >> price;
+    int arr[6];
 
-    if (3500 <= price && price <= 5000){
-        starBox();
-    }else if(2500 <= price && price < 3500){
-        macDoll();
-    }else{
-        copyBean();
+    for (int i=0; i<6; i++){
+        cin >> arr[i];
     }
-    cout << endl;
+
+    for (int j=0; j<6; j++){
+        if (arr[j] < 5){
+            cout << j << "번은 " << arr[j] << "점 불합격" << endl;
+        }else {
+            cout << j << "번은 " << arr[j] << "점 합격" << endl;
+        }
+    }
+
     return 0;
 }
