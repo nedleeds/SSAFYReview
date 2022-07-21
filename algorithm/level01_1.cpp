@@ -2,19 +2,16 @@
 using namespace std;
 
 int main(){
-    int arr[5], arr2[5];
-    
-    for (int i=0; i<5;i++){
-        cin >> arr[i];
-        arr2[i] = arr[i];
+    char a;
+    cin >> a;
+    if ('a'<= a && a<='z'){
+        cout << "소문자입력!!" << endl;
     }
-    for (int i=0; i<5;i++){
-        cout << arr[i] << " ";
+    else if ('A'<= a && a<='Z'){
+        cout << "대문자입력!!" << endl;
     }
-    cout << endl;
-    for (int i=0; i<5;i++){
-        cout << arr2[i] << " ";
+    else if ('0'<= a && a<='9'){
+        cout << "숫자문자입력!!" << endl;
     }
-    cout << endl;
     return 0;
 }
