@@ -2,17 +2,18 @@
 using namespace std;
 
 int main(){
-    char arr[6]={'D', 'T', 'A', 'B', 'W', 'Q'};
-    char a;
+    char arr[5];
+    int n;
 
-    cin >> a;
+    cin >> n;
 
-    for (int i=0; i<6; i++){
-        if (arr[i]==a){
-            cout << i << "번 INDEX" << endl;
-            break;
-        }
+    for (int i=0; i<n; i++){
+        cin >> arr[i];
     }
 
+    for (int j=0; j<n; j++){
+        cout << arr[j];
+    }
+    cout << endl;
     return 0;
 }
