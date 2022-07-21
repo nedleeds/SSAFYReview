@@ -1,30 +1,33 @@
 #include <iostream>
 using namespace std;
 
-void process(int a, int arr[3][3]){
-    for (int i=0; i<3; i++){
-        for (int j=0; j<3; j++){
-            arr[i][j] = a;
-            a++;
-        }
-    }
-}
-
-void output(int arr[3][3]){
-    for (int i=0; i<3; i++){
-        for (int j=0; j<3; j++){
-            cout << arr[i][j] << " ";
-        }
-        cout << endl;
+void BBQ(int *a){
+    if (0 < *a && *a <5){
+        cout << "초기값" << endl;
+    }else if(6 < *a && *a <10){
+        cout << "중간값" << endl;
+    }else{
+        cout << "알수없는값" << endl;
     }
 }
 
 int main(){
-    int a, arr[3][3]={0,};
+    int a;
 
     cin >> a;
-    process(a, arr);
-    output(arr);
+    if (a==3 || a==5 || a==7){
+        for (int i=0; i<10; i++){
+            cout << i+1;
+        }
+        cout << endl;
+    }else if(a==0 || a==8){
+        for (int j=10; j>0; j--){
+            cout << j;
+        }
+        cout << endl;
+    }else{
+        BBQ(&a);
+    }
 
     return 0;
 }
