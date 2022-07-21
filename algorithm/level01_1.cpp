@@ -2,21 +2,22 @@
 using namespace std;
 
 int main(){
-    int arr[3][3] = {{3, 4, 1},
-                     {2, 1, 4},
-                     {3, 3, 0}};
-    int cnt[2] = {0, 0}; 
 
-    for (int i=0; i<3; i++){
-        for (int j=0; j<3; j++){
-            if (arr[i][j]%2){
-                cnt[0]++;
-            }else{
-                cnt[1]++;
-            }
+    int arr[5];
+
+    for (int i=0; i<5; i++){
+        cin >> arr[i];
+    }
+
+    for (int j=0; j<5; j++){
+        if (arr[j] >= 70){
+            cout << j+1 << "번사람은" << arr[j] <<"점PASS" << endl;
+        }else if(arr[j] >= 50 && arr[j] <70){
+            cout << j+1 << "번사람은" << arr[j] <<"점RETEST" << endl;
+        }else{
+            cout << j+1 << "번사람은" << arr[j] <<"점FAIL" << endl;
         }
     }
-    cout << "짝수 : " << cnt[1] << endl;
-    cout << "홀수 : " << cnt[0] << endl;
+
     return 0;
 }
