@@ -1,41 +1,35 @@
 #include <iostream>
 using namespace std;
 
-int arr[3][4];
-
-void input(){
-    int a;
-    cin >> a;
-    for (int r=0; r<3; r++){
-        for (int c=0; c<4; c++){
-            arr[r][c] = a;
-            a++;
-        }
-    }
+void input(char* a){
+    cin >> *a;
 }
 
-void process(){
-    for (int r=0; r<3; r++){
-        for (int c=0; c<4; c++){
-            arr[r][c] += 1;
+void output(char* a, char arr1[5], char arr2[5]){
+    if ('a'<= *a && *a <='z'){
+        for (int i=0; i<5; i++){
+            cout << arr1[i];
         }
-    }
-}
-
-void output(){
-    for (int r=0; r<3; r++){
-        for (int c=0; c<4; c++){
-            cout << arr[r][c] << " ";
+    }else if('A' <= *a && *a <= 'Z'){
+        for (int j=0; j<5; j++){
+            cout << arr2[j];
         }
-        cout << endl;
+    }else if('0' <= *a && *a <= '9'){
+        for (char k='H'; k>='A'; k--){
+            cout << k;
+        }
     }
     cout << endl;
 }
 
 int main(){
-    input();
-    process();
-    output();
-    
+    char arr1[5] = {'B', 'D', '5', 'Q', 'A'};
+    char arr2[5] = {'Q', 'E', 'R', 'E', 'F'};
+    char a;
+
+    input(&a);
+    output(&a, arr1, arr2);
+
+
     return 0;
 }
