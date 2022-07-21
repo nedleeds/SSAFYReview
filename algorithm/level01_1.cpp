@@ -2,22 +2,19 @@
 using namespace std;
 
 int main(){
-    int a;
+    int arr[6] = {0,};
+    int i1, i2, i3;
 
-    cin >> a;
-    for (int j=0; j<3; j++){
-        for (int i=0; i<5; i++){
-            cout << a;
-        }
-        cout << endl;
+    cin >> i1 >> i2 >> i3;
+    
+    arr[i1] = 1;
+    arr[i2] = 1;
+    arr[i3] = 1;
+
+    for (int i=0; i<6; i++){
+        cout << arr[i] << " ";
     }
-
-    for (int j=0; j<3; j++){
-        for (int i=0; i<3; i++){
-            cout << a;
-        }
-        cout << endl;
-    }
-
+    cout << endl;
+    
     return 0;
 }
