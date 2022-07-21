@@ -8,6 +8,7 @@
     /* list-style  */
     list-style: none;
     padding: 0px;
+    align-items: center;
 }
 .header-ul > li{
     display: flex;
@@ -15,7 +16,7 @@
     align-items: center;
     margin-left: 10px;
 }
-.gmail{
+.text{
     text-decoration: none;
     color: black;
 }
@@ -66,6 +67,13 @@
     text-decoration: none;
     color: black;
 }
+
+.bookmark-item:hover{
+    /* 투명도 관련 CSS */
+    opacity: 70%;
+    cursor: pointer;
+}
+
 .img-icon-wrapper{
     width: 60px;
     height: 60px;
@@ -78,4 +86,36 @@
 
 .img-icon-wrapper > img{
     width: 55%;
+}
+
+.toggle-button{
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-right: 5px;
+}
+
+.toggle-button-darkmode{
+    background-color: white;
+    color: black;
+}
+
+/* 우선순위 주고싶을 때 !important 부여시 우선순위가 올라간다 */
+.body-background-darkmode{
+    background-color: black !important;
+}
+
+.text-darkmode{
+    color: white !important;
+}
+
+.img-icon-wrapper-darkmode{
+    background-color: white;
+}
+
+.추가하기{
+    margin-top: 6px;
 }
