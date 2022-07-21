@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        아이디 <input id="id" type="text">
+        비밀번호 <input id="password" type="password">
+
+        <button type="button" id="signup">회원가입</button>
+    </form>
+    <script>
+        const id = document.querySelector("#id")
+        const password = document.querySelector("#password")
+        const signup = document.querySelector("#signup")
+        
+        signup.addEventListener('click', function(e){
+            console.log('click?');
+            console.log(id.value)
+            console.log(password.value)
+            // 아이디 같은 정보는 보다 구체적인 검증법 필요. (undefined, null, 0, ...)
+            if (id.value != "" && password.value != ""){
+                alert("회원가입이 완료되었습니다.")
+            }else{
+                if (id.value == ""){
+                    alert("아이디가 비어있습니다!")
+                }
+                if (password.value == ""){
+                    alert("패스워드가 비어있습니다!")
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

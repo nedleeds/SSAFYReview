@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    아이디 : <input type="text" id="id">
+    <script>
+        // undefined, null, 0(숫자형), "", false는 부정의 의미를 갖는다.
+        // if(id) 긍정의 의미 , if(!id) 부정의 의미
+        const id = document.querySelector("#id");
+
+        id.addEventListener('change', function(e){
+            if(!id){
+                alert("아이디가 비어있습니다.")
+            }
+        })
+        // if (id !== null && id !== undefined && id !== ""){
+
+        // }
+
+    </script>
+</body>
+</html>

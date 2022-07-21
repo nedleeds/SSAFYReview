@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test{
+            color:darkorange;
+            font-size: 50px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>HI</div>
+
+    <script>
+        const div = document.querySelector("div");
+        // div.setAttribute("class", "test");
+        // classList add
+        // classList.add("문자열") 해당 클래스를 추가한다.
+        div.classList.add("test");
+        div.classList.add("hello");
+        div.classList.add("hello");
+        console.log("class name: " + div.className);
+        // 이미 추가된 속성 값이면 무시한다.
+        
+        // classList.remove("문자열") 해당 클래스를 제거한다.
+        div.classList.remove("test");
+        div.classList.remove("hello");
+        console.log("class name: " + div.className);
+        
+        // classList.toggle("문자열") 추가 및 제거 시행.
+        div.classList.toggle("test");
+        console.log("class name: " + div.className);
+        div.classList.toggle("test");
+        console.log("class name: " + div.className);
+
+        // contains
+        // classList.toggle("문자열")
+        // 특정 class명이 추가가 돼있는지 확인 : true/false
+        console.log(div.classList.contains("test"))
+        div.classList.toggle("test")
+        console.log(div.classList.contains("test"))
+
+        // replace
+        // classList.replace("old", "new") : old -> new
+        console.log(div.className)
+        div.classList.replace("test", "chicken")
+        console.log(div.className)
+
+
+    </script>
+
+</body>
+</html>
