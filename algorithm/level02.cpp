@@ -1,19 +1,15 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    int arr[6] = {3, 4, 2, 5, 7, 9};
-    int a, b, tmp;
-    cin >> a >> b;
-    
-    tmp = arr[a];
-    arr[a] = arr[b];
-    arr[b] = tmp;
+struct ABC{
+    int x;
+    int y;
+}t;
 
-    for (int i=0; i<6; i++){
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+int main(){
+
+    cin >> t.x >> t.y;
+    cout << t.x + t.y << endl;
 
     return 0;
 }
