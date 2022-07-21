@@ -2,18 +2,29 @@
 using namespace std;
 
 int main(){
-    int arr[8] = {4, 3, 6, 1, 3, 1, 5, 3};
-    int n, cnt; 
-    cin >> n;
-    
+    char arr[3][5] = {{'A', 'B', 'C', 'D', 'E'},
+                      {'E', 'A', 'B', 'A', 'B'},
+                      {'A', 'C', 'D', 'E', 'R'}};
+    char a; 
+    int cnt = 0;
+
+    cin >> a;
     cnt = 0;
-    for (int i=0; i<8; i++){
-        if (arr[i]==n){
-            cnt++;
+    for (int i=0; i<3; i++){
+        for (int j=0; j<5; j++){
+            if (arr[i][j] == a){
+                cnt++;
+            }
         }
     }
 
-    cout << "숫자" << n << "개수는" << cnt << "개" << endl;
+    if (cnt>=3){
+        cout << "대발견\n";
+    } else if(1<= cnt && cnt <3){
+        cout << "발견\n";
+    } else if (cnt == 0){
+        cout << "미발견\n";
+    }
 
     return 0;
 }
