@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="입력">
+    <div></div>
+    <script>
+        const input = document.querySelector('#입력');
+        const div = document.querySelector('div');
+
+        input.addEventListener("change", function(e){
+            div.textContent = e.target.value;
+            if (div.textContent=='치킨'){
+                alert("치킨은 언제나 옳다!")
+            }else{
+                alert(e.target.value + "을(를) 먹는다고 ...?")
+            }
+        })
+
+    </script>
+</body>
+</html>

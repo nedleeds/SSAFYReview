@@ -19,7 +19,14 @@
         // input에서 변화가 일어나면(pre!=curr) 탐지되는 기능 -> 'change'
         input.addEventListener('change', function(e){
             console.log(e)
+            console.log(e.target) //target: e(이벤트)가 발생한 위치
+            console.log(e.target.value) // target의 값
+            div.textContent = e.target.value
         })
+        // naver에서 querySelector로 id값 추출할 때 
+        // --> const input = document.querySelector("#query")
+        // 처럼 id 추출 시 # 붙여야한다.
+        // --> console.log(input.value)
 
     </script>
 </body>
