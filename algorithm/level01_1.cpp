@@ -3,24 +3,20 @@ using namespace std;
 
 int a, b;
 
-void input(){
-    cin >> a >> b;
-}
-
-void output(){
-    int i=5;
-    while (i <= (a+b)){
-        cout << i << " ";
-        i++;
-    }
-    cout << endl;
-}
-
 int main(){
     int arr[6], i;
 
-    input();
-    output();
+    for (int i=0; i<6; i++){
+        cin >> arr[i];
+    }
+
+    for (int j=5; j>=0; j--){
+        cout << arr[j] << " ";
+        if (arr[j]==7){
+            break;
+        }
+    }
+    cout << endl;
 
     return 0;
 }
