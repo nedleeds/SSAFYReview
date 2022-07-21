@@ -1,17 +1,26 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    int n, i;
-    
-    cin >> n;
+int a, b;
 
-    i = 1;
-    while (i<=n){
+void input(){
+    cin >> a >> b;
+}
+
+void output(){
+    int i=5;
+    while (i <= (a+b)){
         cout << i << " ";
         i++;
     }
     cout << endl;
+}
+
+int main(){
+    int arr[6], i;
+
+    input();
+    output();
 
     return 0;
 }
