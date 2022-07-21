@@ -2,25 +2,19 @@
 using namespace std;
 
 int main(){
-    char arr[3];
-    int cnt=0;
-
-    for (int i=0; i<3; i++){
-        cin >> arr[i];
-    }
-
-    for (int i=0; i<3; i++){
-        if ('A' <= arr[i] && arr[i]<= 'Z'){
-            cnt++;
+    int arr[3][2], a;
+    
+    for (int r=0; r<3; r++){
+        for (int c=0; c<2; c++){
+            cin >> a;
+            arr[r][c] = a + 2;
         }
     }
-
-    if (cnt == 3){
-        cout << "풍족하다" << endl;
-    }else if(1<= cnt && cnt<3){
-        cout << "적절하다" << endl;
-    }else if(cnt == 0){
-        cout << "부족하다" << endl;
+    for (int r=0; r<3; r++){
+        for (int c=0; c<2; c++){
+            cout << arr[r][c] << " ";
+        }
+        cout << endl;
     }
 
     return 0;
