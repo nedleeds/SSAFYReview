@@ -2,28 +2,18 @@
 using namespace std;
 
 int main(){
-    char arr[6] = {'A', 'F', 'G', 'A', 'B', 'C'};
-    char a, b;
-    int cnt_a = 0, cnt_b = 0;
-
+    int arr[6] = {3, 4, 2, 5, 7, 9};
+    int a, b, tmp;
     cin >> a >> b;
     
-    for (int i=0; i<6; i++){
-        if (arr[i] == a){
-            cnt_a++;
-        }
-        if(arr[i]==b){
-            cnt_b++;
-        }
-    }
+    tmp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = tmp;
 
-    if (cnt_a>=1 && cnt_b>=1){
-        cout << "와2개\n";
-    } else if(cnt_a*cnt_b == 0 && cnt_a+cnt_b >= 1){
-        cout << "오1개\n";
-    } else if (cnt_a+cnt_b == 0){
-        cout << "우0개\n";
+    for (int i=0; i<6; i++){
+        cout << arr[i] << " ";
     }
+    cout << endl;
 
     return 0;
 }
