@@ -22,5 +22,5 @@ int main(){
     cin >> a;
     findCh(&a);
 
-    return 0;
+    return 1;
 }
