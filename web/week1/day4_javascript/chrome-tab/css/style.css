@@ -1,0 +1,81 @@
+.header-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-ul{
+    display: flex;
+    /* list-style  */
+    list-style: none;
+    padding: 0px;
+}
+.header-ul > li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+.gmail{
+    text-decoration: none;
+    color: black;
+}
+.main-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.image-logo{
+    width: 272px;
+}
+.search-container{
+    margin-top: 50px;
+    position: relative;
+}
+.search-icon{
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 0px;
+    left: 15px;
+    top: 15px;
+}
+.search-input{
+    width: 550px;
+    height: 40px;
+    border-radius: 25px;
+    padding-left: 40px;
+    border: 1px solid #dddd;
+}
+.bookmark-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    margin-top: 10px;
+    justify-content: center;
+}
+.bookmark-item{
+    width: 112px;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* a tag style 없애기 */
+    text-decoration: none;
+    color: black;
+}
+.img-icon-wrapper{
+    width: 60px;
+    height: 60px;
+    background-color: #f1f2f3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-icon-wrapper > img{
+    width: 55%;
+}

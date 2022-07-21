@@ -2,16 +2,21 @@
 using namespace std;
 
 int main(){
-    char a;
-    cin >> a;
-    if ('a'<= a && a<='z'){
-        cout << "소문자입력!!" << endl;
+    char arr[2]; 
+    
+    for (int i=0; i<2; i++){
+        cin >> arr[i];
+        if ('a' <= arr[i] && arr[i] <= 'z'){
+            arr[i] += 'A'-'a';
+        }else if('A' <= arr[i] && arr[i] <= 'Z'){
+            arr[i] -= 'A'-'a';
+        }
     }
-    else if ('A'<= a && a<='Z'){
-        cout << "대문자입력!!" << endl;
+
+    for (int j=0; j<2; j++){
+        cout << arr[j] << " ";
     }
-    else if ('0'<= a && a<='9'){
-        cout << "숫자문자입력!!" << endl;
-    }
+    cout << endl;
+
     return 0;
 }
