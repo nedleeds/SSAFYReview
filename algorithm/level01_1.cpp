@@ -1,17 +1,12 @@
 #include <iostream>
 using namespace std;
 
-
 int main(){
-    int a, b, c;
-    cin >> a >> b >> c;
+    char a, b;
+    cin >> a >> b;
 
-    for (int j=0; j<c; j++){
-        for (int i=a; i<=b; i++){
-            cout << i << " ";
-        }
-        cout << endl;
-    }
+    cout << "문자\'" << a <<"\'의 아스키코드값은 " << int(a) << endl; 
+    cout << "문자\'" << b <<"\'의 아스키코드값은 " << int(b) << endl; 
 
     return 0;
 }
