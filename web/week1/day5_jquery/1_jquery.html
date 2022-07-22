@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- head에 넣는 상태면 보통 defer를 넣는 걸 추천 -->
+  <!-- defer는 외부 스크립트에서만 동작. 내부에서 동작을 테스트할 경우에는 body태그 상단에 넣어야한다. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="hi">hello</div>
+  <button class="click-button">클릭 버튼</button>
+  <button class="click-button2">클릭 버튼</button>
+  <script>
+    // $("선택자"); === document.querySelector("선택자")와 동일.
+    console.log( $(".hi"));
+    console.log( document.querySelector(".hi"));
+
+    // 이벤트 추가
+    // addEventListener
+    // const button = document.querySelector(".click-button")
+    $(".click-button").on("click", function(){
+      // alert("hello")
+      $("body").css("backgroundColor", "gray");
+    })
+    $(".click-button2").on("click", function(){
+      // alert("hello")
+      $("body").css("backgroundColor", "white");
+    })
+    document.querySelector('body').style.backgroundColor = "orange"
+
+  </script>
+</body>
+</html>
