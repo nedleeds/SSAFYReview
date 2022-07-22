@@ -1,26 +1,27 @@
 #include <iostream>
+
 using namespace std;
 
-char arr[2][3] = {{'F', 'E', 'W'},
-                  {'D', 'C', 'A'}};
-
-void findCh(char *a){
-    int cnt=0;
-    for (int i=0; i<2; i++){
-        for (int j=0; j<3; j++){
-            if (arr[i][j]==*a){
-                cout << "발견" << endl;
-                return ;
-            }
-        }
+void checkChar(char c){
+    if ('a' <= c && c <= 'z'){
+        cout << "소";
+    }else if('A' <= c && c <= 'Z'){
+        cout << "대";
     }
-    cout << "미발견" << endl;
 }
 
-int main(){
-    char a;
-    cin >> a;
-    findCh(&a);
+int main()
+{
+    char arr[5];
+    int i;
+    
+    for (int i=0; i<5; i++){
+        cin >> arr[i];
+    }
+    
+    for (int j=0; j<5; j++){
+        checkChar(arr[j]);
+    }
 
-    return 1;
+    return 0;
 }
