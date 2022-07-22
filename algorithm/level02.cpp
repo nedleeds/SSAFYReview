@@ -4,24 +4,23 @@ using namespace std;
 
 int main()
 {
-    char arr[5][3] = {{'D', 'A', 'A'},
-                      {'B', 'C', 'D'},
-                      {'E', 'F', 'A'},
-                      {'A', 'A', 'D'},
-                      {'F', 'G', 'E'}};
+    int arr[3][3] = {{10, 3, 20},
+                     {60, 30, 40},
+                     {20, 30, 40}};
     
-    char a;
+    int a, b, count=0;
     
-    cin >> a;
+    cin >> a >> b;
     
-    
-    for (int i=0; i<5; i++){
+    for (int i=0; i<3; i++){
         for (int j=0; j<3; j++){
-            if (arr[i][j] == a){
-                cout << "(" << i << "," << j << ")" << endl;
+            if (a <= arr[i][j] && arr[i][j] <= b){
+                count++;
             }
         }
     }
+
+    cout << count << endl;
 
     return 0;
 }
