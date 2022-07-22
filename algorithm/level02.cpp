@@ -3,25 +3,47 @@
 using namespace std;
 
 
+struct PROJECT{
+    int num;
+    char id;
+    int vect[4];
+}z;
+
 int main()
 {
-    int arr[3][3] = {{3, 5, 14},
-                     {2, 3, 9},
-                     {6, 2, 7}};
-                     
-    int n, cnt=0;
+    int n;
     
     cin >> n;
     
-    for (int i=0; i<3; i++){
-        for (int j=0; j<3; j++){
-            if (arr[i][j]%n == 0){
-                cnt++;
-            }
-        }
+    if (0<n && n<10){
+        z.num = 5;
+        z.id = 'G';
+        z.vect[0] = {1};
+        z.vect[1] = {2};
+        z.vect[2] = {3};
+        z.vect[3] = {4};
+    }else if (10 <= n && n < 100){
+        z.num = 8;
+        z.id = 'T';
+        z.vect[0] = {5};
+        z.vect[1] = {1};
+        z.vect[2] = {2};
+        z.vect[3] = {3};
+    }else if (100 <= n){
+        z.num = 10;
+        z.id = 'Q';
+        z.vect[0] = {9};
+        z.vect[1] = {1};
+        z.vect[2] = {6};
+        z.vect[3] = {2};
     }
 
-    cout << cnt;
+    
+    cout << z.num << endl;
+    cout << z.id << endl;
+    for (int i = 0; i < 4; i++){
+        cout << z.vect[i] << " ";
+    }
 
     return 0;
 }
