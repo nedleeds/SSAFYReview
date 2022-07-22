@@ -3,32 +3,27 @@
 using namespace std;
 
 
-void BBQ(int x){
-    for (int j=1; j<=x; j++){
-        cout << j;
-    }
+int one(){
+    int x;
+    cin >> x;
+    return x;
 }
 
-void KFC(char x){
-    for (int j=0; j<7; j++){
-        cout << x;
-    }    
+char two(){
+    char c;
+    cin >> c;
+    return c;
 }
 
 int main()
 {
-    int n, m;
-    char x;
+    int a;
+    char b;
     
-    cin >> n;
+    a = one();
+    b = two();
     
-    if (n%2==1){
-        cin >> m;
-        BBQ(m);
-    }else{
-        cin >> x;
-        KFC(x);
-    }
+    cout << a << b << endl;
     
     return 0;
 }
