@@ -2,27 +2,22 @@
 
 using namespace std;
 
-int chicken(){
-    int a;
-    cin >> a;
-    return a+10;
-}
+char getChar(){
+    char a, b;
+    cin >> a >> b;
 
-char coke(){
-    char a;
-    cin >> a;
-    return a;
-}
-
-void KFC(){
-    int a = chicken();    
-    char b = coke();
-
-    cout << a << b << endl;
+    if (a > b){
+        return a;
+    } else{
+        return b;
+    }
 }
 
 int main()
 {
-    KFC();
+    char a = getChar();
+    
+    cout << a << endl;
+
     return 0;
 }
