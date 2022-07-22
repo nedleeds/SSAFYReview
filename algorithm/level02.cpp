@@ -2,27 +2,32 @@
 
 using namespace std;
 
-struct Person{
-    int age;
-    int height;
-}a, b;
-
-void input(){
-    cin >> a.age >> a.height;
-    cin >> b.age >> b.height;
-}
-
-void output(){
-    int avg_age, avg_hght;
-    avg_age = (a.age + b.age) / 2;
-    avg_hght = (a.height + b.height) / 2;
-    cout << avg_age << " " << avg_hght << endl;
-}
-
 int main()
 {
-    input();
-    output();
+    int a[5]={2,1,2,4,5};
+    int b[3][3]={{2, 5, 3},
+                 {4, 5, 7},
+                 {8, 7, 2}};
+
+    int num, cnt=0; 
+    
+    cin >> num;
+    
+    for (int i=0; i<5; i++){
+        if (a[i] == num){
+            cnt++;
+        }
+    }
+    
+    for (int j=0; j<3; j++){
+        for (int k=0; k<3; k++){
+            if (b[j][k] == num){
+                cnt ++;
+            }
+        }
+    }
+    
+    cout << cnt << endl;
 
     return 0;
 }
