@@ -4,30 +4,26 @@ using namespace std;
 
 int main()
 {
-    int a[5]={2,1,2,4,5};
-    int b[3][3]={{2, 5, 3},
-                 {4, 5, 7},
-                 {8, 7, 2}};
-
-    int num, cnt=0; 
+    char arr[5];
+    int indices[5] = {0,};
+    int cnt = 0;
     
-    cin >> num;
     
     for (int i=0; i<5; i++){
-        if (a[i] == num){
+        cin >> arr[i];
+        if (arr[i] == 'A'){
             cnt++;
+            indices[i] = 1;
         }
     }
     
-    for (int j=0; j<3; j++){
-        for (int k=0; k<3; k++){
-            if (b[j][k] == num){
-                cnt ++;
-            }
+    cout << "문자A는 " << cnt << "개발견" <<endl;
+    
+    for (int i=0; i<5; i++){
+        if (indices[i]==1){
+            cout << i << "번" << endl;
         }
     }
-    
-    cout << cnt << endl;
 
     return 0;
 }
