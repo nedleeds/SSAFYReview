@@ -2,30 +2,18 @@
 
 using namespace std;
 
-int GOP(){
-    int a, b;
-    cin >> a >> b;
-    return a * b;
+int pingpong(int tong){
+    return tong + 10;
 }
-
-int SUM(){
-    int a, b;
-    cin >> a >> b;
-    return a + b;
-}
-
 int main()
 {
-    int g = GOP();
-    int s = SUM();
+    int stone, ret;
     
-    if (s>g){
-        cout << "GOP<SUM" << endl;
-    }else if(g>s){
-        cout << "GOP>SUM" << endl;
-    }else{
-        cout << "GOP==SUM" << endl;
-    }
+    cin >> stone;
+    
+    ret = pingpong(stone);
+    
+    cout << ret;
 
     return 0;
 }
