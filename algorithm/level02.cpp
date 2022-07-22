@@ -2,33 +2,30 @@
 
 using namespace std;
 
-void printData(int x);
-int even(int value);
-int odd(int value);
+int GOP(){
+    int a, b;
+    cin >> a >> b;
+    return a * b;
+}
+
+int SUM(){
+    int a, b;
+    cin >> a >> b;
+    return a + b;
+}
 
 int main()
 {
-    int a, b;
+    int g = GOP();
+    int s = SUM();
     
-    cin >> a >> b;
-    
-    if ((a/b)%2 ==0 ){
-        even(a/b);
+    if (s>g){
+        cout << "GOP<SUM" << endl;
+    }else if(g>s){
+        cout << "GOP>SUM" << endl;
     }else{
-        odd(a/b);
+        cout << "GOP==SUM" << endl;
     }
-    printData(a+b);
 
     return 0;
-}
-
-void printData(int x){
-    cout << x << endl;
-}
-int even(int value){
-    printData(value*2);
-}
-
-int odd(int value){
-    printData(value-10);
 }
