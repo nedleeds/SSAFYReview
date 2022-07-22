@@ -2,28 +2,29 @@
 
 using namespace std;
 
-
-int one(){
-    int x;
-    cin >> x;
-    return x;
-}
-
-char two(){
-    char c;
-    cin >> c;
-    return c;
-}
-
 int main()
 {
     int a;
-    char b;
+    int arr[4][4]={0,};
     
-    a = one();
-    b = two();
+    cin >> a;
     
-    cout << a << b << endl;
+    if (a%2){
+        for (int i=0, j=3; i<4, j>=0; i++, j--){
+            arr[i][j] = i+1;
+        }
+    }else{
+        for (int i=0, j=0; i < 4; i++,j++){
+            arr[i][j] = i+1;
+        }
+    }
+    
+    for (int i=0; i<4; i++){
+        for (int j=0; j<4; j++){
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
     
     return 0;
 }
