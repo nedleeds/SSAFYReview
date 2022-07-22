@@ -2,18 +2,23 @@
 
 using namespace std;
 
-int pingpong(int tong){
-    return tong + 10;
-}
-int main()
-{
-    int stone, ret;
+int main(){
+    int n=1;
+    int arr[4][4]={0,};
     
-    cin >> stone;
+    for (int c=3; c>=0; c--){
+        for (int r=0; r<4; r++){
+            arr[r][c] = n;
+            n++;
+        }
+    }
     
-    ret = pingpong(stone);
-    
-    cout << ret;
+    for (int i=0; i<4; i++){
+        for (int j=0; j<4; j++){
+            cout << arr[i][j] << " " ;
+        }
+        cout << endl;
+    }
 
     return 0;
 }
