@@ -2,26 +2,27 @@
 
 using namespace std;
 
-void checkChar(char c){
-    if ('a' <= c && c <= 'z'){
-        cout << "소";
-    }else if('A' <= c && c <= 'Z'){
-        cout << "대";
-    }
+struct Person{
+    int age;
+    int height;
+}a, b;
+
+void input(){
+    cin >> a.age >> a.height;
+    cin >> b.age >> b.height;
+}
+
+void output(){
+    int avg_age, avg_hght;
+    avg_age = (a.age + b.age) / 2;
+    avg_hght = (a.height + b.height) / 2;
+    cout << avg_age << " " << avg_hght << endl;
 }
 
 int main()
 {
-    char arr[5];
-    int i;
-    
-    for (int i=0; i<5; i++){
-        cin >> arr[i];
-    }
-    
-    for (int j=0; j<5; j++){
-        checkChar(arr[j]);
-    }
+    input();
+    output();
 
     return 0;
 }
