@@ -2,50 +2,33 @@
 
 using namespace std;
 
+void printData(int x);
+int even(int value);
+int odd(int value);
+
 int main()
 {
-    int a, arr[3][3];
+    int a, b;
     
-    cin >> a;
+    cin >> a >> b;
     
-    if (a%5 == 1){
-        arr[0][0] = 9;
-        arr[0][1] = 6;
-        arr[0][2] = 9;
-        arr[1][0] = 8;
-        arr[1][1] = 5;
-        arr[1][2] = 2;
-        arr[2][0] = 7;
-        arr[2][1] = 4;
-        arr[2][2] = 1;
-    }else if(a%5 == 2){
-        arr[0][0] = 7;
-        arr[0][1] = 8;
-        arr[0][2] = 9;
-        arr[1][0] = 4;
-        arr[1][1] = 5;
-        arr[1][2] = 6;
-        arr[2][0] = 1;
-        arr[2][1] = 2;
-        arr[2][2] = 3;
+    if ((a/b)%2 ==0 ){
+        even(a/b);
     }else{
-        arr[0][0] = 10;
-        arr[0][1] = 13;
-        arr[0][2] = 16;
-        arr[1][0] = 11;
-        arr[1][1] = 14;
-        arr[1][2] = 17;
-        arr[2][0] = 12;
-        arr[2][1] = 15;
-        arr[2][2] = 18;
+        odd(a/b);
     }
-    
-    for (int i=0; i<3; i++){
-        for (int j=0; j<3; j++){
-            cout << arr[i][j] << " ";
-        }
-        cout << endl;
-    }
+    printData(a+b);
 
     return 0;
+}
+
+void printData(int x){
+    cout << x << endl;
+}
+int even(int value){
+    printData(value*2);
+}
+
+int odd(int value){
+    printData(value-10);
 }
