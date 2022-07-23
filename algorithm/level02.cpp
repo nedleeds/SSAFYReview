@@ -3,16 +3,22 @@ using namespace std;
 
 int main(){
     
-    int a, b;
-    int *p_a = &a, *p_b = &b, *tmp;
+    int arr[7] = {3, 4, 1, 3, 2, 7, 3};
+    int n, flag=0;
 
-    cin >> a >> b;
+    cin >> n;
 
-    tmp = p_a;
-    p_a = p_b;
-    p_b = tmp;
+    for (int i=0; i<7; i++){
+        if(arr[i]==n){
+            flag = 1;
+        }
+    }
 
-    cout << *p_a << " " << *p_b << endl;
+    if (flag){
+        cout << "발견" << endl;
+    }else{
+        cout << "미발견" << endl;
+    }
 
     
     return 0;
