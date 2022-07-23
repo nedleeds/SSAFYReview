@@ -2,22 +2,27 @@
 #include <string>
 using namespace std;
 
+char arr[4][3] = {
+    {'D', 'A', 'D'},
+    {'Q', 'W', 'Q'},
+    {'A', 'S', 'D'},
+    {'A', 'S', 'D'},
+};
+
 int main(){
-    int a, b;
-    char c, d;
-    int *p1 = &a, *p2 = &b;
-    char *p3 = &c, *p4 = &d;
-    
-    cin >> a >> b >> c >> d;
+    char x;
+    int cnt=0;
 
-    for (int i=0; i<*p1; i++){
-        cout << *p3;
-    }
-    cout << endl;
-    for (int j=0; j<*p2; j++){
-        cout << *p4;
-    }
-    cout << endl;
+    cin >> x;
 
+    for (int r=0; r<4; r++){
+        for (int c=0; c<3; c++){
+            if (arr[r][c]==x){
+                cout << "존재" << endl;
+                return 0;
+            }
+        }
+    }
+    cout << "없음" << endl;
     return 0;
 }
