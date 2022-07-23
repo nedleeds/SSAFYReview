@@ -1,27 +1,19 @@
 #include <iostream>
 using namespace std;
 
+struct Fruit{
+    int size;
+    int price;
+}banana, apple;
+
 int main(){
-    int arr[5][5], i=1, r_idx;
+    cin >> banana.size;
+    cin >> apple.size;
 
-    for (int c=4; c>=0; c--){
-        for (int r=0; r<5; r++){
-            arr[r][c] = i++;
-        }
-    }
+    banana.price = banana.size*250;
+    apple.price = apple.size*500;
 
-    cin >> r_idx;
-
-    for (int c=0; c<5; c++){
-        arr[r_idx][c] = r_idx;
-    }
-    
-    for (int i=0; i<5; i++){
-        for (int j=0; j<5; j++){
-            cout << arr[i][j] << " ";
-        }
-        cout << endl;
-    }
+    cout << banana.price + apple.price << "원" << endl;
     
     return 0;
 }
