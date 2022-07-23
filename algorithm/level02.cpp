@@ -3,20 +3,20 @@
 using namespace std;
 
 int main(){
-    string s1, s2, s3;
+    int arr[3][3]={0}, x;
 
-    cin >> s1 >> s2 >> s3;
+    cin >> x;
+    for (int r=0; r<3; r++){
+        for (int c=2-r; c<3; c++){
+            arr[r][c] = x++;
+        }
+    }
 
-    int l1 = s1.length();
-    int l2 = s2.length();
-    int l3 = s3.length();
-    
-    if (l1 > l2 && l1 > l3){
-        cout << s1 << endl;
-    }else if (l2 > l3 && l2 > l1){
-        cout << s2 << endl;
-    }else if (l3 > l1 && l3 > l2){
-        cout << s3 << endl;
+    for (int r=0; r<3; r++){
+        for (int c=0; c<3; c++){
+            cout << arr[r][c];
+        }
+        cout << endl;
     }
 
     return 0;
