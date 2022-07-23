@@ -2,39 +2,21 @@
 #include <string>
 using namespace std;
 
-void FindABC(string s1, string s2, int *cnt_a, int *cnt_b, int *cnt_c){
+char arr[3][3] = {
+    {'D', 'A', 'S'},
+    {'Q', 'W', 'V'},
+    {'R', 'T', 'Y'}
+};
 
-    for (int i=0; i<s1.length()+1; i++){
-        if(s1[i] == 'A'){
-            *cnt_a += 1;
-        }else if(s1[i]=='B'){
-            *cnt_b += 1;
-        }else if(s1[i]=='C'){
-            *cnt_c += 1;
-        }
-    }
-    for (int i=0; i<s2.length()+1; i++){
-        if(s2[i] == 'A'){
-            *cnt_a += 1;
-        }else if(s2[i]=='B'){
-            *cnt_b += 1;
-        }else if(s2[i]=='C'){
-            *cnt_c += 1;
-        }
-    }
+void Find(int *r1, int *c1, int *r2, int *c2){
+    cout << arr[*r1][*c1] << " " << arr[*r2][*c2] << endl;
 }
 
 int main(){
-    string s1, s2;
-    int cnt_a=0, cnt_b=0, cnt_c=0;
+    int r1, c1, r2, c2;
+    cin >> r1 >> c1 >> r2 >> c2;
 
-    cin >> s1 >> s2;
-
-    FindABC(s1, s2, &cnt_a, &cnt_b, &cnt_c);
-    
-    cout << "A:" << cnt_a << endl;
-    cout << "B:" << cnt_b << endl;
-    cout << "C:" << cnt_c << endl;
+    Find(&r1, &c1, &r2, &c2);
 
     return 0;
 }
