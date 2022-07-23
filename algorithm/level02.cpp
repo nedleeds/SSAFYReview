@@ -13,16 +13,26 @@ int KFC(int target, int arr[2][5]){
 }
 
 int main(){
-    int arr[2][5] = {{3, 2, 6, 2, 4},
-                     {1, 4, 2, 6, 5}};
-    int target;
+    int arr[4][4] = {{1, 3, 6, 2},
+                     {4, 2, 4, 5},
+                     {6, 3, 7, 3},
+                     {1, 5, 4, 6}};
+    int n, select[16], s_i=0;
 
-    cin >> target;
-    if (KFC(target, arr)){
-        cout << "값이 존재합니다" << endl;
-    }else{
-        cout << "값이 없습니다" << endl;
+    cin >> n;
+    
+    for (int r=0; r<4; r++){
+        for (int c=0; c<4; c++){
+            if (arr[r][c] > n){
+                select[s_i++] = arr[r][c];
+            }
+        }
     }
+
+    for (int i=0; i<s_i; i++){
+        cout << select[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
