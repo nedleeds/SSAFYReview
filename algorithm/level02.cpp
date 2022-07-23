@@ -2,18 +2,25 @@
 #include <string>
 using namespace std;
 
-void ABC(int a, int b, int *SUM, int *GOP){
-    *SUM = a + b;
-    *GOP = a * b;
+void KFC(string *s, int *c_up, int *c_lo){
+    for (int i=0; i<(*s).length()+1; i++){
+        if ('a' <= (*s)[i] && (*s)[i] <= 'z'){
+            (*c_lo)++;
+        }else if ('A' <= (*s)[i] && (*s)[i] <= 'Z'){
+            (*c_up)++;
+        }
+    }
 }
 
 int main(){
-    int a, b, s, g;
-    cin >> a >> b;
+    string s;
+    int cnt_up=0, cnt_lo=0;
+    
+    cin >> s;
+    KFC(&s, &cnt_up, &cnt_lo);
 
-    ABC(a, b, &s, &g);
-
-    cout << s << " " << g << endl;
+    cout << "대문자" << cnt_up << "개" << endl;
+    cout << "소문자" << cnt_lo << "개" << endl;
 
     return 0;
 }
