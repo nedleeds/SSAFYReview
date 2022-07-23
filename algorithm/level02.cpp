@@ -1,28 +1,34 @@
 #include <iostream>
 using namespace std;
 
-int arr[3][3] = {{1, 1, 1},
-                 {1, 2, 1}, 
-                 {3, 6, 3}};
+char arr[8] = {'A', '1', '1', '1', '5', 'A', 'w', 'z'};
 
-int Count(int *n){
+int Count(char *c){
     int cnt=0;
-    for (int r=0; r<3; r++){
-        for (int c=0; c<3; c++){
-            if (arr[r][c] == *n){
-                cnt++;
-            }
+    for (int r=0; r<8; r++){
+        if (arr[r] == *c){
+            cnt++;
         }
     }
     return cnt;
 }
 
 int main(){
-    int num;
+    char c;
+    int cnt;
 
-    cin >> num;
+    cin >> c;
+    cnt = Count(&c);
 
-    cout << Count(&num) << endl;;
+    if ( cnt >= 3 ){
+        cout << "THREE" << endl;
+    } else if ( cnt == 2 ){
+        cout << "TWO" << endl;
+    } else if ( cnt == 1 ){
+        cout << "ONE" << endl;
+    } else if ( cnt == 0 ){
+        cout << "NOTHING" << endl;
+    }
 
     return 0;
 }
