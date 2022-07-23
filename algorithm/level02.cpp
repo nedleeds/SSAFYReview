@@ -2,19 +2,27 @@
 #include <string>
 using namespace std;
 
-struct PROFILE{
-    string name;
-    int age;
-    int weight;
-}pr1, pr2;
-
 int main(){
-    cin >> pr1.name >> pr1.age >> pr1.weight;
-    cin >> pr2.name >> pr2.age >> pr2.weight;
+    string arr = "ABCDEFG";
+    int arr2[7] = {4, 2, 5, 1, 6, 7, 3};
+    int a_i, b_i, s = 0;
+    char a, b;
 
-    cout << pr1.name << " & " << pr2.name << endl;
-    cout << "평균" << int((pr1.age + pr2.age) / 2) << "세" << endl;
-    cout << "평균" << int((pr1.weight + pr2.weight) / 2) << "KG" << endl;
+    cin >> a >> b;
+    a_i = a - 'A';
+    b_i = b - 'A';
+
+    if (a_i > b_i){
+        for (int i=b_i+1; i<a_i; i++){
+            s += arr2[i];
+        }
+    }else{
+        for (int j=a_i+1; j<b_i; j++){
+            s += arr2[j];
+        }
+    }
+
+    cout << s << endl;
 
     return 0;
 }
