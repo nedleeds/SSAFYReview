@@ -2,21 +2,19 @@
 #include <string>
 using namespace std;
 
+void getName(char *a, char *b){
+    cin >> *a >> *b;
+}
+
 int main(){
-    int arr[3][3]={0}, x;
+    char a, b;
 
-    cin >> x;
-    for (int r=0; r<3; r++){
-        for (int c=2-r; c<3; c++){
-            arr[r][c] = x++;
-        }
-    }
+    getName(&a, &b);
 
-    for (int r=0; r<3; r++){
-        for (int c=0; c<3; c++){
-            cout << arr[r][c];
-        }
-        cout << endl;
+    if (a > b){
+        cout << b << endl;
+    }else{
+        cout << a << endl;
     }
 
     return 0;
