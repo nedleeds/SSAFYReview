@@ -1,22 +1,18 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main(){
     
-    int arr[7];
-    int MIN=9999, MAX=0;
+    string str1 = "StructPointer";
+    char c;
+    cin >> c;
 
-    for (int i=0; i<7; i++){
-        cin >> arr[i];
-        if (arr[i] > MAX){
-            MAX = arr[i];
-        }else if (arr[i] < MIN){
-            MIN = arr[i];
-        }
+    if (str1.find(c)!=string::npos){
+        cout << "발견" << endl;
+    }else{
+        cout << "미발견" << endl;
     }
-
-    cout << "MAX=" << MAX << endl;
-    cout << "MIN=" << MIN << endl;
     
     return 0;
 }
