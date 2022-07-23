@@ -1,35 +1,23 @@
 #include <iostream>
 using namespace std;
-
-char vect[3][5] = {{'D', 'A', 'C', 'C', 'D'},
-                   {'S', 'D', 'F', 'A', 'E'},
-                   {'E', 'E', 'T', 'J', 'H'}};
-
-int CHECK(char *ch)
-{
-	for (int y = 0; y < 3; y++) {
-		for (int x = 0; x < 3; x++) {
-			if (vect[y][x] == *ch) {
-				return 1;
-			}
-		}
-	}
-	return 0;
-}
-
-void INPUT(){
-    char a;
-    cin >> a;
-    if( CHECK(&a)){
-        cout << "있음" << endl;
-    } else{
-        cout << "없음" << endl;
-    }
-}
-
 int main(){
+    int in[3];
+    int arr[3][4];
+
+    cin >> in[0] >> in[1] >> in[2];
     
-    INPUT();
+    for (int r=0; r<3; r++){
+        for (int c=0; c<4; c++){
+            arr[r][c] = in[r]+c;
+        }
+    }
     
+    for (int r=0; r<3; r++){
+        for (int c=0; c<4; c++){
+            cout << arr[r][c] << " ";
+        }
+        cout << endl;
+    }
+
     return 0;
 }
