@@ -1,19 +1,25 @@
 #include <iostream>
 using namespace std;
 
-char aToZ(){
-    char c;
-    cin >> c;
-    if (c-'A' > 'Z'-c){
-        return 'Z';
-    }else{
+char Calculator(){
+    int score;
+
+    cin >> score;
+
+    if (score >= 90){
         return 'A';
+    }else if (score >= 80){
+        return 'B';
+    }else if (score >= 70){
+        return 'C';
+    }else{
+        return 'D';
     }
 }
 
 int main(){
     
-    cout << aToZ() << endl;
+    cout << Calculator() << endl;
 
     return 0;
 }
