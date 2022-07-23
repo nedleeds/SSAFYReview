@@ -1,37 +1,37 @@
 #include <iostream>
 using namespace std;
 
-int arr[7][5] = {{1, 0, 0, 0, 0},
-                 {1, 0, 1, 0, 0},
-                 {1, 1, 0, 1, 0},
-                 {1, 0, 1, 0, 0},
-                 {0, 1, 0, 0, 1},
-                 {0, 0, 0, 1, 0},
-                 {1, 1, 0, 0, 0}};
-
-int INPUT(){
-    int a;
-    cin >> a;
-    return a;
-}
-
-int PROCESS(int x){
-    int cnt = 0;
-    for (int r=0; r<7; r++){
-        if (arr[r][x] == 1){
-            cnt++;
+void run(int *num, int arr[3][3]){
+    int i=1;
+    if (*num < 10){
+        for (int r=0; r<3; r++){
+            for (int c=0; c<3; c++){
+                arr[r][c] = i++;
+            }
+        }
+    }else{
+        for (int r=0; r<3; r++){
+            for (int c=2; c>=0; c--){
+                arr[r][c] = i++;
+            }
         }
     }
-    return cnt;
-}
-
-void OUTPUT(int x){
-    cout << x << endl;
 }
 
 int main(){
     
-    OUTPUT(PROCESS(INPUT()));
+    int n;
+    int arr[3][3];
+
+    cin >> n;
+    run(&n, arr);
     
+    for (int r=0; r<3; r++){
+        for (int c=0; c<3; c++){
+            cout << arr[r][c];
+        }
+        cout << endl;
+    }
+
     return 0;
 }
