@@ -9,6 +9,7 @@ int main(){
     for (int i=0; i<6; i++){
         if (a <= arr[i] && arr[i] <= b){
             cout << "발견!!!" << endl;
+            return 0;
         }
     }
 
