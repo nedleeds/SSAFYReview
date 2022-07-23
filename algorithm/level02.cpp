@@ -2,30 +2,22 @@
 #include <string>
 using namespace std;
 
-int Length(string s, char x){
-    int cnt = 0;
-    for (int i=0; i<s.length(); i++){
-        if (s[i]==x){
-            cnt++;
-        }
-    }
-    return cnt;
-}
-
 int main(){
-    string s;
-    char x, y, z;
+    char s1[10] = "DATAPOWER";
+    char s2[9];
+    int i1, i2;
 
-    cin >> s;
-    if (s=="0"){
-        cout << 0 << endl;
-        return 0;
+    cin >> i1 >> i2;
+    
+    int x=0;
+    for (int i=i1; i<=i2; i++){
+        s2[x++] = s1[i];
     }
-    cin >> x >> y >> z;
 
-    cout << x << "="<< Length(s, x) << endl;
-    cout << y << "="<< Length(s, y) << endl;
-    cout << z << "="<< Length(s, z) << endl;
+    for (int i=0; i<i2-i1+1; i++){
+        cout << s2[i];
+    }
+    cout << endl;
 
     return 0;
 }
