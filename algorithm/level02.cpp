@@ -2,21 +2,24 @@
 #include <string>
 using namespace std;
 
-char arr[3][3] = {
-    {'D', 'A', 'S'},
-    {'Q', 'W', 'V'},
-    {'R', 'T', 'Y'}
-};
-
-void Find(int *r1, int *c1, int *r2, int *c2){
-    cout << arr[*r1][*c1] << " " << arr[*r2][*c2] << endl;
+int Find(string *n1, string *n2, string *n3){
+    if (*n1 == *n2  && *n2 == *n3){
+        return 1;
+    }else{
+        return 0;
+    }
 }
 
 int main(){
-    int r1, c1, r2, c2;
-    cin >> r1 >> c1 >> r2 >> c2;
+    string name1, name2, name3;
+    
+    cin >> name1 >> name2 >> name3;
 
-    Find(&r1, &c1, &r2, &c2);
+    if (Find(&name1, &name2, &name3)){
+        cout << "YES" << endl;
+    }else{
+        cout << "NO" << endl;
+    }
 
     return 0;
 }
