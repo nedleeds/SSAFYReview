@@ -2,20 +2,19 @@
 #include <string>
 using namespace std;
 
-void getName(char *a, char *b){
-    cin >> *a >> *b;
+void moon(int *age, int *x, int *y, int*z){
+    *x = *age - 4;
+    *y = *age + 3;
+    *z = *age * 2;
 }
 
 int main(){
-    char a, b;
+    int age, x, y, z;
 
-    getName(&a, &b);
+    cin >> age;
+    moon(&age, &x, &y, &z);
 
-    if (a > b){
-        cout << b << endl;
-    }else{
-        cout << a << endl;
-    }
+    cout << x << " " << y << " " << z << endl;
 
     return 0;
 }
