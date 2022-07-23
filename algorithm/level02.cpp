@@ -2,27 +2,28 @@
 #include <string>
 using namespace std;
 
-void find(char *c_, char arr[3][3]){
-    for (int r=0; r<3; r++){
-        for (int c=0; c<3; c++){
-            if (arr[r][c] == *c_){
-                cout << r << "," << c << endl;
-            }
+int CompareGo(int c1[5], int c2[5]){
+    for (int i=0; i<5; i++){
+        if (c1[i]!=c2[i]){
+            return 0;
         }
     }
+    return 1;
 }
 
 int main(){
-    char arr[3][3] = {
-        {'A', 'D', 'F'},
-        {'Q', 'W', 'E'},
-        {'Z', 'X', 'C'}
-    };
+    int arr1[5] = {3, 5, 1, 2, 7};
+    int arr2[5];
 
-    char c;
-    cin >> c;
+    for (int i=0; i<5; i++){
+        cin >> arr2[i];
+    }
 
-    find(&c, arr);
+    if (CompareGo(arr1, arr2)){
+        cout << "두배열은완전같음" << endl;
+    }else{
+        cout << "두배열은같지않음" << endl;
+    }
 
     return 0;
 }
