@@ -2,22 +2,23 @@
 #include <string>
 using namespace std;
 
+struct FileDown{
+    int dn[2];
+}fd;
+
 int main(){
 
-    int arr[5][4];
+    cin >> fd.dn[0] >> fd.dn[1];
 
-    for (int r=0; r<5; r++){
-        for (int c=0; c<4; c++){
-            cin >> arr[r][c];
-        }
-    }
+    int cnt, a, b;
+    
+    a = 100-fd.dn[0];
+    b = 100-fd.dn[1];
 
-    for (int r=0; r<5; r++){
-        int s = 0;
-        for (int c=0; c<4; c++){
-            s += arr[r][c];
-        }
-        cout << s << " ";
+    if (a>b){
+        cout << a;
+    }else{
+        cout << b;
     }
     cout << endl;
 
