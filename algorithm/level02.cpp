@@ -3,19 +3,21 @@
 using namespace std;
 
 int main(){
-    string s;
+    string s1, s2, s3;
 
-    cin >> s;
-    int l = s.length();
-    cout << l << endl;
+    cin >> s1 >> s2 >> s3;
 
-    int cnt=0;
-    for (int i=0; i<l; i++){
-        if(s[i]==s[l-1]){
-            cnt++;
-        }
+    int l1 = s1.length();
+    int l2 = s2.length();
+    int l3 = s3.length();
+    
+    if (l1 > l2 && l1 > l3){
+        cout << s1 << endl;
+    }else if (l2 > l3 && l2 > l1){
+        cout << s2 << endl;
+    }else if (l3 > l1 && l3 > l2){
+        cout << s3 << endl;
     }
-    cout << cnt << endl;
 
     return 0;
 }
