@@ -1,25 +1,23 @@
 #include <iostream>
 using namespace std;
 
-char Calculator(){
-    int score;
+struct BBQ{
+    int x;
+    int data[3];
+};
 
-    cin >> score;
-
-    if (score >= 90){
-        return 'A';
-    }else if (score >= 80){
-        return 'B';
-    }else if (score >= 70){
-        return 'C';
-    }else{
-        return 'D';
-    }
-}
 
 int main(){
-    
-    cout << Calculator() << endl;
+    int s=0;
+    BBQ g;
 
+    cin >> g.x >> g.data[0] >> g.data[1] >> g.data[2];
+
+    for (int i=0; i<3; i++){
+        s += g.data[i];
+    }
+    
+    cout << s << " " << g.x;
+    
     return 0;
 }
