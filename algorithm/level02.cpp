@@ -1,22 +1,18 @@
 #include <iostream>
 using namespace std;
 
-int run(int *num){
-    if (*num%3==0){
-        return 7;
-    }else if (*num%3==1){
-        return 35;
-    }else{
-        return 50;
-    }
+void calc(int *a, int *b, int *c){
+    int s = *a + *b + *c;
+    cout << s << endl;
 }
 
 int main(){
     
-    int n;
+    int a, b, c;
 
-    cin >> n;
-    cout << run(&n) << endl;
+    cin >> a >> b >> c;
+
+    calc(&a, &b, &c);
 
     return 0;
 }
