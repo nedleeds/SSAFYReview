@@ -3,16 +3,27 @@
 using namespace std;
 
 int main(){
-    int x;
+    int x, arr[3][4]={0,};
 
     cin >> x;
 
-    for (int r=0; r<4; r++){
+    int y = 0;
+    for (int r=0; r<3; r++){
+       for (int c=2+y; c<4; c++){
+            arr[r][c] = x++;
+       }
+        y--;
+    }
+
+    for (int r=0; r<3; r++){
         for (int c=0; c<4; c++){
-            cout << x ;
+            if (arr[r][c] == 0){
+                cout << " ";
+            }else{
+                cout << arr[r][c];
+            }
         }
         cout << endl;
-        x--;
     }
     
     return 0;
