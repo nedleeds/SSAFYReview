@@ -1,13 +1,19 @@
 #include <iostream>
 using namespace std;
 
-char arr[8] = {'A', '1', '1', '1', '5', 'A', 'w', 'z'};
+char arr[3][5] = {
+    {'a', 'b', 'a', 'c', 'z'},
+    {'c', 't', 'a', 'c', 'd'},
+    {'c', 'c', 'c', 'c', 'a'}
+};
 
-int Count(char *c){
+int Count(char *x){
     int cnt=0;
-    for (int r=0; r<8; r++){
-        if (arr[r] == *c){
-            cnt++;
+    for (int r=0; r<3; r++){
+        for (int c=0; c<5; c++){
+            if (arr[r][c] == *x){
+                cnt++;
+            }
         }
     }
     return cnt;
@@ -20,14 +26,14 @@ int main(){
     cin >> c;
     cnt = Count(&c);
 
-    if ( cnt >= 3 ){
-        cout << "THREE" << endl;
-    } else if ( cnt == 2 ){
-        cout << "TWO" << endl;
-    } else if ( cnt == 1 ){
-        cout << "ONE" << endl;
-    } else if ( cnt == 0 ){
-        cout << "NOTHING" << endl;
+    if ( cnt >= 7 ){
+        cout << "세상에" << endl;
+    } else if ( cnt >= 5 ){
+        cout << "와우" << endl;
+    } else if ( cnt >= 3 ){
+        cout << "이야" << endl;
+    } else {
+        cout << "이런" << endl;
     }
 
     return 0;
