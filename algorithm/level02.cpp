@@ -1,37 +1,22 @@
 #include <iostream>
 using namespace std;
 
-void run(int *num, int arr[3][3]){
-    int i=1;
-    if (*num < 10){
-        for (int r=0; r<3; r++){
-            for (int c=0; c<3; c++){
-                arr[r][c] = i++;
-            }
-        }
+int run(int *num){
+    if (*num%3==0){
+        return 7;
+    }else if (*num%3==1){
+        return 35;
     }else{
-        for (int r=0; r<3; r++){
-            for (int c=2; c>=0; c--){
-                arr[r][c] = i++;
-            }
-        }
+        return 50;
     }
 }
 
 int main(){
     
     int n;
-    int arr[3][3];
 
     cin >> n;
-    run(&n, arr);
-    
-    for (int r=0; r<3; r++){
-        for (int c=0; c<3; c++){
-            cout << arr[r][c];
-        }
-        cout << endl;
-    }
+    cout << run(&n) << endl;
 
     return 0;
 }
