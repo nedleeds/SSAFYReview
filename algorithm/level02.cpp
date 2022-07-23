@@ -2,22 +2,39 @@
 #include <string>
 using namespace std;
 
-int main(){
-    char arr[2][6] = {
-        {'4', '5', '7', '1', '3', '2'},
-        {'D', 'F', 'Q', 'W', 'G', 'Z'}
-    };
+void FindABC(string s1, string s2, int *cnt_a, int *cnt_b, int *cnt_c){
 
-    char n;
-    cin >> n;
-
-    
-    for (int c=0; c<6; c++){
-        if (arr[0][c] == n){
-            cout << arr[1][c] << endl;
+    for (int i=0; i<s1.length()+1; i++){
+        if(s1[i] == 'A'){
+            *cnt_a += 1;
+        }else if(s1[i]=='B'){
+            *cnt_b += 1;
+        }else if(s1[i]=='C'){
+            *cnt_c += 1;
         }
     }
+    for (int i=0; i<s2.length()+1; i++){
+        if(s2[i] == 'A'){
+            *cnt_a += 1;
+        }else if(s2[i]=='B'){
+            *cnt_b += 1;
+        }else if(s2[i]=='C'){
+            *cnt_c += 1;
+        }
+    }
+}
 
+int main(){
+    string s1, s2;
+    int cnt_a=0, cnt_b=0, cnt_c=0;
+
+    cin >> s1 >> s2;
+
+    FindABC(s1, s2, &cnt_a, &cnt_b, &cnt_c);
     
+    cout << "A:" << cnt_a << endl;
+    cout << "B:" << cnt_b << endl;
+    cout << "C:" << cnt_c << endl;
+
     return 0;
 }
