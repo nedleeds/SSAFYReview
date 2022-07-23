@@ -3,16 +3,12 @@ using namespace std;
 
 int main(){
     
-    int a;
-    char gd;
+    char a, b, c;
+    char *p_a = &a, *p_b = &b, *p_c = &c;
 
-    int *p = &a;
-    char *c = &gd;
-
-    cin >> a >> gd;
+    cin >> a >> b >> c;
     
-    cout << *p << " ";
-    cout << *c << endl;
+    cout << ++(*p_a) << " " << ++(*p_b) << " " << ++(*p_c) << endl;
     
     return 0;
 }
