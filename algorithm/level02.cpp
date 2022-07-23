@@ -3,21 +3,37 @@
 using namespace std;
 
 int main(){
-    char s1[10] = "DATAPOWER";
-    char s2[9];
-    int i1, i2;
-
-    cin >> i1 >> i2;
+    int arr[3][3] = {0};
+    char x;
     
-    int x=0;
-    for (int i=i1; i<=i2; i++){
-        s2[x++] = s1[i];
+    cin >> x;
+
+    if ('0' <= x && x <='9'){
+        int i=1;
+        for(int r=2; r>=0; r--){
+            for (int c=2; c>=r; c--){
+                arr[r][c] = i++;
+            }
+        }
+    }else if ('A' <= x && x<= 'Z'){
+        int i=1;
+        for(int r=2; r>=0; r--){
+            for (int c=0; c<=r; c++){
+                arr[r][c] = i++;
+            }
+        }
     }
 
-    for (int i=0; i<i2-i1+1; i++){
-        cout << s2[i];
+    for (int r=0; r<3; r++){
+        for (int c=0; c<3; c++){
+            if (arr[r][c]==0){
+                cout << ' ';
+            }else{
+                cout << arr[r][c];
+            }
+        }
+        cout << endl;
     }
-    cout << endl;
 
     return 0;
 }
