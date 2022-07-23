@@ -8,7 +8,7 @@ int main(){
 
     cin >> a >> b >> c;
     
-    cout << ++(*p_a) << " " << ++(*p_b) << " " << ++(*p_c) << endl;
+    cout << (char)(*p_a+1) << " " << ++(*p_b) << " " << ++(*p_c) << endl;
     
     return 0;
 }
