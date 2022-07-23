@@ -2,21 +2,22 @@
 #include <string>
 using namespace std;
 
-struct NODE{
-    int x;
-    int y;
-}ta, tb;
-
 int main(){
-    cin >> ta.x >> tb.x;
+    int a, b;
+    char c, d;
+    int *p1 = &a, *p2 = &b;
+    char *p3 = &c, *p4 = &d;
     
-    ta.y = ta.x + 5;
-    tb.y = tb.x - 5;
+    cin >> a >> b >> c >> d;
 
-    cout << "ta.x=" << ta.x << endl; 
-    cout << "ta.y=" << ta.y << endl; 
-    cout << "tb.x=" << tb.x << endl; 
-    cout << "tb.y=" << tb.y << endl; 
+    for (int i=0; i<*p1; i++){
+        cout << *p3;
+    }
+    cout << endl;
+    for (int j=0; j<*p2; j++){
+        cout << *p4;
+    }
+    cout << endl;
 
     return 0;
 }
