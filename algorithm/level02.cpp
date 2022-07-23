@@ -2,25 +2,41 @@
 #include <string>
 using namespace std;
 
-void KFC(string *s, int *c_up, int *c_lo){
-    for (int i=0; i<(*s).length()+1; i++){
-        if ('a' <= (*s)[i] && (*s)[i] <= 'z'){
-            (*c_lo)++;
-        }else if ('A' <= (*s)[i] && (*s)[i] <= 'Z'){
-            (*c_up)++;
+void input(int *x, int *y, int *z){
+    cin >> *x >> *y >> *z;
+}
+
+void process(int *x, int *y, int *z, int arr[2][6], int cnt[3]){
+    for (int r=0; r<2; r++){
+        for (int c=0; c<6; c++){
+            if (arr[r][c] == *x){
+                cnt[0]++;
+            }else if (arr[r][c] == *y){
+                cnt[1]++;
+            }else if (arr[r][c] == *z){
+                cnt[2]++;
+            }
         }
     }
 }
 
-int main(){
-    string s;
-    int cnt_up=0, cnt_lo=0;
-    
-    cin >> s;
-    KFC(&s, &cnt_up, &cnt_lo);
+void output(int *x, int *y, int *z, int cnt[3]){
+    cout << *x << "=" << cnt[0] << "개" << endl;
+    cout << *y << "=" << cnt[1] << "개" << endl;
+    cout << *z << "=" << cnt[2] << "개" << endl;
+}
 
-    cout << "대문자" << cnt_up << "개" << endl;
-    cout << "소문자" << cnt_lo << "개" << endl;
+int main(){
+    int arr[2][6] = {
+        {4, 5, 6, 1, 3, 1},
+        {2, 1, 3, 6, 3, 6}
+    };
+
+    int x, y, z, cnt[3]={0};
+    
+    input(&x, &y, &z);
+    process(&x, &y, &z, arr, cnt);
+    output(&x, &y, &z, cnt);
 
     return 0;
 }
