@@ -1,30 +1,19 @@
 #include <iostream>
 using namespace std;
+
+char aToZ(){
+    char c;
+    cin >> c;
+    if (c-'A' > 'Z'-c){
+        return 'Z';
+    }else{
+        return 'A';
+    }
+}
+
 int main(){
-    int r1, r2;
-    int arr[6][3], i=10;
-
-    cin >> r1 >> r2;
-
-    for (int c=0; c<3; c++){
-        for (int r=0; r<6; r++){
-            if (r1<=r && r<=r2){
-                arr[r][c] = 7;
-            }else{
-                arr[r][c] = i;
-            }
-            i++;
-        }
-    }
-
-    for (int r=0; r<6; r++){
-        for (int c=0; c<3; c++){
-            cout << arr[r][c] << " ";
-        }
-        cout << endl;
-    }
-
-
+    
+    cout << aToZ() << endl;
 
     return 0;
 }
