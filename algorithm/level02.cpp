@@ -5,18 +5,21 @@ using namespace std;
 
 int main(){
 
-    char arr[5];
+    int waffle[3][3];
+    int s = 0;
 
-    for (int i=0; i<5; i++){
-        cin >> arr[i];
-    }
-
-    for (int r=0; r<5; r++){
-        for (int c=r; c<5; c++){
-            cout << arr[c] << " ";
+    for (int r=0; r<3; r++){
+        for (int c=0; c<3; c++){
+            cin >> waffle[r][c];
         }
-        cout << endl;
     }
+    for (int r=0; r<3; r++){
+        for (int c=0; c<r+1; c++){
+            s += waffle[r][c];
+        }
+    }
+
+    cout << s << endl;
 
     return 0;
 }
