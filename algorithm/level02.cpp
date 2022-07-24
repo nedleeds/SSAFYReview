@@ -2,22 +2,24 @@
 #include <string>
 using namespace std;
 
+struct Product{
+    string name;
+    int size;
+    int price;
+}a, b;
+
 int main(){
-    int arr[9] = {0};
-    int idx_s, idx_e;
+    cin >> a.name;
+    cin >> a.size;
+    cin >> a.price;
 
-    for (int j=0; j<3; j++){
-        cin >> idx_s >> idx_e;
+    cin >> b.name;
+    cin >> b.size;
+    cin >> b.price;
 
-        for (int i=idx_s; i<=idx_e; i++){
-            arr[i]++;
-        }
-    }
-
-    for (int i=0; i<9; i++){
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    cout << a.name << "," << b.name << endl;
+    cout << "AverageSize" << "=" << int((a.size+b.size)/2) << endl;
+    cout << "AveragePrice" << "=" << int((a.price+b.price)/2) << endl;
 
     return 0;
 }
