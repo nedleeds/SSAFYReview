@@ -2,22 +2,33 @@
 #include <string>
 using namespace std;
 
-struct Mart{
-    int st, ml, wt;
-};
+void swap(char *a, char *b){
+    char tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+void sort(string *s){
+    int l = (*s).length();
+
+    for (int i=0; i<l-1; i++){
+        for (int j=i+1; j<l; j++){
+            if ((*s)[i] > (*s)[j]){
+                swap(&(*s)[i], &(*s)[j]);
+            }
+        }
+    }
+}
 
 int main(){
-    char mart;
+    string s1, s2;
 
-    Mart A = {300, 500, 1000};
-    Mart B = {450, 450, 900};
-    Mart C = {200, 150, 700};
+    cin >> s1 >> s2;
 
-    cin >> mart;
-
-    if (mart == 'A') cout << int((A.st + A.ml + A.wt)/3) << endl;
-    else if (mart == 'B') cout << int((B.st + B.ml + B.wt)/3) << endl;
-    else if (mart == 'C') cout << int((C.st + C.ml + C.wt)/3) << endl;
+    sort(&s1);
+    sort(&s2);
+    
+    cout << s1 << s2 << endl;
 
     return 0;
 }
