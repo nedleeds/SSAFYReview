@@ -3,31 +3,15 @@
 using namespace std;
 
 int main(){
-    int juso[8]={
-        402, 401, 302, 301,
-        202, 201, 102, 101
-    };
-    char name[8][5]={
-        "KIM", "TEA", "SOM", "OPPO",
-        "TOM", "GDK", "JAME", "MIN"
-    };
+    int a, b, c;
+    cin >> a >> b >> c;
 
-    int num;
-    cin >> num;
-
-    for (int i=0; i<8; i++){
-        if (juso[i]==num){
-            for (int j=0; j<5; j++){
-                if (name[i][j]!='\0'){
-                    cout << name[i][j];
-                }else{
-                    cout << endl;
-                    return 0;
-                }
-            }
+    for (int j=0; j<c; j++){
+        for (int i=0; i<b; i++){
+            cout << a+i << " ";
         }
-        
-    }   
+        cout << endl;
+    }
 
     return 0;
 }
