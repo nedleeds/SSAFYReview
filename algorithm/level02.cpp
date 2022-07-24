@@ -2,21 +2,26 @@
 #include <string>
 using namespace std;
 
-int main(){
-    int students[6];
+void reverse(string *s){
+    char tmp;
+    int l = (*s).length();
+    for (int i=0; i<(l/2); i++){
+        tmp = (*s)[i];
+        (*s)[i] = (*s)[l-i-1];
+        (*s)[l-i-1] = tmp;
+    }
+}
 
-    for (int i=0; i<6; i++){
-        cin >> students[i];
+int main(){
+    string s1, s2;
+
+    cin >> s1 >> s2;
+    reverse(&s2);
+    if (s1 == s2){
+        cout << "거울문장" << endl;
+    }else {
+        cout << "거울문장아님" << endl;
     }
-    
-    for (int j=0; j<5; j++){
-        if ((students[j]-students[j+1]) > -3 && (students[j]-students[j+1]) < 3){
-            ;
-        }else{
-            cout << "재배치필요" << endl;
-            return 0;
-        }
-    }
-    cout << "완벽한배치" << endl;
+
     return 0;
 }
