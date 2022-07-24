@@ -5,21 +5,24 @@ using namespace std;
 
 int main(){
 
-    int waffle[3][3];
-    int s = 0;
+    int vect[7] = {3, 5, 1, 1, 2, 3, 2};
+    int arr[4], cnt[4]={0,}; 
 
-    for (int r=0; r<3; r++){
-        for (int c=0; c<3; c++){
-            cin >> waffle[r][c];
-        }
-    }
-    for (int r=0; r<3; r++){
-        for (int c=0; c<r+1; c++){
-            s += waffle[r][c];
-        }
+    for (int r=0; r<4; r++){
+        cin >> arr[r];
     }
 
-    cout << s << endl;
+    for (int j=0; j<4; j++){    
+        for (int i=0; i<7; i++){
+            if (vect[i] == arr[j]){
+                cnt[j]++;
+            }
+        }
+    }
+
+    for (int i=0; i<4; i++){
+        cout << arr[i] << "=" << cnt[i] << "개" << endl;
+    }
 
     return 0;
 }
