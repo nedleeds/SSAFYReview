@@ -1,28 +1,33 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
+void swap(int *a, int *b){
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
 
 int main(){
+    int arr[6];
+    int curr, check;
 
-    int vect[7] = {3, 5, 1, 1, 2, 3, 2};
-    int arr[4], cnt[4]={0,}; 
-
-    for (int r=0; r<4; r++){
-        cin >> arr[r];
+    for (int i=0; i<6; i++){
+        cin >> arr[i];
     }
 
-    for (int j=0; j<4; j++){    
-        for (int i=0; i<7; i++){
-            if (vect[i] == arr[j]){
-                cnt[j]++;
+    for (int j=0; j<6; j++){
+        for (int k=j+1; k<6; k++){
+            if (arr[j] < arr[k]){
+                swap(&arr[j], &arr[k]);
             }
         }
     }
 
-    for (int i=0; i<4; i++){
-        cout << arr[i] << "=" << cnt[i] << "개" << endl;
+    for (int i=0; i<6; i++){
+        cout << arr[i];
     }
+
+    cout << endl;
 
     return 0;
 }
