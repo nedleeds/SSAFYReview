@@ -3,27 +3,26 @@
 using namespace std;
 
 int main(){
-    string s;
-    cin >> s;
+    char alphabets[8] = "ABCZETQ";
+    char blacklist[6];
 
-    for (int i=0; i<s.length(); i++){
-        if (i%2==0){
-            if ('A' <= s[i] && s[i] <= 'Z'){
-                ;
-            }else{
-                cout << "일반문장" << endl;
-                return 0;
-            }
-        } else {
-            if('a' <= s[i] && s[i] <= 'z'){
-                ;
-            }else{
-                cout << "일반문장" << endl;
-                return 0;
+    for (int i=0; i<5; i++){
+        cin >> blacklist[i];
+    }
+
+    int j;
+    for (int i=0; i<5; i++){
+        cout << blacklist[i] << "=";
+        for (j=0; j<8; j++){
+            if (blacklist[i] == alphabets[j]){
+                cout << "마을사람" << endl;
+                break;
             }
         }
+        if (j==8){
+            cout << "외부사람" << endl;
+        }
     }
-    cout << "개구리문장" << endl;
 
     return 0;
 }
