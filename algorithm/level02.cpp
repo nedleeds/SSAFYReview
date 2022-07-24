@@ -1,23 +1,53 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-int main(){
-    char a, b, c;
-    char *pa = &a, *pb = &b, *pc = &c;
+void swap(int *a, int *b){
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
 
-    cin >> a >> b >> c;
+void sort(int arr[2][3]){
+    int n[6];
 
-    if (*pa >= *pb && *pa >= *pc){
-        cout << *pa << endl;
-        return 0;
+    int idx = 0;
+    for (int r=0; r<2; r++){
+        for (int c=0; c<3; c++){
+            n[idx++] = arr[r][c];
+        }
     }
-    if (*pb >= *pa && *pb >= *pc){
-        cout << *pb << endl;
-        return 0;
-    }if (*pc >= *pa && *pc >= *pb){
-        cout << *pc << endl;
-        return 0;
+
+    for (int i=0; i<5; i++){
+        for (int j=i+1; j<6; j++){
+            if (n[i] > n[j]){
+                swap(&(n[i]), &(n[j]));
+            }
+        }
+    }
+
+    idx = 0;
+    for (int r=0; r<2; r++){
+        for (int c=0; c<3; c++){
+            arr[r][c] = n[idx++];
+        }
+    }
+}
+
+int main(){
+    int arr[2][3];
+
+    for (int r=0; r<2; r++){
+        for (int c=0; c<3; c++){
+            cin >> arr[r][c];
+        }
+    }
+    sort(arr);
+
+    for (int r=0; r<2; r++){
+        for (int c=0; c<3; c++){
+            cout << arr[r][c] << " ";
+        }
+        cout << endl;
     }
 
     return 0;
