@@ -2,25 +2,19 @@
 #include <string>
 using namespace std;
 
-int count(string *s, char x){
-    int cnt = 0;
-    for (int i=0; i<(*s).length(); i++){
-        if ((*s)[i]==x){
-            cnt++;
-        }
-    }
-    return cnt;
+void CountLine(string *s){
+    cout << (*s).length() << "=" << *s << endl;
 }
 
 int main(){
-    string s1 = "BBQWORLD";
-    string s2 = "KFCAPPLE";
-    string s3 = "LOT";
+    string s1, s2, s3;
     char c;
 
-    cin >> c;
+    cin >> s1 >> s2 >> s3;
 
-    cout << count(&s1, c) + count(&s2, c) + count(&s3, c) << endl;
+    CountLine(&s1);
+    CountLine(&s2);
+    CountLine(&s3);
 
     return 0;
 }
