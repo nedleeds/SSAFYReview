@@ -2,20 +2,27 @@
 using namespace std;
 
 int main(){
-    char arr[6] = {'A', 'P', 'P', 'L', 'E', 'T'};
-    char a[5];
-    int cnt=0;
+    int arr[4][4], n;
+    cin >> n;
 
-    for (int i=0; i<5; i++){
-        cin >> a[i];
-        for (int r=0; r<6; r++){
-            if (arr[r]==a[i]){
-                cnt++;
+    for (int r=0; r<4; r++){
+        if (r%2==0){
+            for (int c=0; c<4; c++){
+                arr[r][c] = n++;
+            }
+        }else{
+            for (int c=3; c>=0; c--){
+                arr[r][c] = n++;
             }
         }
     }
 
-    cout << cnt << "개 맞추었습니다" << endl;
+    for (int i=0; i<4; i++){
+        for (int j=0; j<4; j++){
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }
