@@ -3,15 +3,19 @@
 using namespace std;
 
 int main(){
-    string s1, s2; 
+    int a;
 
-    cin >> s1 >> s2;
+    cin >> a;
     
-    if (s1 == s2){
-        cout << "같음" << endl;
-    }else{
-        cout << "다름" << endl;
-    }
+    int w = a / 1000;
+    int x = a / 100 % 10;
+    int y = a / 10 % 10;
+    int z = a % 10;
+
+    cout << "숫자" << w << endl;
+    cout << "숫자" << x << endl;
+    cout << "숫자" << y << endl;
+    cout << "숫자" << z << endl;
 
     return 0;
 }
