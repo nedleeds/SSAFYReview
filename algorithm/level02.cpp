@@ -7,14 +7,31 @@ void CountLine(string *s){
 }
 
 int main(){
-    string s1, s2, s3;
-    char c;
+    string s[4];
 
-    cin >> s1 >> s2 >> s3;
+    int cnt_A = 0;
+    int cnt_B = 0;
+    for (int i=0; i<4; i++){
+        cin >> s[i];
+        for (int j=0; j<s[i].length(); j++){
+            if (s[i][j] == 'A'){
+                cnt_A ++;
+            }else if (s[i][j] == 'B'){
+                cnt_B ++;
+            }
+        }
+    }
 
-    CountLine(&s1);
-    CountLine(&s2);
-    CountLine(&s3);
+    if (cnt_A*cnt_B>0 && cnt_A+cnt_B>1){
+        cout << "대발견" << endl;
+    }
+    if (cnt_A*cnt_B==0 && (cnt_A>0 || cnt_B>0)){
+        cout << "중발견" << endl;
+    }
+    if (cnt_A == 0 && cnt_B == 0){
+        cout << "미발견" << endl;
+    }
+    
 
     return 0;
 }
