@@ -2,20 +2,25 @@
 #include <string>
 using namespace std;
 
-int main(){
-    string s[5];
-    int M_idx, M=0;
-
-    for (int i=0; i<5; i++){
-        cin >> s[i];
-        int l = s[i].length();
-        if (M < l){
-            M_idx = i;
-            M = l;
+int count(string *s, char x){
+    int cnt = 0;
+    for (int i=0; i<(*s).length(); i++){
+        if ((*s)[i]==x){
+            cnt++;
         }
     }
+    return cnt;
+}
 
-    cout << s[M_idx] << endl;
+int main(){
+    string s1 = "BBQWORLD";
+    string s2 = "KFCAPPLE";
+    string s3 = "LOT";
+    char c;
+
+    cin >> c;
+
+    cout << count(&s1, c) + count(&s2, c) + count(&s3, c) << endl;
 
     return 0;
 }
