@@ -3,23 +3,27 @@
 using namespace std;
 
 int main(){
-    int arr[3][5]={
-        {5, 1, 4, 2, 6},
-        {3, 5, 0, 0, 7},
-        {9, 9, 8, 3, 1}
-    };
-    int n, cnt=0;
+    int arr[3][4]={0};
+    int i = 1, x;
 
-    cin >> n;
-
-    for (int r=0; r<3; r++){
-        for (int c=0; c<5; c++){
-            if (arr[r][c] > n){
-                cnt++;
-            }
+    for (int r=2; r>=0; r--){
+        for (int c=3; c>=0; c--){
+            arr[r][c] = i++;
         }
     }
-    cout << cnt << "개" << endl;
+
+    cin >> x;
+    for (int c=0; c<4; c++){
+        arr[x-1][c] = 7;
+    }
+    
+    for (int r=0; r<3; r++){
+        for (int c=0; c<4; c++){
+            cout << arr[r][c] << " ";
+        }
+        cout << endl;
+    }
+    
 
     return 0;
 }
