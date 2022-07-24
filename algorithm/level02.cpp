@@ -2,33 +2,33 @@
 #include <string>
 using namespace std;
 
-void swap(char *a, char *b){
-    char tmp = *a;
-    *a = *b;
-    *b = tmp;
+void Output(int arr[3][3]){
+    for (int r=0; r<3; r++){
+        for (int c=0; c<3; c++){
+            if (arr[r][c] == 0){
+                cout << " ";
+            }else{
+                cout << arr[r][c];
+            }
+        }
+        cout << endl;
+    }
 }
 
-void sort(string *s){
-    int l = (*s).length();
-
-    for (int i=0; i<l-1; i++){
-        for (int j=i+1; j<l; j++){
-            if ((*s)[i] > (*s)[j]){
-                swap(&(*s)[i], &(*s)[j]);
-            }
+void Magic(int arr[3][3]){
+    int i = 1;
+    for (int r=0; r<3; r++){
+        for (int c=r; c<3; c++){
+            arr[r][c] = i++;
         }
     }
 }
 
 int main(){
-    string s1, s2;
+    int arr[3][3] = {0};
 
-    cin >> s1 >> s2;
-
-    sort(&s1);
-    sort(&s2);
-    
-    cout << s1 << s2 << endl;
+    Magic(arr);
+    Output(arr);
 
     return 0;
 }
