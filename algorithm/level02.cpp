@@ -1,33 +1,29 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-void swap(int *a, int *b){
+void swap(char *a, char *b){
     int tmp = *a;
     *a = *b;
     *b = tmp;
 }
 
 int main(){
-    int arr[6];
+    string s;
     int curr, check;
 
-    for (int i=0; i<6; i++){
-        cin >> arr[i];
-    }
+    cin >> s;
 
-    for (int j=0; j<6; j++){
-        for (int k=j+1; k<6; k++){
-            if (arr[j] < arr[k]){
-                swap(&arr[j], &arr[k]);
+    int l = s.length();
+    for (int i=0; i<l+1; i++){
+        for (int j=i; j<l; j++){
+            if (s[i]>s[j]){
+                swap(&s[i], &s[j]);
             }
         }
     }
 
-    for (int i=0; i<6; i++){
-        cout << arr[i];
-    }
-
-    cout << endl;
+    cout << s << endl;
 
     return 0;
 }
