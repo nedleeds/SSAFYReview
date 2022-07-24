@@ -2,47 +2,20 @@
 #include <string>
 using namespace std;
 
-void swap(char *s, char *t){
-    char tmp = *s;
-    *s = *t;
-    *t = tmp;
-}
+int main(){
+    string s[2];
 
-void sort(string *s){
-    int l = (*s).length();
-    for (int i=0; i<l-1; i++){
-        for (int j=i+1; j<l; j++){
-            if ((*s)[i] > (*s)[j]){
-                swap(&(*s)[i], &(*s)[j]);
-            }
+    for (int i=0; i<2; i++){
+        cin >> s[i];
+    }
+
+    int cnt = 0;
+    for (int i=0; i<8; i++){
+        if (s[0][i] != s[1][i]){
+            cnt++;
         }
     }
-}
 
-int main(){
-    string s1 = "POTIO";
-    string s2 = "ABCDE";
-    string s3 = "YOURE";
-    char ans[15];
-
-    int a, b;
-    cin >> a >> b;
-
-    int k = 0;
-    for (int i=a; i<=b; i++){
-        ans[k++] = s1[i];
-    }
-    for (int i=a; i<=b; i++){
-        ans[k++] = s2[i];
-    }
-    for (int i=a; i<=b; i++){
-        ans[k++] = s3[i];
-    }
-
-    for (int x=0; x<k; x++){
-        cout << ans[x];
-    }
-    cout << endl;
-
+    cout << cnt << endl;
     return 0;
 }
