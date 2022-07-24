@@ -3,15 +3,21 @@
 using namespace std;
 
 int main(){
-    int a, b, c;
-    cin >> a >> b >> c;
+    int arr[9] = {0};
+    int idx_s, idx_e;
 
-    for (int j=0; j<c; j++){
-        for (int i=0; i<b; i++){
-            cout << a+i << " ";
+    for (int j=0; j<3; j++){
+        cin >> idx_s >> idx_e;
+
+        for (int i=idx_s; i<=idx_e; i++){
+            arr[i]++;
         }
-        cout << endl;
     }
+
+    for (int i=0; i<9; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
