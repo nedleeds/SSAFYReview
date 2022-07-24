@@ -3,19 +3,26 @@
 using namespace std;
 
 int main(){
-    string s[2];
+    char x;
+    char arr[3][3] = {'\0'};
+    cin >> x;
 
-    for (int i=0; i<2; i++){
-        cin >> s[i];
-    }
-
-    int cnt = 0;
-    for (int i=0; i<8; i++){
-        if (s[0][i] != s[1][i]){
-            cnt++;
+    for (int r=2; r>-1; r--){
+        for (int c=0; c<=2-r; c++){
+            arr[r][c] = x++;
         }
     }
 
-    cout << cnt << endl;
+    for (int r=0; r<3; r++){
+        for (int c=0; c<3; c++){
+            if (arr[r][c]=='\0'){
+                cout << " ";
+            }else{
+                cout << arr[r][c];
+            }
+        }
+        cout << endl;
+    }
+
     return 0;
 }
