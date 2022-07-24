@@ -2,26 +2,37 @@
 #include <string>
 using namespace std;
 
-void reverse(string *s){
-    char tmp;
-    int l = (*s).length();
-    for (int i=0; i<(l/2); i++){
-        tmp = (*s)[i];
-        (*s)[i] = (*s)[l-i-1];
-        (*s)[l-i-1] = tmp;
+void swap(int *a, int *b){
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+void sort(int l[4]){
+    for (int i=0; i<3; i++){
+        for (int j=i+1; j<4; j++){
+            if (l[i] > l[j]){
+                swap(&l[i], &l[j]);
+            }
+        }
     }
 }
 
 int main(){
-    string s1, s2;
+    string s[4];
+    int l[4];
 
-    cin >> s1 >> s2;
-    reverse(&s2);
-    if (s1 == s2){
-        cout << "거울문장" << endl;
-    }else {
-        cout << "거울문장아님" << endl;
+    for (int i=0; i<4; i++){
+        cin >> s[i];
+        l[i] = s[i].length();
     }
+
+    sort(l);
+
+    for (int j=0; j<4; j++){
+        cout << l[j] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
