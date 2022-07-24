@@ -2,24 +2,23 @@
 #include <string>
 using namespace std;
 
-struct Product{
-    string name;
-    int size;
-    int price;
-}a, b;
-
 int main(){
-    cin >> a.name;
-    cin >> a.size;
-    cin >> a.price;
+    char a, b, c;
+    char *pa = &a, *pb = &b, *pc = &c;
 
-    cin >> b.name;
-    cin >> b.size;
-    cin >> b.price;
+    cin >> a >> b >> c;
 
-    cout << a.name << "," << b.name << endl;
-    cout << "AverageSize" << "=" << int((a.size+b.size)/2) << endl;
-    cout << "AveragePrice" << "=" << int((a.price+b.price)/2) << endl;
+    if (*pa >= *pb && *pa >= *pc){
+        cout << *pa << endl;
+        return 0;
+    }
+    if (*pb >= *pa && *pb >= *pc){
+        cout << *pb << endl;
+        return 0;
+    }if (*pc >= *pa && *pc >= *pb){
+        cout << *pc << endl;
+        return 0;
+    }
 
     return 0;
 }
