@@ -3,19 +3,20 @@
 using namespace std;
 
 int main(){
-    int a;
+    int students[6];
 
-    cin >> a;
+    for (int i=0; i<6; i++){
+        cin >> students[i];
+    }
     
-    int w = a / 1000;
-    int x = a / 100 % 10;
-    int y = a / 10 % 10;
-    int z = a % 10;
-
-    cout << "숫자" << w << endl;
-    cout << "숫자" << x << endl;
-    cout << "숫자" << y << endl;
-    cout << "숫자" << z << endl;
-
+    for (int j=0; j<5; j++){
+        if ((students[j]-students[j+1]) > -3 && (students[j]-students[j+1]) < 3){
+            ;
+        }else{
+            cout << "재배치필요" << endl;
+            return 0;
+        }
+    }
+    cout << "완벽한배치" << endl;
     return 0;
 }
