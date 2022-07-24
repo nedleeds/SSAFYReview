@@ -3,26 +3,19 @@
 using namespace std;
 
 int main(){
-    char alphabets[8] = "ABCZETQ";
-    char blacklist[6];
+    string s[5];
+    int M_idx, M=0;
 
     for (int i=0; i<5; i++){
-        cin >> blacklist[i];
+        cin >> s[i];
+        int l = s[i].length();
+        if (M < l){
+            M_idx = i;
+            M = l;
+        }
     }
 
-    int j;
-    for (int i=0; i<5; i++){
-        cout << blacklist[i] << "=";
-        for (j=0; j<8; j++){
-            if (blacklist[i] == alphabets[j]){
-                cout << "마을사람" << endl;
-                break;
-            }
-        }
-        if (j==8){
-            cout << "외부사람" << endl;
-        }
-    }
+    cout << s[M_idx] << endl;
 
     return 0;
 }
