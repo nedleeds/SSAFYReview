@@ -3,27 +3,31 @@
 using namespace std;
 
 int main(){
-    int arr[3][4]={0};
-    int i = 1, x;
+    int juso[8]={
+        402, 401, 302, 301,
+        202, 201, 102, 101
+    };
+    char name[8][5]={
+        "KIM", "TEA", "SOM", "OPPO",
+        "TOM", "GDK", "JAME", "MIN"
+    };
 
-    for (int r=2; r>=0; r--){
-        for (int c=3; c>=0; c--){
-            arr[r][c] = i++;
-        }
-    }
+    int num;
+    cin >> num;
 
-    cin >> x;
-    for (int c=0; c<4; c++){
-        arr[x-1][c] = 7;
-    }
-    
-    for (int r=0; r<3; r++){
-        for (int c=0; c<4; c++){
-            cout << arr[r][c] << " ";
+    for (int i=0; i<8; i++){
+        if (juso[i]==num){
+            for (int j=0; j<5; j++){
+                if (name[i][j]!='\0'){
+                    cout << name[i][j];
+                }else{
+                    cout << endl;
+                    return 0;
+                }
+            }
         }
-        cout << endl;
-    }
-    
+        
+    }   
 
     return 0;
 }
