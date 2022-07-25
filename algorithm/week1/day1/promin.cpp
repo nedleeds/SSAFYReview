@@ -1,34 +1,37 @@
 #include <iostream>
 using namespace std;
 
-int main(){
+int train[] = {3, 7, 6, 4, 2, 9, 1, 7};
+int team[3] = {0};
+
+int isTeam(int j)
+{
+    for (int i=0; i<2; i++){
+        if (train[j+i]!=team[i]){
+            return 0;
+        }
+    }
+    return j;
+}
+
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie();
     cout.tie();
 
-    char alphabet[5][3] = {
-        {'A', 'B', 'C'},
-        {'A', 'G', 'H'},
-        {'H', 'I', 'J'},
-        {'K', 'A', 'B'},
-        {'A', 'B', 'C'}
-    };
-    int DAT[26] = {0};
 
-    for (int r=0; r<5; r++){
-        for (int c=0; c<3; c++){
-            DAT[alphabet[r][c] - 'A']++;
-        }
+    for (int i=0; i<3; i++){
+        cin >> team[i];
     }
 
-    for (int i=0; i<26; i++){
-        if (DAT[i]){
-            for (int j=0; j<DAT[i]; j++){
-                cout << char(i + 'A');
-            }
+    for (int j=0; j<5; j++){
+        int r = isTeam(j);
+        if (r){
+            cout << r << "번~" << j+2 <<"번 칸\n";
         }
+        
     }
-    cout << "\n";
 
     return 0;
 } 
