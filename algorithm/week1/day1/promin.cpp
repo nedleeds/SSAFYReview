@@ -1,17 +1,22 @@
 #include <iostream>
 using namespace std;
 
-int train[] = {3, 7, 6, 4, 2, 9, 1, 7};
-int team[3] = {0};
+int apt[5][3] = {
+    {15, 18, 17},
+    {4, 6, 9},
+    {10, 1, 3},
+    {7, 8, 9}, 
+    {15, 2, 6}
+};
+int family[3];
 
-int isTeam(int j)
-{
+int isPattern(int floor) {
     for (int i=0; i<2; i++){
-        if (train[j+i]!=team[i]){
+        if (family[i] != apt[floor][i]){
             return 0;
         }
     }
-    return j;
+    return 1;
 }
 
 int main()
@@ -22,13 +27,13 @@ int main()
 
 
     for (int i=0; i<3; i++){
-        cin >> team[i];
+        cin >> family[i];
     }
 
-    for (int j=0; j<5; j++){
-        int r = isTeam(j);
+    for (int floor=4; floor>=0; floor--){
+        int r = isPattern(floor);
         if (r){
-            cout << r << "번~" << j+2 <<"번 칸\n";
+            cout << 5-floor <<"층\n";
         }
         
     }
