@@ -6,22 +6,23 @@ int main(){
     cin.tie();
     cout.tie();
 
-    int DAT[27]={0}; //Direct Address Table.
+    int DAT[26]={0}; //Direct Address Table.
     int n;
-    string ss;
-    cin >> ss;
+    string S;
+    cin >> S;
 
-    for (int i=0; i<ss.length(); i++){
-        DAT[ss[i]-'A']++;
+    for (int i=0; i<S.length(); i++){
+        DAT[S[i]-'A']++;
     }
 
-    int s = 0;
-    for (int j=0; j<27; j++){
-        if (DAT[j]>0){
-            s++;
+    int M = 0;
+    for (int j=0; j<26; j++){
+        if (M < DAT[j]){
+            M = DAT[j];
         }
     }
-    cout << s << "개\n";
+
+    cout << char(DAT[M] + 'A') << "\n";
     
     return 0;
 } 
