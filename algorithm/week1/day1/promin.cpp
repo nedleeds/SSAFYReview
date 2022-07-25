@@ -6,26 +6,22 @@ int main(){
     cin.tie();
     cout.tie();
 
-    int arr[3][5] = {
-        {1, 3, 3, 5, 1},
-        {3, 6, 2, 4, 2},
-        {1, 9, 2, 6, 5},
-    };
-    int DAT[10]={0};
+    int DAT[27]={0}; //Direct Address Table.
     int n;
-    cin >> n;
-    for (int r=0; r<3; r++){
-        for (int c=0; c<5; c++){
-            DAT[arr[r][c]]++;
-        }
+    string ss;
+    cin >> ss;
+
+    for (int i=0; i<ss.length(); i++){
+        DAT[ss[i]-'A']++;
     }
 
-    for (int j=1; j<=9; j++){
-        if (DAT[j]==n){
-            cout << j << " ";
+    int s = 0;
+    for (int j=0; j<27; j++){
+        if (DAT[j]>0){
+            s++;
         }
     }
-    cout << "\n";
+    cout << s << "개\n";
     
     return 0;
 } 
