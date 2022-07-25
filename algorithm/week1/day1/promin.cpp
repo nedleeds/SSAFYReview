@@ -1,23 +1,11 @@
 #include <iostream>
 using namespace std;
 
-int apt[5][3] = {
-    {15, 18, 17},
-    {4, 6, 9},
-    {10, 1, 3},
-    {7, 8, 9}, 
-    {15, 2, 6}
+int arr[3][3] = {
+    {3, 5, 4}, 
+    {1, 1, 2}, 
+    {1, 3, 9} 
 };
-int family[3];
-
-int isPattern(int floor) {
-    for (int i=0; i<2; i++){
-        if (family[i] != apt[floor][i]){
-            return 0;
-        }
-    }
-    return 1;
-}
 
 int main()
 {
@@ -25,18 +13,27 @@ int main()
     cin.tie();
     cout.tie();
 
+    int r, c;
+    cin >> r >> c;
 
-    for (int i=0; i<3; i++){
-        cin >> family[i];
-    }
+    int dir[4][2] = {
+        {-1, 0},
+        { 1, 0},
+        { 0,-1},
+        { 0, 1}
+    };
 
-    for (int floor=4; floor>=0; floor--){
-        int r = isPattern(floor);
-        if (r){
-            cout << 5-floor <<"층\n";
+    int s = 0;
+    for (int i = 0; i<4; i++){
+        int nr = r + dir[i][0];
+        int nc = c + dir[i][1];
+
+        if (0 <= nr && nr <=3 && 0 <= nc && nc <= 3){
+            s += arr[nr][nc];
         }
-        
     }
+    
+    cout << s << "\n";
 
     return 0;
 } 
