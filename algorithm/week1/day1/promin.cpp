@@ -6,34 +6,29 @@ int main(){
     cin.tie();
     cout.tie();
 
-    char town[3][3] = {
-        {'C', 'D', 'A'},
-        {'B', 'M', 'Z'},
-        {'Q', 'P', 'O'}
+    char alphabet[5][3] = {
+        {'A', 'B', 'C'},
+        {'A', 'G', 'H'},
+        {'H', 'I', 'J'},
+        {'K', 'A', 'B'},
+        {'A', 'B', 'C'}
     };
-
-    char black[4];
     int DAT[26] = {0};
 
-    for (int i = 0; i < 4; i++){
-        char c;
-        cin >> c;
-        black[i] = c;
-    }
-
-    for (int r = 0; r < 3; r++){
-        for (int c = 0; c < 3; c++){
-            DAT[town[r][c]-'A']++;
+    for (int r=0; r<5; r++){
+        for (int c=0; c<3; c++){
+            DAT[alphabet[r][c] - 'A']++;
         }
     }
 
-    int s = 0;
-    for (int i = 0; i < 4; i++){
-        if (DAT[black[i]-'A']){
-            s++;
+    for (int i=0; i<26; i++){
+        if (DAT[i]){
+            for (int j=0; j<DAT[i]; j++){
+                cout << char(i + 'A');
+            }
         }
     }
-    cout << s << "명\n";
+    cout << "\n";
 
     return 0;
 } 
