@@ -3,15 +3,14 @@ using namespace std;
 
 int arr[6] = {0};
 
-void moonstep(int idx, int len) {
-	if (idx == len-1) {
-		cout << arr[idx] << " ";
-		return ;
+void jump(int num, int jumpCnt) {
+	if (jumpCnt == 3) {
+		cout << num << " ";
+		return;
 	}
-
-	cout << arr[idx] << " ";
-	moonstep(idx + 1, len);
-	cout << arr[idx] << " ";
+	
+	jump(num + 2, jumpCnt + 1);
+	cout << num << " ";
 }
 
 int main() {
@@ -19,14 +18,10 @@ int main() {
 	cin.tie();
 	cout.tie();
 	
-	int idx = 0;
-	int len = 6;
+	int num = 0;
+	cin >> num;
 
-	for (int i = 0; i < 6; i++) {
-		cin >> arr[i];
-	}
-
-	moonstep(idx, len);
+	jump(num, 0);
 	cout << "\n";
 
 	return 0;
