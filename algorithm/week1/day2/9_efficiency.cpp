@@ -23,6 +23,7 @@ void func(int level) {
 		return;
 	}
 	
+    
 	// 재귀 구성
 	for (int i = 1; i <= 6; i++) {
 		// 가지치기 부분
