@@ -1,13 +1,12 @@
 #include <iostream>
 using namespace std;
 
-void printing(int num) {
-	if (num == 0) {
+void bbq(int num) {
+	if (num == 3) {
 		return;
 	}
 
-	printing(num/2);
-	cout << num << " ";
+	bbq(num+1);
 }
 
 
@@ -15,11 +14,8 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie();
 	cout.tie();
-	
-	int num;
-	cin >> num;
-	
-	printing(num);
+		
+	bbq(0);
 	cout << "\n";
 
 	return 0;
