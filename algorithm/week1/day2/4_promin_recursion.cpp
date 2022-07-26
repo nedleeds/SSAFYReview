@@ -1,15 +1,17 @@
 #include <iostream>
 using namespace std;
 
-void boomerang(int i) {
-	if (i == 0) {
-		cout << i << " ";
+int arr[6] = {0};
+
+void moonstep(int idx, int len) {
+	if (idx == len-1) {
+		cout << arr[idx] << " ";
 		return ;
 	}
 
-	cout << i << " ";
-	boomerang(i - 1);
-	cout << i << " ";
+	cout << arr[idx] << " ";
+	moonstep(idx + 1, len);
+	cout << arr[idx] << " ";
 }
 
 int main() {
@@ -17,9 +19,14 @@ int main() {
 	cin.tie();
 	cout.tie();
 	
-	int n;
-	cin >> n;
-	boomerang(n);
+	int idx = 0;
+	int len = 6;
+
+	for (int i = 0; i < 6; i++) {
+		cin >> arr[i];
+	}
+
+	moonstep(idx, len);
 	cout << "\n";
 
 	return 0;
