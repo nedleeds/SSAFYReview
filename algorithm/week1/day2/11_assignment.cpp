@@ -1,37 +1,44 @@
 #include <iostream>
 using namespace std;
 
-string branch = "ABC";
+string branch = "EWABC";
 string path;
-char DAT[3];
-int lvl;
+int DAT[26];
+int lvl = 4;
 int cnt = 0;
+char except;
+int isThere() {
+	for (int i = 0; i < path.length(); i++) {
+		if (path[i] == except) {
+			return 1;
+		}
+	}
+	return 0;
+}
 
 void func(int level) {
 	// 기저조건
 	if (level == lvl) {
-		for (int j = 0; j < 3; j++) {
-			if (DAT[j] == 3) {
-				return;
-			}
+		if (isThere()){
+			return;
 		}
-		cnt++;
 		cout << path << "\n";
 		return;
 	}
 
 	// 재귀조건
 	for (int i = 0; i < branch.length(); i++) {
-		if (DAT[branch[i] - 'A'] >= 3) {
-			continue;
+		if (DAT[branch[i] - 'A'] == 1) {
+			continue ;
 		}
-
+		
 		path.push_back(branch[i]);
-		DAT[branch[i] - 'A'] += 1;
-
+		DAT[branch[i]-'A'] = 1;
+		
 		func(level + 1);
+
 		path.pop_back();
-		DAT[branch[i] - 'A'] -= 1;
+		DAT[branch[i] - 'A'] = 0;
 	}
 }
 
@@ -40,13 +47,9 @@ int main() {
 	cin.tie();
 	cout.tie();
 
-	cin >> lvl;
+	cin >> except;
 	func(0);
-	if (lvl == 0){
-		cout << 0 << "\n";
-	}else{
-		cout << cnt << "\n";
-	}
+	cout << cnt << "\n";
 
 	return 0;
 }
