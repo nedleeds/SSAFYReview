@@ -1,31 +1,39 @@
 #include <iostream>
 using namespace std;
 
-string branch = "BGTK";
-char path[10];
-int lvl;
+
+int path[10];
+int branch;
 
 void func(int level) {
-    if (level == lvl) {
-        cout << path << "\n";
-        return ;
-    }
+	if (level == 4) {
+		for (int j = 0; j < 10; j++) {
+			if (path[j] > 0) {
+				cout << path[j];
+			}
+			else {
+				break;
+			}
+		}
+		cout << "\n";
+		return ;
+	}
 
-    for (int i = 0; i < branch.length(); i++) {
-        path[level] = branch[i];
-        func(level + 1);
-        path[level] = '\0';
-    }
-
+	for (int i = 1; i <= branch; i++) {
+		path[level] = i;
+		func(level + 1);
+		path[level] = 0;
+	}
 }
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie();
-    cout.tie();
-    
-    cin >> lvl;
-    func(0);
+	ios_base::sync_with_stdio(false);
+	cin.tie();
+	cout.tie();
 
-    return 0;
+	cin >> branch;
+
+	func(0);
+
+	return 0;
 }
