@@ -1,19 +1,26 @@
 #include <iostream>
 using namespace std;
 
-void bbq(int i) {
-	if (i == 4) {
+void boomerang(int i) {
+	if (i == 0) {
+		cout << i << " ";
 		return ;
 	}
-	bbq(i + 1);
+
+	cout << i << " ";
+	boomerang(i - 1);
+	cout << i << " ";
 }
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie();
 	cout.tie();
-
-	bbq(0);
+	
+	int n;
+	cin >> n;
+	boomerang(n);
+	cout << "\n";
 
 	return 0;
 }
