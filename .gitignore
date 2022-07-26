@@ -4,6 +4,7 @@
 *.pdf
 .vs
 x64
-.exe
-.sln
-.vcxproj*
+*.exe
+*.sln
+*.vcxproj*
+*.vcxproj.*
