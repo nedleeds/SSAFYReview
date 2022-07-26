@@ -1,34 +1,45 @@
 #include <iostream>
 using namespace std;
 
-int arr1[4][4];
-int arr2[4][4];
+// path -> DAT
+// index : 층 번호
+// value : 내가 현재 층에서 다음 층으로 내려가기 위해 "선택한 경로"
+
+char choice[] = { 'L', 'R' };
+char path[10];
+
+// level : 층 -> 어느 층까지 도달해야 종료되는가? 
+void func(int level) {
+    // 기저 조건 
+    if (level == 2) {
+        // cout << "RETURN\n";
+
+        // 최종 레벨에 도달했다면 -> 지금까지의 choice를 출력
+        cout << path << '\n';
+        return;
+    }
+
+    // 재귀 구성
+    // 반복문 -> 가지의 개수
+    /*
+    for (int i = 0; i < 2; i++)
+        func(level + 1);
+    */
+    for (int i = 0; i < 2; i++) {
+        /*char curchoice = choice[i];
+        cout << "경로 선택 : " << curchoice << '\n';*/
+
+        // 지금 층에서 선택하는 경로 -> path에 저장
+        // 다음 choice에 들어갈때 선택 
+        path[level] = choice[i];
+
+        func(level + 1);
+
+        // 해당 경로를 나올때 -> 초이스를 해제
+        path[level] = 0;
+    }
+}
 
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie();
-	cout.tie();
-
-	for (int r = 0; r < 4; r++) {
-		for (int c = 0; c < 4; c++) {
-			cin >> arr1[r][c];
-		}
-	}
-
-	for (int r = 0; r < 4; r++) {
-		for (int c = 0; c < 4; c++) {
-			cin >> arr2[r][c];
-		}
-	}
-
-	for (int r = 0; r < 4; r++) {
-		for (int c = 0; c < 4; c++) {
-			if (arr1[r][c] == 1 && arr2[r][c] == 1) {
-				cout << "걸리다\n";
-				return 0;
-			}
-		}
-	}
-	cout << "걸리지않는다\n";
-	return 0;
+    func(0);
 }
