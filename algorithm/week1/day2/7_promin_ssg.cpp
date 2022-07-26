@@ -1,28 +1,31 @@
 #include <iostream>
 using namespace std;
 
+string branch = "ABCD";
+string target;
+string path;
 
-int path[10];
-int branch;
+int cnt = 0;
+int ans;
 
 void func(int level) {
-	if (level == 4) {
-		for (int j = 0; j < 10; j++) {
-			if (path[j] > 0) {
-				cout << path[j];
-			}
-			else {
-				break;
-			}
+	// 기저 조건
+	if (level == 3) {
+		cnt++;
+		if (target == path) {
+			ans = cnt;
 		}
-		cout << "\n";
-		return ;
+		return;
 	}
 
-	for (int i = 1; i <= branch; i++) {
-		path[level] = i;
+	// 재귀 조건
+	for (int i = 0; i < branch.length(); i++) {
+		path.append(1, branch[i]);
 		func(level + 1);
-		path[level] = 0;
+		path.pop_back();
+		if (ans > 0) {
+			return ;
+		}
 	}
 }
 
@@ -31,9 +34,10 @@ int main() {
 	cin.tie();
 	cout.tie();
 
-	cin >> branch;
+	cin >> target;
 
 	func(0);
+	cout << ans << "번째\n";
 
 	return 0;
 }
