@@ -1,11 +1,12 @@
 #include <iostream>
 using namespace std;
 
-string branch = "ABC";
+string branch = "BGTK";
 char path[10];
+int lvl;
 
-void func(int level){
-    if (level == 2) {
+void func(int level) {
+    if (level == lvl) {
         cout << path << "\n";
         return ;
     }
@@ -13,9 +14,9 @@ void func(int level){
     for (int i = 0; i < branch.length(); i++) {
         path[level] = branch[i];
         func(level + 1);
-
         path[level] = '\0';
     }
+
 }
 
 int main() {
@@ -23,6 +24,7 @@ int main() {
     cin.tie();
     cout.tie();
     
+    cin >> lvl;
     func(0);
 
     return 0;
