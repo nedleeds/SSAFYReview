@@ -1,16 +1,15 @@
 #include <iostream>
 using namespace std;
 
-char arr[5];
-void printing(int idx) {
-	if (idx == 5) {
-		cout << "\n";
+void printing(int value, int end) {
+	if (value == end) {
+		cout << value << " ";
 		return;
 	}
 
-	cout << arr[idx];
-	printing(idx + 1);
-	cout << arr[idx];
+	cout << value << " ";
+	printing(value + 1, end);
+	cout << value << " ";
 }
 
 
@@ -19,12 +18,10 @@ int main() {
 	cin.tie();
 	cout.tie();
 	
-	for (int i = 0; i < 5; i++) {
-		cin >> arr[i];
-	}
+	int start, end;
+	cin >> start >> end;
 	
-	
-	printing(0);
+	printing(start, end);
 	cout << "\n";
 
 	return 0;
