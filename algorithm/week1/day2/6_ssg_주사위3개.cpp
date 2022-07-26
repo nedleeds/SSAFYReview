@@ -1,47 +1,48 @@
 #include <iostream>
 using namespace std;
 
-// path -> DAT
-// index : 층 번호
-// value : 내가 현재 층에서 다음 층으로 내려가기 위해 "선택한 경로"
+// 문제
+// 3개의 주사위를 굴려서 나올 수 있는 모든 눈금 조합을 출력
+// 단, 조합은 작은순 부터
+// 예) 111 112 113 114 115 116 121.... 666
 
-int choice[] = {1, 2, 3, 4, 5, 6};
+// SSG -> 층이 몇개인가? branch가 몇개인가? 
+// path의 크기는 어떻게 설정해야하는가? 
+
+// 모든 조합을 구하는 문제 
+
+// branch : 1~6 (총 6개, 주사위의 눈금의 수 -> 경우의 수)
+// level : 3개 (주사위의 수)
+
+// path
 int path[10];
 
-// level : 층 -> 어느 층까지 도달해야 종료되는가? 
-// 주사위를 3번 던지니깐 3층까지.
 void func(int level) {
-        // 기저 조건 
-        if (level == 3) {
-            // cout << "RETURN\n";
-
-            // 최종 레벨에 도달했다면 -> 지금까지의 choice를 출력
-            for (int i = 0; i < 3; i++) {
-                cout << path[i];
-            }
-            cout << '\n';
-            return;
+    // 기저조건
+    if (level == 3) {
+        // path에 기록된 여태까지 레벨의 나의 결정들을 출력 (경로출력)
+        for (int i = 0; i < 3; i++) {
+            cout << path[i];
         }
+        cout << '\n';
+        return;
+    }
 
-        // 재귀 구성
-        // 반복문 -> 가지의 개수
-        /*
-        for (int i = 0; i < 2; i++)
-            func(level + 1);
-        */
-        for (int i = 0; i < 6; i++) {
-            // 지금 층에서 선택하는 경로 -> path에 저장
-            // 다음 choice에 들어갈때 선택 
-            // 현재의 choice 는 현재 주사위 값 (choice[i])
-            path[level] = choice[i]; 
+    // 재귀 구성
+    // 다음 층으로 내려가는 경로 = 6 
+    for (int i = 1; i <= 6; i++) {
 
-            func(level + 1); 
+        // 들어가면서 : 지금 층에서 다음층으로 갈떄의 선택 기록
+        path[level] = i;
 
-            // 해당 경로를 나올때 -> 초이스를 해제
-            path[level] = 0; 
-        }
+        func(level + 1);
+
+        // 나오면서 : 위 층에서 선택한 기록을 해제
+        path[level] = 0;
+    }
 }
 
 int main() {
-    func(0); 
+    // 0 level에서 시작!
+    func(0);
 }
