@@ -2,3 +2,8 @@
 .vscode
 *.zip
 *.pdf
+.vs
+x64
+.exe
+.sln
+.vcxproj*
