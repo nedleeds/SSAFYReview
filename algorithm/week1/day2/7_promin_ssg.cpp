@@ -1,28 +1,26 @@
 #include <iostream>
 using namespace std;
 
-string s[3];
+string s;
+
+void printing(int num) {
+    cout << num << " ";
+    
+    if (num == 1) {
+        return;
+    }
+
+    printing(num - 1);
+    cout << num << " ";
+    
+}
 
 int main() {
     
-    int M = 0, M_idx;
+    cin >> s;
+    int l = s.length();
 
-    for (int i = 0; i < 3; i++) {
-        cin >> s[i];
-        if (s[i].length() > M) {
-            M = s[i].length();
-            M_idx = i;
-        }
-    }
-
-    string tmp;
-    tmp = s[0];
-    s[0] = s[M_idx];
-    s[M_idx] = tmp;
-
-    for (int i = 0; i < 3; i++) {
-        cout << s[i] << "\n";
-    }
+    printing(l);
 
     return 0;
 }
