@@ -9,37 +9,25 @@ using namespace std;
 //strcmp / strncmp
 //strcpy / strncpy
 //strstr
-
-//----string----
-//length()
-//+ , =, ==
-//substr
-//find
-//replace
-
-char encriptions[][100000] = {
-	"Jason",
-	"Dr.tom",
-	"EXEXI",
-	"GK12P",
-	"POW",
-};
-
+char s[3][10];
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie();
 	cout.tie();
 
-	char passwd[1000];
-	cin >> passwd;
-
-	for (int j = 0; j < 5; j++) {
-		if (strcmp(encriptions[j], passwd) == 0) {
-			cout << "��ȣ����\n";
-			return 0;
-		}
+	for (int i = 0; i < 3; i++) {
+		cin >> s[i];
 	}
-    
-	cout << "��ȣƲ��\n";
+
+	if (strcmp(s[0], s[1]) == 0 && strcmp(s[1], s[2]) == 0) {
+		cout << "WOW\n";
+	}
+	else if (strcmp(s[0], s[1]) != 0 && strcmp(s[0], s[2]) != 0 && strcmp(s[1], s[2]) != 0) {
+		cout << "BAD\n";
+	}
+	else {
+		cout << "GOOD\n";
+	}
+
 	return 0;
 }
