@@ -6,6 +6,7 @@ string branch[1000];
 string path[4]; //path의 index는 level로 넣어줘야겠네.
 // index로 넣고, index로 erase하는게 더 쉽다.
 int branch_len;
+int DAT[100];
 int cnt = 0;
 
 // branch - 6가지 종류의 카드 : 처음에 입력을 받음
@@ -24,11 +25,16 @@ void func(int level) {
 	}
 
 	for (int i = 0; i < branch_len; i++) {
-		// 가지치기 - 현재 path의 길이만큼 cristmas랑 비교
-		// 다르면? continue.
+		// 가지치기 - 사용한 카드는 continue.
+		if (DAT[i] > 0) {
+			continue;
+		}
+		
 		path[level] = branch[i];
+		DAT[i] = 1;
 		func(level + 1);
 		path[level] = "";
+		DAT[i] = 0;
 	}
 
 }
