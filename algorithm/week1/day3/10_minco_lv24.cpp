@@ -2,45 +2,40 @@
 #include <cstring>
 using namespace std;
 
-string logs;
+string arr[3][3] = {
+	"BHC", "BBQ", "KFC",
+	"MC", "7AVE", "PAPA",
+	"DHC", "OBS", "MOMS"
+};
 
-void upper(){
-	for (int i = 0; i < logs.length(); i++) {
-		if ('a' <= logs[i] && logs[i] <= 'z') {
-			logs[i] -= 'a' - 'A';
-		}
-	}
-}
-
-int FIND(string target) {
-	int idx = 0, cnt = 0;
-	while (idx < logs.length()) {
-		int find_idx = logs.find(target, idx);
-		if (find_idx != -1) {
-			idx = find_idx;
-			idx += target.length();
-			cnt++;
-		}
-		else {
-			idx++;
-		}
-	}
-	return cnt;
-}
+int dir[4][2] = {
+	// 위, 왼쪽, 아래, 오른쪽
+	{-1, 0},
+	{ 0,-1},
+	{ 1, 0},
+	{ 0, 1},
+};
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie();
 	cout.tie();
 
-	
-	cin >> logs;
-	upper();
+	int r, c;
+	cin >> r >> c;
 
-	int pass_num = FIND("PASS");
-	int fail_num = FIND("FAIL");
-	
-	cout << pass_num / (pass_num + fail_num) * 100 << "%\n";
+	for (int r = 0; r < 3; r++) {
+		for (int c = 0; c < 3; c++) {
+			for (int i = 0; i < 4; i++) {
+				int nr = r + dir[i][0];
+				int nc = c + dir[i][1];
+
+				if (0 <= nr && nr < 3 && 0 <= nc && nc < 3) {
+					cout << arr[r][c];
+				}
+			}
+		}
+	}
 
 	return 0;
 }
