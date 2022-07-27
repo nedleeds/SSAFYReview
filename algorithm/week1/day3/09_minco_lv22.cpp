@@ -17,10 +17,12 @@ using namespace std;
 //find
 //replace
 
-char arr[3][2][2]{
-	{{2, 4}, {1, 5}},
-	{{2, 3}, {3, 6}},
-	{{7, 3}, {1, 5}}
+char encriptions[][100000] = {
+	"Jason",
+	"Dr.tom",
+	"EXEXI",
+	"GK12P",
+	"POW",
 };
 
 int main() {
@@ -28,25 +30,15 @@ int main() {
 	cin.tie();
 	cout.tie();
 
-	int M = 0;
-	int m = 99999999;
+	char passwd[1000];
+	cin >> passwd;
 
-	int z;
-	cin >> z;
-
-	for (int r = 0; r < 2; r++) {
-		for (int c = 0; c < 2; c++) {
-			if (arr[z][r][c] > M) {
-				M = arr[z][r][c];
-			}
-			if (arr[z][r][c] < m) {
-				m = arr[z][r][c];
-			}
+	for (int j = 0; j < 5; j++) {
+		if (strcmp(encriptions[j], passwd) == 0) {
+			cout << "암호해제\n";
+			return 0;
 		}
 	}
-
-	cout << "MAX=" << M << "\n";
-	cout << "MIN=" << m << "\n";
-
+	cout << "암호틀림\n";
 	return 0;
 }
