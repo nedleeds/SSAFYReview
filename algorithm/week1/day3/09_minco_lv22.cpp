@@ -35,10 +35,11 @@ int main() {
 
 	for (int j = 0; j < 5; j++) {
 		if (strcmp(encriptions[j], passwd) == 0) {
-			cout << "¾ÏÈ£ÇØÁ¦\n";
+			cout << "ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½\n";
 			return 0;
 		}
 	}
-	cout << "¾ÏÈ£Æ²¸²\n";
+    
+	cout << "ï¿½ï¿½È£Æ²ï¿½ï¿½\n";
 	return 0;
 }
