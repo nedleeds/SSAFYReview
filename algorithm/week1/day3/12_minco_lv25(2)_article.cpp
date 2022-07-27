@@ -35,7 +35,6 @@ int main() {
 			}
 
 			find_idx = end_idx + 1;
-			cout << '\n';
 		}
 	}
 
