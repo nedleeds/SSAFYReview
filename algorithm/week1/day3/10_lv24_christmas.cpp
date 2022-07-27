@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+
 string branch[1000];
 string path[4]; //path의 index는 level로 넣어줘야겠네.
 // index로 넣고, index로 erase하는게 더 쉽다.
@@ -23,7 +24,8 @@ void func(int level) {
 	}
 
 	for (int i = 0; i < branch_len; i++) {
-		// 가지치기 - 
+		// 가지치기 - 현재 path의 길이만큼 cristmas랑 비교
+		// 다르면? continue.
 		path[level] = branch[i];
 		func(level + 1);
 		path[level] = "";
