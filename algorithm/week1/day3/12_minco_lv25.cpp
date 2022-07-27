@@ -1,31 +1,29 @@
 #include <iostream>
 using namespace std;
 
-string src[5] = {
-	"KFC", "MC", "BICMAC", "SHACK", "SONY"
-};
-
-string tgt[5] = {
-	"#BBQ#", "#BBQ#", "#MACBOOK#", "#SHOCK#", "#NONY#"
-};
-
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie();
 	cout.tie();
 
-	string s;
-	cin >> s;
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		string subject;
+		cin >> subject;
 
-	
-	for (int i = 0; i < 5; i++) {
-		int find_idx;
-		while ( (find_idx = s.find(src[i])) != -1){
-			s.replace(find_idx, src[i].length(), tgt[i]);
+		int j = 0;
+		while ( int start_idx = subject.find("[", j) != -1){
+			int end_idx = subject.find("]");
+			for (int i = start_idx; i <= end_idx; i++) {
+				cout << subject[i];
+			}
+			j = end_idx + 1;
+			cout << '\n';
 		}
 	}
+	
 
-	cout << s << '\n';
 
 	return 0;
 }
