@@ -17,35 +17,36 @@ using namespace std;
 //find
 //replace
 
-char s[4][100];
-char longest[10] = "";
-char shortest[10] = "aaaaaaaaa";
-int longest_idx = 0;
-int shortest_idx = 0;
+char arr[3][2][2]{
+	{{2, 4}, {1, 5}},
+	{{2, 3}, {3, 6}},
+	{{7, 3}, {1, 5}}
+};
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie();
 	cout.tie();
-	
-	for (int i = 0; i < 4; i++) {
-		cin >> s[i];
-		if (strcmp(s[i], "0")==0) {
-			cout << 0 <<"\n";
-			return 0;
-		}
-		if (strlen(s[i]) > strlen(longest)){
-			longest_idx = i;
-			strcpy(longest, s[i]);
-		}
-		if (strlen(s[i]) < strlen(shortest)) {
-			shortest_idx = i;
-			strcpy(shortest, s[i]);
+
+	int M = 0;
+	int m = 99999999;
+
+	int z;
+	cin >> z;
+
+	for (int r = 0; r < 2; r++) {
+		for (int c = 0; c < 2; c++) {
+			if (arr[z][r][c] > M) {
+				M = arr[z][r][c];
+			}
+			if (arr[z][r][c] < m) {
+				m = arr[z][r][c];
+			}
 		}
 	}
 
-	cout << "긴문장:" << longest_idx << '\n';
-	cout << "짧은문장:" << shortest_idx;
+	cout << "MAX=" << M << "\n";
+	cout << "MIN=" << m << "\n";
 
 	return 0;
 }
