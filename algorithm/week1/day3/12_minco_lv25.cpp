@@ -1,19 +1,12 @@
 #include <iostream>
-#include <cstring>
 using namespace std;
 
-string arr[3][3] = {
-	"BHC", "BBQ", "KFC",
-	"MC", "7AVE", "PAPA",
-	"DHC", "OBS", "MOMS"
+string src[5] = {
+	"KFC", "MC", "BICMAC", "SHACK", "SONY"
 };
 
-int dir[4][2] = {
-	// 위, 왼쪽, 아래, 오른쪽
-	{-1, 0},
-	{ 0,-1},
-	{ 1, 0},
-	{ 0, 1},
+string tgt[5] = {
+	"#BBQ#", "#BBQ#", "#MACBOOK#", "#SHOCK#", "#NONY#"
 };
 
 int main() {
@@ -21,21 +14,18 @@ int main() {
 	cin.tie();
 	cout.tie();
 
-	int r, c;
-	cin >> r >> c;
+	string s;
+	cin >> s;
 
-	for (int r = 0; r < 3; r++) {
-		for (int c = 0; c < 3; c++) {
-			for (int i = 0; i < 4; i++) {
-				int nr = r + dir[i][0];
-				int nc = c + dir[i][1];
-
-				if (0 <= nr && nr < 3 && 0 <= nc && nc < 3) {
-					cout << arr[r][c];
-				}
-			}
+	
+	for (int i = 0; i < 5; i++) {
+		int find_idx;
+		while ( (find_idx = s.find(src[i])) != -1){
+			s.replace(find_idx, src[i].length(), tgt[i]);
 		}
 	}
+
+	cout << s << '\n';
 
 	return 0;
 }
