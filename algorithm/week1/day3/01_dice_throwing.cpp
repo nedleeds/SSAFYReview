@@ -7,9 +7,16 @@ int DAT[19];
 string branch = "123456";
 string path;
 
+void print_path() {
+	for (int i = 0; i < path.length(); i++) {
+		cout << path[i] << " ";
+	}
+	cout << "\n";
+}
+
 void print_all(int level) {
 	if (level == dice_num) {
-		cout << path << "\n";
+		print_path();
 		return;
 	}
 
@@ -20,46 +27,33 @@ void print_all(int level) {
 	}
 }
 
-void setDAT() {
-	for (int i = 0; i < path.length(); i++) {
-		DAT[(path[i] - '0')] += 1;
-	}
-}
-
-int checkDAT() {
-	int currDAT[19] = { 0, };
-	for (int k = 0; k < path.length(); k++) {
-		currDAT[path[k] - '0'] += 1;
-	}
-
-	for (int j = 0; j < 19; j++) {
-		if (DAT[path[j] - '0'] != currDAT[path[j] - '0']) {
-			return 1;
-		}
-	}
-	return 0;
-}
-
 void print_wo_duplicate(int level) {
 	if (level == dice_num) {
-		if (checkDAT()) {
-			setDAT();
-			cout << path << "\n";
-		}
-
+		print_path();
 		return;
 	}
 
 	for (int i = 0; i < branch.length(); i++) {
+		if (level > 0) {
+			if (path[level - 1] > branch[i]) {
+				continue;
+			}
+		}
+		/*f (level > 0) {
+			if (path[level - 1] > i)
+				continue;
+		}*/
 		path.push_back(branch[i]);
+		DAT[path[i] - '0'] += 1;
 		print_wo_duplicate(level + 1);
 		path.pop_back();
+		DAT[path[i] - '0'] -= 1;
 
 	}
 }
 void print_different(int level) {
 	if (level == dice_num) {
-		cout << path << "\n";
+		print_path();
 		return;
 	}
 
