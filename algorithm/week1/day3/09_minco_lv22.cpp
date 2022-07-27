@@ -1,4 +1,4 @@
-//#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -17,34 +17,35 @@ using namespace std;
 //find
 //replace
 
-char s[5][5];
-char DAT[3];
+char s[4][100];
+char longest[10] = "";
+char shortest[10] = "aaaaaaaaa";
+int longest_idx = 0;
+int shortest_idx = 0;
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie();
 	cout.tie();
-	int floor = 1;
-
-	for (int i = 0; i < 5; i++) {
+	
+	for (int i = 0; i < 4; i++) {
 		cin >> s[i];
+		if (strcmp(s[i], "0")==0) {
+			cout << 0 <<"\n";
+			return 0;
+		}
+		if (strlen(s[i]) > strlen(longest)){
+			longest_idx = i;
+			strcpy(longest, s[i]);
+		}
+		if (strlen(s[i]) < strlen(shortest)) {
+			shortest_idx = i;
+			strcpy(shortest, s[i]);
+		}
 	}
 
-	for (int i = 0; i < 5; i++) {
-		if (strcmp(s[i], "up") == 0){
-			floor += 1;
-		}
-		else if (strcmp(s[i], "down") == 0) {
-			floor -= 1;
-		}
-	}
-
-	if (floor < 1) {
-		cout << 'B' << -floor + 1 << '\n';
-	}
-	else {
-		cout << floor << '\n';
-	}
+	cout << "긴문장:" << longest_idx << '\n';
+	cout << "짧은문장:" << shortest_idx;
 
 	return 0;
 }
