@@ -12,7 +12,7 @@ int main() {
 	cin >> cntNode >> cntEdge;
 
 	// adjacent matrix 저장하기.
-	for (int i = 0; i < cntEdge; i++) {
+	for (int i = 0; i < adjacent_matrix[0][0].size(); i++) {
 		int from, to;
 		cin >> from >> to;
 
