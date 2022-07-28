@@ -1,4 +1,6 @@
-//#include <iostream>
+﻿//#include <iostream>
+//#include <vector>
+//
 //using namespace std;
 //
 //int ans[100];
@@ -12,10 +14,6 @@
 //
 //	string sentence;
 //	for (int i = 0; i < cnt; i++) {
-//		cin >> sentence;
-//		int idx = sentence.find(' ', 0);
-//		cout << sentence.substr(0, idx);
-//
 //	}
 //
 //
