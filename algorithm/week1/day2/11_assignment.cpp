@@ -16,16 +16,29 @@ int checkPath() {
 }
 
 void func(int level) {
+<<<<<<< Updated upstream
 	// ±âÀú Á¶°Ç
 	if (level == 4) {
 		if (!checkPath()){
 			return;
+=======
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if (level == lvl) {
+		for (int j = 0; j < 3; j++) {
+			if (DAT[j] == 3) {
+				return;
+			}
+>>>>>>> Stashed changes
 		}
 		cnt++;
 		return;
 	}
 
+<<<<<<< Updated upstream
 	//Àç±Í Á¶°Ç
+=======
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+>>>>>>> Stashed changes
 	for (int i = 0; i < branch.length(); i++) {
 		path.push_back(branch[i]);
 		func(level + 1);
