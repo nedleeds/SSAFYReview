@@ -1,71 +1,57 @@
 ﻿#include <iostream>
-
+#include <vector>
 using namespace std;
-int arr[3][3] = {
-	{0, 5, 4},
-	{3, 0, 0},
-	{0, 0, 1}
-};
+
+vector<int> Number;
+string command;
+
+
+int visited[10];
+
+void findMax() {
+	int M = -2134567890, M_idx;
+	for (int i = 0; i < Number.size(); i++) {
+		if (visited[Number[i]] == 1) continue;
+		if (Number[i] > M) {
+			M = Number[i];
+			M_idx = i;
+		}
+	}
+	visited[M] += 1;
+	cout << M;
+}
+
+void findMin() {
+	int m = 2134567890, m_idx;
+	for (int i = 0; i < Number.size(); i++) {
+		if (visited[Number[i]] == 1) continue;
+		if (Number[i] < m) {
+			m = Number[i];
+			m_idx = i;
+		}
+	}
+	visited[m] += 1;
+	cout << m;
+}
 
 int main()
 {
-	/*
-	(0, 0) -> (0, 2)
-	(0, 1) -> (1, 2)
-	(0, 2) -> (2, 2)
-
-	(1, 0) -> (0, 1)
-	(1, 1) -> (1, 1)
-	(1, 2) -> (2, 1)
-
-	(2, 0) -> (0, 0)
-	(2, 1) -> (1, 0)
-	(2, 2) -> (2, 0)
-	*/
-
-	int num;
-	cin >> num;
 
 
-	for (int k = 0; k < num; k++) {
-		int tmp[3][3] = {
-			{0, 0, 0},
-			{0, 0, 0},
-			{0, 0, 0}
-		};
-		for (int r = 0; r < 3; r++) {
-			for (int c = 0; c < 3; c++) {
-				int nr = c;
-				int nc;
-				if (r == 0) {
-					nc = 2;
-				}
-				else if (r == 1) {
-					nc = 1;
-				}
-				else {
-					nc = 0;
-				}
-				tmp[nr][nc] = arr[r][c];
-			}
-		}
-		for (int r = 0; r < 3; r++) {
-			for (int c = 0; c < 3; c++) {
-				arr[r][c] = tmp[r][c];
-			}
-		}
+	for (int i = 0; i < 6; i++) {
+		int n;
+		cin >> n;
+		Number.push_back(n);
 	}
+	cin >> command;
 
-	for (int r = 0; r < 3; r++) {
-		for (int c = 0; c < 3; c++) {
-			if (arr[r][c] == 0) {
-				cout << '_';
-			}
-			else {
-				cout << arr[r][c];
-			}
+	for (int i = 0; i < command.length(); i++) {
+		if (command[i] == 'm') {
+			findMin();
 		}
-		cout << '\n';
+		else {
+			findMax();
+		}
 	}
 
 	return 0;
