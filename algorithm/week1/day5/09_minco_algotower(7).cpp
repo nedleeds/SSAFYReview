@@ -2,6 +2,9 @@
 #include <vector>
 using namespace std;
 
+// 1. (기본 DFS) --> 그냥 모든 노드를 한번씩 들려보는거 
+// 2. DFS + Backtracking --> 모든 경로를 들러보는것 
+
 int nodeNum;
 int adj_mtx[13][13];
 
