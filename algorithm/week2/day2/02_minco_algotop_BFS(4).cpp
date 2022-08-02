@@ -5,7 +5,7 @@ using namespace std;
 
 struct HP { int to, hp; };
 vector<HP> adjList[100001];
-int visited[100001];
+long long visited[100001];
 
 
 int main() {
