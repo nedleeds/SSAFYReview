@@ -6,7 +6,9 @@ using namespace std;
 struct HP { int to, hp; };
 vector<HP> adjList[100001];
 long long visited[100001];
-
+// K = 100,000,000 (1억) node number : 100,000 -> 그럼? 
+// edge level 이 30까지만 내려가도? 30억 -> int 최대 사이즈는 21억 4천
+// 그렇기 때문에 long long 으로 선언해야 오류가 안뜬다 !!
 
 int main() {
 	ios_base::sync_with_stdio(false);
