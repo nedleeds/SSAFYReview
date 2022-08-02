@@ -42,10 +42,6 @@ int main() {
 		Pos now = q.front();
 		q.pop();
 
-		if (now.r == target.r && now.c == target.c) {
-			cout << visited[now.r][now.c] << '\n';
-		}
-
 		for (int i = 0; i < 8; i++) {
 			Pos next = { now.r + dir[i][0], now.c + dir[i][1] };
 			if (next.r < 0 || next.c < 0 || next.r > rowMax || next.c > colMax)
@@ -53,6 +49,10 @@ int main() {
 			if (visited[next.r][next.c] > 0) continue;
 
 			visited[next.r][next.c] = visited[now.r][now.c] + 1;
+			if (MAP[next.r][next.c] == -1){
+				cout << visited[now.r][now.c] << '\n';
+				break;
+			}
 			q.push(next);
 		}
 
