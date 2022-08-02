@@ -31,18 +31,18 @@ int main() {
 
 	int startStation = 1;
 	int endStation = numStation;
+	int stationCnt = 0;
 	q.push(startStation);
 	visited[startStation] = 1;
 	while (!q.empty()) {
 		int now = q.front();
 		q.pop();
-
+		
 		for (int i = 0; i < adjList[now].size(); i++) {
 			int next = adjList[now][i];
 			if (visited[next] != 0) continue;
 
 			visited[next] = visited[now] + 1;
-
 			q.push(next);
 		}
 	}
