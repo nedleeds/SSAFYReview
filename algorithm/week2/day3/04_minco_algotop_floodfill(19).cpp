@@ -94,6 +94,79 @@ int main() {
 	floodfill(elsa, visited2);
 
 	getMax(visited1, visited2);
-	cout << getMin()-1 << '\n';
+	cout << getMin() - 1 << '\n';
 	return 0;
 }
+
+/*
+* 교수님 풀이 --> 최단거리 구해서 / 2
+#include <iostream>
+#include <queue>
+using namespace std;
+
+struct Node {
+	int y, x;
+};
+
+int ydir[] = { 0, 0, 1, -1 };
+int xdir[] = { 1, -1, 0, 0 };
+
+string MAP[5];
+int ey, ex, ay, ax;
+int n;
+int ans;
+
+void bfs(int y, int x) {
+	// queue 세팅
+	queue<Node>q;
+	q.push({ y, x });
+
+	// visited 세팅
+	int visited[5][5] = { 0, };
+	visited[y][x] = 1;
+
+	// bfs
+	while (!q.empty()) {
+		Node now = q.front();
+		q.pop();
+
+		// 만약 지금 도달한 위치가 안나의 위치라면
+		if (now.y == ay && now.x == ax) {
+			// 시작을 1로 했으니까
+			// 실제 거리 = 지금 기록된 값
+			ans = visited[now.y][now.x] - 1;
+			return;
+		}
+
+		for (int i = 0; i < 4; i++) {
+			int ny = now.y + ydir[i];
+			int nx = now.x + xdir[i];
+			if (ny < 0 || nx < 0 || ny >= n || nx >= n)
+				continue;
+			if (visited[ny][nx] > 0)
+				continue;
+
+			// 갈수 없는 곳 -> 빙하는 지나가지 못한다!
+			if (MAP[ny][nx] == '#')
+				continue;
+
+			visited[ny][nx] = visited[now.y][now.x] + 1;
+			q.push({ ny, nx });
+		}
+	}
+}
+
+int main() {
+	cin >> n;
+	// map input
+	for (int i = 0; i < n; i++)
+		cin >> MAP[i];
+	//elsa, anna input
+	cin >> ey >> ex >> ay >> ax;
+	// 안나 -> 엘사
+	// 엘사 -> 안나까지의 최단 경로
+	bfs(ey, ex);
+
+	cout << (ans+1)/ 2;
+
+*/

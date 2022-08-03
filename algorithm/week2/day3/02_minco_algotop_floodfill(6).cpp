@@ -31,9 +31,8 @@ void floodfill(Pos start, int group) {
 				continue;
 			if (visited[next.r][next.c] > 0)
 				continue;
-			if (MAP[group])
-				continue;
 
+			visited[next.r][next.c] = group;
 
 		}
 	}
@@ -56,10 +55,12 @@ int main() {
 	// 이런 애들은 일단 for문으로 2차원 배열을 모두 탐색
 	// r, c -> 스타트 (0, 0)으로 시작!! 
 	// floodfill 함수를 만들어서 호출하는게 더 생각하기도 보기도 편함
+	int group = 1;
 	for (int r = 0; r < rMax; r++) {
 		for (int c = 0; c < cMax; c++) {
 			if (MAP[r][c] == 1) {
-				floodfill({ r, c });
+				floodfill({ r, c }, group);
+				group += 1;
 			}
 		}
 	}
