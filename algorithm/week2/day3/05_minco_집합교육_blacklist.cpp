@@ -13,7 +13,6 @@ int main() {
 
 	int rMax, cMax;
 	cin >> rMax >> cMax;
-
 	for (int r = 0; r < rMax; r++) {
 		for (int c = 0; c < cMax; c++) {
 			int num;
@@ -22,10 +21,9 @@ int main() {
 		}
 	}
 
-	int rMax2, cMax2;
-	cin >> rMax2 >> cMax2;
-	for (int r = 0; r < rMax2; r++) {
-		for (int c = 0; c < cMax2; c++) {
+	cin >> rMax >> cMax;
+	for (int r = 0; r < rMax; r++) {
+		for (int c = 0; c < cMax; c++) {
 			int num;
 			cin >> num;
 			DAT[num] = 1;
@@ -33,7 +31,6 @@ int main() {
 	}
 
 	int cntBlack = 0;
-	int cntCitizen = 0;
 	// DAT를 사용해야된다.
 	for (int i = 0; i < Apart.size(); i++) {
 		if (DAT[Apart[i]])
