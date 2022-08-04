@@ -23,8 +23,6 @@ int main() {
 		pq.pop();
 	}
 
-	
-
 	return 0;
 }
 /*
@@ -127,4 +125,37 @@ int main() {
 			   : priority_queue<int, vector<int>, greater<int>> pq;
 			   : 이게 귀찮다? 그럼 입력 값에 -달아서 음수로 넣고, 출력시 -붙여서 다시 양수로
 
+오전 수업 샘플 코드
+#include<iostream>
+#include<queue>
+#include<algorithm>
+using namespace std;
+
+struct 비교구조 {
+	bool operator()(int A, int B)
+	{
+		//return true : B가 우선순위가 높음
+		// return false : A가 우선순위가 높음
+		if (A < B) return false;
+		if (A > B) return true;
+		return false;
+	} // 작은 값을 우선으로 쓰는 구조
+
+};
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie();
+	cout.tie();
+
+	priority_queue<int> pq; // default : 큰 값 우선(operator<, less 상태)
+	priority_queue<int, vector<int>, greater<int>> pqMIN1; // option : 작은 값 우선(operator>, grater로 세팅)
+	priority_queue<int, vector<int>, 비교구조> pqMIN2; // option : 비교구조를 활용한 작은 값 우선(직접 만든 비교구조로 세팅)
+	pq.push(6); // data 추가
+	pq.empty(); //비어있는가?
+	pq.size(); // data의 개수
+	pq.top(); // 제일 우선순위가 높은 data확인
+	pq.pop(); // 제일 우선순위가 높은 data삭제
+}
 */
