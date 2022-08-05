@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 150px;
+            height: 150px;
+            box-shadow: -2px 2px 2px 1px palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let body = document.querySelector("body");
+        let newTag = document.createElement("div");
+        // body.prepend(newTag);
+        body.appendChild(newTag);
+        body.style.display = "flex";
+        body.style.alignItems = "center";
+        body.style.justifyContent = "center";
+        newTag.setAttribute("class", "box");
+        newTag.style.backgroundColor = "darkorange";
+        newTag.style.width = "200px";
+        newTag.style.height = "100px";
+        newTag.textContent = "안녕하세요";
+        newTag.style.textAlign = "center";
+        newTag.style.display = "flex";
+        newTag.style.alignItems = "center";
+        newTag.style.justifyContent = "center";
+
+    </script>
+</body>
+</html>

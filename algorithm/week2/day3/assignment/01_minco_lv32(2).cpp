@@ -16,7 +16,7 @@ void doSort(vector<Student> s) {
 		int j = i - 1;
 		while (j >= 0 && s[j].score < key.score) {
 			s[j] = key;
-			j += 1;
+			j -= 1;
 		}
 
 		for (int k = 0; k < i; k++)
