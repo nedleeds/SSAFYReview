@@ -2,14 +2,17 @@
 #include <queue>
 using namespace std;
 int nums[] = { 1, 2, 3, 5 };
+
+int squareK(int k) {
+	int x = 3;
+	for (int i = 0; i < k; i++)
+		x *= x;
+	return x;
+}
+
 void uglyNumber(int idxEnd) {
-	int idx = 1;
-	while (idx <= idxEnd) {
-
-
-
-		idx++;
-	}
+	int k = 0;
+	while(idxEnd > squareK(1))
 
 }
 
