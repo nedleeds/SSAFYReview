@@ -11,9 +11,10 @@ int squareK(int k) {
 }
 
 void uglyNumber(int idxEnd) {
-	int k = 0;
-	while(idxEnd > squareK(1))
-
+	int k = 1;
+	int k3 = squareK(k);
+	
+	cout << k;
 }
 
 int main() {
