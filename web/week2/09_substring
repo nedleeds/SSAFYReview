@@ -1,0 +1,19 @@
+// 문자열.substring(시작 index, 끝 index)
+// 시작 index부터 끝 index '전'까지 문자열을 가져온다.
+// const a = str.substring(2, 6); 
+// -> 2번 인덱스부터 5번 인덱스까지 parsing
+
+// practice1
+let num1 = "";
+let num2 = "";
+for (let i=1; i<10; i++){
+    num1 += String(i);
+    num2 += String(i);
+}
+let nums = num1 + num2;
+
+let input1; 
+let input2;
+input1, input2 = prompt("숫자를 입력하세요 띄워서");
+console.log(input1, input2);
+console.log(nums.substring(Number(input1), Number(input2+1)));
