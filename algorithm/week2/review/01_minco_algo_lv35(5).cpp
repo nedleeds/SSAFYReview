@@ -4,27 +4,31 @@
 using namespace std;
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie();
-    cout.tie();
-    
-    int n, i, p2=0, p3=0, p5=0, minValue;
+	ios_base::sync_with_stdio(false);
+	cin.tie();
+	cout.tie();
 
-    cin >> n;
+	int iteration;
+	cin >> iteration;
 
-    vector<int> a(n);
+	for (int k = 0; k < iteration; k++) {
+		int n, i, p2 = 0, p3 = 0, p5 = 0, minValue;
 
-    a[0] = 1;
+		cin >> n;
 
-    for(i=1; i<n; i++) {
-        minValue = min(min(a[p2]*2,a[p3]*3),a[p5]*5);
-        if (minValue == a[p2]*2) p2++;
-        if (minValue == a[p3]*3) p3++;
-        if (minValue == a[p5]*5) p5++;
-        a[i] = minValue;
-    }
+		vector<int> a(n);
 
-    cout << a[n-1];
+		a[0] = 1;
 
-    return 0;
+		for (i = 1; i < n; i++) {
+			minValue = min(min(a[p2] * 2, a[p3] * 3), a[p5] * 5);
+			if (minValue == a[p2] * 2) p2++;
+			if (minValue == a[p3] * 3) p3++;
+			if (minValue == a[p5] * 5) p5++;
+			a[i] = minValue;
+		}
+
+		cout << a[n - 1] << ' ';
+	}
+	return 0;
 }
