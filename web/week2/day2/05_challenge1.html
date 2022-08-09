@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    배열<br>
+    <input type="text" class="arr"><br>
+    포함 되었는지 확인할 값<br>
+    <input type="text" class="check"><br>
+    <button>결과</button>
+    <div></div>
+
+    <script>
+        const inpt = document.querySelector('.arr')
+        const chck = document.querySelector('.check')
+        const btn = document.querySelector('button')
+        const div = document.querySelector('div')
+
+        // let inputs;
+        // inpt.addEventListener('change', function(e){
+        //     inputs = e.target.value.split(',')
+        //     inputs.forEach(value => Number(value))
+        //     console.log(inputs)
+        // })
+        
+        // let check;
+        // chck.addEventListener('change', function(e){
+        //     check = e.target.value
+        //     console.log(check)
+        // })
+
+        btn.addEventListener('click', function(){
+            // 위처럼 evenListener를 막 만들지 않고
+            // 아래 간단한 한줄로 동작하게 만들 수 있다!
+            let inputs = inpt.value.split(',') 
+            let check = chck.value
+            let ans = inputs.some(element => element==check);
+            console.log(inputs.some(element => element==check))
+            div.textContent = ans
+        })
+
+    </script>
+</body>
+</html>
