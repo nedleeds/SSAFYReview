@@ -24,7 +24,7 @@ int main() {
 	cout.tie();
 
 
-	//O(N*N)
+	//O(N*N) - 인접행렬 받아오기
 	int N;
 	cin >> N;
 	for (int r = 0; r < N; r++) {
@@ -35,7 +35,7 @@ int main() {
 		}
 	}
 
-	//O(N*N)
+	//O(N*N) - 연결된 폭탄들 받아오기
 	for (int r = 0; r < N; r++) {
 		for (int c = 0; c < N; c++) {
 			Bomb b;
@@ -51,10 +51,10 @@ int main() {
 		}
 	}
 
+	//O(N*N) - 연결된 폭탄들 터뜨리기
 	int cnt = 0;
 	int visited[1001] = {0,};
 	for (int i = 1; i <= N*N; i++) {
-		
 		if (visited[bombs[i].curr] != 0)
 			continue;
 
@@ -83,20 +83,39 @@ int main() {
 	return 0;
 }
 /*
+----------------[ 내 설계 ]-----------------
 인접행렬 + 방향 배열 + visited(1이면) continue
 매번 for문으로 다 터졌는지 확인한다?
 문제에서 N size -> 1~1000
 매번 백만번씩 확인한다는 것은 무리!
 
-0. 인접리스트 생성(N: 1001)
-   visited 생성.
 1. 처음 N사이즈 입력
+
 2. 인접행렬 입력 
    -> 방향 행렬: 인접 4군데 item 을 인접 리스트에 입력.
-3. priority queue로 해당 인접리스트 sort
-4. pop + not visited 면
-   --> checked(vector)에 본인 + 인접 다 넣어.
-5. checked.size()가 N*N이면 stop.
+   -> 인접리스트 생성(N: 1001) + visited 생성
 
+3. visited index 순서대로 접근
+   -> 폭탄 하나씩 터뜨리면서,
+   -> 터질 때마다 cnt++ 
+   -> cnt 올리고 나서는 N*N과 같은지 체크.
+   -> 같으면 출력 + 종료
+
+----------------[ 교수님 설계 ]----------------
+priority queue를 쓰면 쉽다~
+
+1. 인접행렬 입력
+   -> priority queue에 {현재 좌표 + 폭탄 번호} 넣어
+
+2. operator overiding 으로 폭탄 번호 내림차순 정렬
+
+3. pop 시작.
+   -> *** pop 했을 때, 해당 폭탄의 좌표 값이 있다?	***
+      *** 방향 배열 때려서 체크!!!				***
+      *** 여기서 방향을 가운데 포함으로 5개 설정	***
+      *** 체크 사항: 범위 + 폭탄 터졌었니			***
+	  *** 모든 걸 통과: cnt++					***
+
+4. priority queue가 빌 때까지 or 모든 폭탄 다 터질 때까지 반복
 
 */
