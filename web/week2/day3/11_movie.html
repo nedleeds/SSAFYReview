@@ -5,17 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Movie List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
         *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
         }
         body{
+            background-color: black;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             flex-wrap: wrap;
+            align-items: center;
         }
         header{
             width: 100%;
@@ -23,12 +32,14 @@
             background: rgb(38, 39, 38);
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            border-bottom: 1px solid #ccc;
+            justify-content: left;
+            border-bottom: 1px solid rgb(44, 45, 34);
+            background-color: rgb(0, 0, 0);
         }
         header h1{
-            margin: 0 20px;
+            margin: 20px;
             color: #fff;
+            font-family: 'Oswald', sans-serif;
         }
         header a {
             text-decoration: none;
@@ -43,11 +54,13 @@
             height: 30px;
             border: 1px solid black;
             outline: none;
-            border-radius: 20px;
+            border-radius: 15px;
             padding-left: 15px;
+            padding-bottom: 2px;
         }
 
         main{
+            background-color: black;
             width: 100%;
             display: flex;
             flex-wrap: wrap;
@@ -55,27 +68,56 @@
         }
         main div{
             width: 250px;
-            height: 320px;
-            margin: 19px 15px;
-            background: red;
+            height: max-content;
+            margin: 15px 10px;
+            background: black;
         }
         img{
             width: 100%;
             height: 89%;
             object-fit: cover;
+            border-radius: 10px;
         }
         h2{
-            font-size: 20px;
-            font-family: sans-serif;
+            font-size: 15px;
             font-weight: bold;
-            text-align: center;
+            text-align: left;
+            padding-left: 1%;
+            /* padding: 2px; */
             color: #fff;
+        }
+        .frame{
+            width: 80%;
+            height: 600px;
+            position: absolute;
+            z-index: 9;
+            background-color: black;
+            top: 10%;
+            left: 10%;
+            border-radius: 20px;
+            opacity: 89%;
         }
 
     </style>
 </head>
 <body>
+    <header>
+        <a href="#"><h1> Movies </h1></a>
+        <form id="form">
+            <input  type="text"
+                    id="search"
+                    placeholder="검색할 영화를 입력해주세요"
+                    class="search"/>
+        </form>
+    </header>
+    <!-- The main tag where we are going to put all our movies that we got from the API -->
+    <main id="main"></main>
     <script>
+        const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?api_key=35d3f9c1f03d43cf8a96c9631718ac61&language=ko-KO&query=";
+        const IMGPATH = 'https://www.themoviedb.org/t/p/w440_and_h660_face'
+        const main = document.getElementById("main");
+        const form = document.getElementById("form");
+        const search = document.getElementById("search");
         const request = axios.create({
             baseURL: "https://api.themoviedb.org/3/",
             params: {
@@ -84,54 +126,101 @@
             },
         });
 
-        async function getMovie(){
+        async function getMovie(url=NaN){
             const results = await request("movie/now_playing");
-            
+            const data = results.data.results;
+            console.log(data)
+            data.forEach(element => {
+                const el = document.createElement('div');
+                const image = document.createElement('img');
+                const text = document.createElement('h2');
+                text.innerHTML = `
+                    🎬&nbsp;&nbsp;${element.title}<br>
+                    ⭐️&nbsp;&nbsp;${element.vote_average} - ${element.vote_count}명
+                    `;
+                image.src = IMGPATH + element.poster_path;
+                el.appendChild(image);
+                el.appendChild(text);
+                main.appendChild(el);
+            })
+            // // 3. movie 하나 클릭 시 페이지 새로 뜨고 + 해당 영화 불러오기
+            // const movies = document.querySelector('.movie-poster')
+            // movies.addEventListener('click', function(e){
+            //     alert(e)
+            // })
         }
+
+        async function searchMovie(url=NaN){
+            fetch(url).then(res => res.json())
+            .then(function(data){
+            console.log(data.results);
+            data.results.forEach(element => {
+                const el = document.createElement('div');
+                const image = document.createElement('img');
+                const text = document.createElement('h2');
+
+                text.innerHTML = `
+                    🎬&nbsp;&nbsp;${element.title}<br>
+                    ⭐️&nbsp;&nbsp;${element.vote_average} - ${element.vote_count}명
+                    `;
+                image.src = IMGPATH + element.poster_path;
+                el.appendChild(image);
+                el.appendChild(text);
+                main.appendChild(el);
+                }); 
+            });
+        }
+
+        async function selectMovie(url=NaN){
+            fetch(url).then(res => res.json())
+            .then(function(data){
+            console.log(data.results);
+            data.results.forEach(element => {
+                const el = document.createElement('div');
+                const image = document.createElement('img');
+                const text = document.createElement('h2');
+
+                text.innerHTML = `
+                    🎬&nbsp;&nbsp;${element.title}<br>
+                    ⭐️&nbsp;&nbsp;${element.vote_average} - ${element.vote_count}명
+                    `;
+                image.src = IMGPATH + element.poster_path;
+                el.appendChild(image);
+                el.appendChild(text);
+                main.appendChild(el);
+                }); 
+            });
+        }
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            main.innerHTML = '';
+            const searchTerm = search.value;
+            /*  Adding the value wriiten in the search bar to the search Api,
+            in order to get the movies we search for. */
+            if (searchTerm) {
+                searchMovie(SEARCHAPI + searchTerm);
+                search.value = "";
+            }
+        });
         
-        console.log(getMovie());
-        // // API information.
-        // const apiUrl = 'https://api.themoviedb.org/3/movie/550?api_key=';
-        // const IMGPATH = "https://image.tmdb.org/t/p/w1280";
-        // const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=35d3f9c1f03d43cf8a96c9631718ac61&query=";
-        // // Selecting our Elements.
-        // const main = document.getElementById("main");
-        // const form = document.getElementById("form");
-        // const search = document.getElementById("search");
-        // /* call the showMovies function that requests the movie data from the Api using fetch.
-        // Then it puts those data in the main HTML tag by creating elments for those data. */
-        // showMovies(apiUrl);
-        // function showMovies(url){
-        //     fetch(url).then(res => res.json())
-        //     .then(function(data){
-        //         data.results.forEach(element => {
-        //         // Creating elemnts for our data inside the main tag. 
-        //             const el = document.createElement('div');
-        //             const image = document.createElement('img');
-        //             const text = document.createElement('h2');
+        // 1. 영화 리스트 불러오기
+        getMovie();
 
-        //             text.innerHTML = `${element.title}`;
-        //             image.src = IMGPATH + element.poster_path;
-        //             el.appendChild(image);
-        //             el.appendChild(text);
-        //             main.appendChild(el);
-        //         }); 
-        //     });
-        // }
+        // 2. 검색하고 나서 원래 페이지 돌아가기
+        const theme = document.querySelector('h1')
+        theme.addEventListener('click', function(e){
+            window.location.reload();
+            getMovie();
+        })
 
-        // // Prevent the Form from submitting if the search bar is empty.
-        // form.addEventListener("submit", (e) => {
-        //     e.preventDefault();
-        //     main.innerHTML = '';
-            
-        //     const searchTerm = search.value;
-        // /* Adding the value wriiten in the search bar to the search Api,
-        //     in order to get the movies we search for. */
-        //     if (searchTerm) {
-        //         showMovies(SEARCHAPI + searchTerm);
-        //         search.value = "";
-        //     }
-        // });
+        // 3. movie 하나 클릭 시 페이지 새로 뜨고 + 해당 영화 불러오기
+        main.addEventListener('click', (e)=>{
+            // classList.toggle("frame")
+            alert(e)
+            // frame.classList.toggle("frame")
+            console.log(e)
+        })
     </script>
 </body>
 </html>
