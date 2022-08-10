@@ -16,7 +16,8 @@ int main() {
 	cout.tie();
 
 	// 1. c string 
-	char str[] = "string";
+	// // C's string : null included
+	char str[] = "string"; 
 	int len = getlen(str);
 	cout << len << "\n";
 

@@ -6,14 +6,15 @@ int main() {
 	cin.tie();
 	cout.tie();
 
-	// C - ¹®ÀÚ¿­(!!! null °ª ¹Ýµå½Ã Æ÷ÇÔ !!!)
-	// ±×·¡¼­ character ¹è¿­·Î ¹®ÀÚ¿­ »ç¿ë½Ã -> Å©±â´Â ³Ë³ËÇÏ°Ô !!!
+	// C's string -> "" : null included
+	// considering with this, 
+	// you need to make the size big enough
 	char ch[3] = "AB";
 	
-	// C++ -  ¹®ÀÚ¹è¿­
+	// C++ - character array : no null
 	char ch[2] = { 'A', 'B' };
 
-	// ±âº» : ¹è¿­ -> Æ÷ÀÎÅÍ. ¹è¿­ÀÇ ÀÌ¸§Àº Ã¹¹øÂ° ¿ä¼ÒÀÇ ÁÖ¼Ò°ª
+	//ê¸°ë³¸ : ë°°ì—´ -> í¬ì¸í„°. ë°°ì—´ì˜ ì´ë¦„ì€ ì²«ë²ˆì§¸ ìš”ì†Œì˜ ì£¼ì†Œê°’
 	int arr[] = { 1, 2, 3 };
 	cout << arr << '\n';
 	cout << &arr[0] << '\n';
