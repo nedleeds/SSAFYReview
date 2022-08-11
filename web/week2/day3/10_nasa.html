@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body{
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        /* After는 가상선택자로 body 뒤쪽에 임의의 가상 element가 있다고 가정 */
+        /* 
+        덧씌우는 이유는 opacity가 투명도 속성인데 해당 속성은 상속이 자동으로 되기때문에
+        가상 선택자로 body 뒤쪽에 적용해서 다른 element들은 적용 안되게 설정하기 위함
+        */
+        body::after {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            min-height: 100vh;
+            background-color: rgb(40, 40, 40);
+            opacity: 0.8;
+            content: "";
+            display: block;
+        }
+        .container{
+            width: 100%;
+            margin: 70px auto;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        .box{
+            width: 60%;
+            height: 80%;
+            position: absolute;
+            z-index: 9;
+            background-size: cover;
+            background-repeat: no-repeat;
+            left:50%;
+            top:50%;
+            transform: translate(-50%, -50%);
+            border-radius: 27px;
+            transition: all 0.5s ease-out;
+        }
+        .title{
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+            opacity: 0.8;
+            font-size: 20px;
+        }
+        .hidden{
+            transform: rotate(30deg);
+            opacity: .9;
+            visibility: hidden;
+        }
+        .box:hover {
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            /* opacity: 0.8; */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- box라는 클래스로 꾸밀거야 : Title과 Url 필요 -->
+        <!-- 임의 Url : https://apod.nasa.gov/apod/image/0204/ngc5139_tan.jpg-->
+        <!-- box를 여러개 만든다: 반복문!! -->
+        <!-- <div class="box" style="background-image: url('https://apod.nasa.gov/apod/image/0410/titan_cassini_1pPIA06139.jpg');">
+            <div class="title">
+                Curiosity Inspects Mt. Remarkable on Mars
+            </div>
+        </div> -->
+        
+
+    </div>
+    <script>
+        function imageComponent(title, url){
+            return `
+                <div class="box" style="background-image: url('${url}');">
+                    <div class="title">
+                        ${title}
+                    </div>
+                </div>
+            `
+        }
+    //nasa key : IbKCAv4JbNpXRBRU2kbOUJRhKkxGkP3gBkhGrcdb
+        const key = "IbKCAv4JbNpXRBRU2kbOUJRhKkxGkP3gBkhGrcdb";
+        // const url = `https://api.nasa.gov/planetary/apod?api_key=${key}&count=10`;
+        const url = "https://api.nasa.gov/planetary/apod?api_key=IbKCAv4JbNpXRBRU2kbOUJRhKkxGkP3gBkhGrcdb&count=10"
+        async function getNasa(){
+            try{
+                const result = await axios.get(url);
+                console.log(result);
+                // 배열 첫번째 이미지는 배경화면으로 만들자
+                console.log(result.data[0].url)
+                const backgroundImageUrl = result.data[0].url;
+                document.querySelector('body').style.backgroundImage = `url(${backgroundImageUrl})`;
+
+                // result.data 에 배열에 객체 값들이 존재
+                // => reduce로 만들어서 html로 넣는다
+                // 그전에는 createElement로 만들어서 Append로 넣었지만
+                // const a = <div>안녕</div>
+                // document.querySelector('body').innerHTML = a
+                // innerHTML 사용해서 넣을 수 있다
+                // innerHTML : string식의 html 태그를 넣되 그 안의 내용을 모두 덧씌운다
+                // insertAdjacentHTML : 기존 html 태그는 유지하되 string식의 html 태그를 넣는다
+                // document.querySelector('body').innerHTML = imageComponent();
+                // document.querySelector('body').innerAdjacentHTML('beforeend', imageComponent(result.data[0]))
+                const components = result.data.reduce((acc, cur, index) => {
+                    acc = acc + imageComponent(cur.title, cur.url);
+                    return acc;
+                }, "")
+                document.querySelector('body').insertAdjacentHTML('beforeend', components)
+
+                // 전체 박스 가져오기
+                const allBox = document.querySelectorAll('.box')
+                allBox.forEach(li => li.addEventListener('click', function(e){
+                    // 이벤트가 일어난 엘리먼트
+                    e.target.classList.add('hidden');
+                }))
+            }catch(error){
+                console.log(error);
+            }
+        }
+        getNasa();
+    </script>
+</body>
+</html>

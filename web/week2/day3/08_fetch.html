@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Promise (then 사용 가능)
+        // fetch는 기본적으로 Promise 형태로 리턴이 된다
+        const url = "https://jsonplaceholder.typicode.com/todos/";
+        // fetch(url).then((res)=>{
+        //     console.log(res)
+        //     return res.json();
+        // }).then((data)  => {
+        //     console.log(data);
+        // })
+
+        // async await 버전
+        async function getData(){
+            try{
+                const fetchData = await fetch(url);
+                console.log(fetchData);
+                const data = await fetchData.json();
+                console.log(data);
+                // JSON.stringify(data) : Json 형식을 문자열로 변경
+                document.querySelector('body').textContent = JSON.stringify(data);
+            }catch(error){
+                console.log(error);
+                document.querySelector('body').textContent = "데이터를 정상적으로 가져올 수 없습니다"
+            }
+        }
+        getData();
+
+    </script>
+</body>
+</html>

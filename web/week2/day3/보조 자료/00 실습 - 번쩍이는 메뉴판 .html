@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container"></div>
+    <!-- 버튼클릭시 2초 후에 background color를 blue로 만들고 -->
+    <!-- 해당 상태에서 3초뒤에 background color를 white로 만들고 -->
+    <!-- 2초 뒤에 -->
+    <!-- menu를 boostrap table로 나타내어라 -->
+    <script>
+      (async function () {
+        const menus = [
+          {
+            id: 1,
+            menu: "치킨",
+            price: 2000,
+          },
+          {
+            id: 2,
+            menu: "마라탕",
+            price: 1000,
+          },
+          {
+            id: 3,
+            menu: "돈까스",
+            price: 4000,
+          },
+          {
+            id: 4,
+            menu: "샐러드",
+            price: 2000,
+          },
+        ];
+
+        function sleep(time) {
+          return new Promise(function (resolve, reject) {
+            setTimeout(() => {
+              resolve();
+            }, time);
+          });
+        }
+        
+        function trs(data) {
+          return `
+            <tr>
+                <th scope="row">${data.id}</th>
+                <td>${data.menu}</td>
+                <td>${data.price}</td>
+            </tr>
+            `;
+        }
+        
+        await sleep(1000);
+        document.querySelector("body").style.backgroundColor = "blue";
+        await sleep(1000);
+        document.querySelector("body").style.backgroundColor = "white";
+        await sleep(1000);
+
+        // <tr>
+        //         <th scope="row">1</th>
+        //         <td>Mark</td>
+        //         <td>Otto</td>
+        // </tr>
+        const trTag = (data, index) => `
+            <tr>
+                <th scope="row">${index}</th>
+                <td>${data.menu}</td>
+                <td>${data.price}</td>
+            </tr>
+        `;
+
+        const makingTable = (menus) => {
+          const menusHTML = menus.reduce((acc, cur, index) => {
+            acc += trTag(cur, index + 1);
+            return acc;
+          }, "");
+          return `
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">메뉴</th>
+                    <th scope="col">가격</th>              
+                </tr>
+            </thead>
+            <tbody>
+                ${menusHTML}
+            </tbody>
+          </table>`;
+        };
+        document
+          .querySelector(".container")
+          .insertAdjacentHTML("beforeend", makingTable(menus));
+      })();
+    </script>
+  </body>
+</html>

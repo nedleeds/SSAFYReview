@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+// Promise로 리팩토링하기
+      function getData() {
+        return new Promise(function(resolve, reject) {
+          const httpRequest = new XMLHttpRequest();
+        console.log(httpRequest);
+       
+        console.log(httpRequest.readyState);
+        
+        httpRequest.onreadystatechange = function(){
+   
+            if(httpRequest.readyState === httpRequest.DONE){
+                if(httpRequest.status === 200 || httpRequest.status === 201){
+                  resolve(httpRequest.response); 
+                }else{
+                    reject("에러 발생");
+                }
+            }
+        }
+        httpRequest.open("GET", "https://jsonplaceholder.typicode.com/todos/");
+        httpRequest.responseType = 'json';
+        httpRequest.send();
+        })
+      }
+      getData().then(li => console.log(li));
+
+      // async await 리팩토링
+      (async function (){
+        const data = await getData();
+        console.log(data);
+      })();
+      
+    </script>
+  </body>
+</html>
