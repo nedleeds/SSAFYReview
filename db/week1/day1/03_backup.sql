@@ -1,0 +1,12 @@
+-- back up 단계
+-- 1) administration 클릭
+-- 2) data export
+-- 3) 백업하고자하는 table 선택
+-- 4) start export
+
+-- back up Import 단계
+-- 1) Administration
+-- 2) Data Import / Restore
+-- 3) Import Dump Project folder 에서 dump 폴더에 로딩 폴더 선택
+-- 4) 저장된 schema 선택 후 start Import 클릭
+-- 5) 새로 만든 wow table이 사라지지 않고, 삭제된 honey 데이터들이 복원되는 것을 확인 할 수 있다.

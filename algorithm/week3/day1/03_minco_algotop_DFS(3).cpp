@@ -7,7 +7,9 @@ struct Node {
 	int left, right;
 }node;
 vector<Node> adjList[1001];
-vector<int> path;
+vector<int> path1;
+vector<int> path2;
+vector<int> path3;
 int visited[1001];
 int numNode;
 
@@ -17,37 +19,23 @@ bool cmp(int a, int b) {
 	return false;
 }
 
-vector<int> path2;
 void dfs_1(int now) {
-	Node next = adjList[now][0];
-	vector<int> checklist = { next.left, next.right };
-
-	if (next.left == -1 && next.right == -1) {
-		if (visited[now] == 1) {
-			path.push_back(now);
-			visited[now]++;
-		}
+	if (now == -1) {
 		return;
 	}
+
+	Node next = adjList[now][0];
+	vector<int> checklist = { next.left, next.right };
 
 	for (int j = 0; j < 2; j++) {
 		int nextNode = checklist[j];
 		if (nextNode == -1) continue;
 		if (visited[nextNode] != 0) continue;
 
-
 		visited[nextNode] = 1;
-		if (visited[now] == 1 && checklist[0] == -1) {
-			path.push_back(now);
-			path.push_back(checklist[1]);
-			visited[now]++;
-			visited[checklist[1]]++;
-		}
 		dfs_1(nextNode);
-		if (visited[now] == 1) {
-			path.push_back(now);
-			visited[now]++;
-		}
+		
+		path1.push_back(nextNode);
 	}
 }
 
@@ -57,13 +45,11 @@ void dfs_2(int now) {
 		vector<int> checklist = { next.right, next.left };
 		for (int j = 0; j < checklist.size(); j++) {
 			int nextNode = checklist[j];
-			if (nextNode == -1) continue;
 			if (visited[nextNode] != 0) continue;
 
 			visited[nextNode] = 1;
 			dfs_2(nextNode);
-			path.push_back(nextNode);
-
+			path2.push_back(nextNode);
 		}
 	}
 }
@@ -79,34 +65,31 @@ void dfs_3(int now) {
 
 			visited[nextNode] = 1;
 			dfs_3(nextNode);
-			path.push_back(nextNode);
+			path3.push_back(nextNode);
 
 		}
 	}
 }
 
-void print_path() {
+void print_path(vector<int> p) {
 	int i;
-	for (i = 0; i < path.size() - 1; i++) {
-		cout << path[i] << ' ';
+	for (i = 0; i < p.size() - 1; i++) {
+		cout << p[i] << ' ';
 	}
-	cout << path[i] << '\n';
+	cout << p[i] << '\n';
 }
 
-void print_reverse() {
+void print_reverse(vector<int> p) {
 	int i;
-	for (i = path.size() - 1; i >= 1; i--) {
-		cout << path[i] << ' ';
+	for (i = p.size() - 1; i >= 1; i--) {
+		cout << p[i] << ' ';
 	}
-	cout << path[i] << '\n';
+	cout << p[i] << '\n';
 }
 
 void init() {
 	for (int i = 0; i < 1001; i++) {
 		visited[i] = 0;
-	}
-	while (!path.empty()) {
-		path.pop_back();
 	}
 }
 
@@ -125,19 +108,19 @@ int main() {
 	int startNode = 1;
 	visited[startNode] = 1;
 	dfs_1(startNode);
-	print_path();
+	print_path(path);
 
 	init();
 	cout << startNode << ' ';
 	visited[startNode] = 1;
 	dfs_2(startNode);
-	print_reverse();
+	print_reverse(path2);
 
 	init();
 	visited[startNode] = 1;
 	dfs_3(startNode);
 	path.push_back(startNode);
-	print_path();
+	print_path(path3);
 
 
 
