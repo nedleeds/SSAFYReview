@@ -94,3 +94,15 @@ int main() {
 
 	return 0;
 }
+
+// node 하나에서 갈 수 있는 모든 경로 탐색 -> DFS, BFS
+// 차이는? 
+// 
+// 1) 구현 상의 차이
+//	  DFS는 가야하는 Node를 vector로 넣어서 for문으로 탐색
+//    BFS는 가야하는 Node를 queue로 넣어서 while !queue.empty()로 탐색
+// 
+// 2) 동작 과정의 차이
+//	  DFS는 노드 하나에서 갈 수 있는 가장 깊은 곳을 재귀로 접근
+//	  BFS는 노드 하나에서 출발해 근처 갈 수 있는 곳을 queue에다 넣고 접근
+//
