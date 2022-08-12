@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+header{
+    width: 100%;
+    height: 50px;
+    background: rgb(38, 39, 38);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border-bottom: 1px solid rgb(44, 45, 34);
+    background-color: rgb(0, 0, 0);
+}
+header h1{
+    margin: 20px;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    padding-bottom: 9px;
+    padding-left: 10px;
+}
+header a {
+    text-decoration: none;
+}
+header form{
+    display: flex;
+    align-items: center;
+}
+/* The search bar */
+#search{
+    width: 230px;
+    height: 30px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 11px;
+    padding-left: 15px;
+}
+
+main{
+    background-color: black;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+main div{
+    width: 250px;
+    height: max-content;
+    margin: 15px 10px;
+    background: black;
+}
+img{
+    width: 100%;
+    height: 89%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+h2{
+    font-size: 45px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 3%;
+    margin-top: 2%;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+}
+
+.movieListContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    width: 100%;
+    height: fit-content;
+    margin-top: 5px;
+    margin-bottom: 0%;
+    background-color: black;
+}
+
+div.cardContainer{
+    position: relative;
+    width: 250px;
+    height: auto;
+    background-color: blackwhite;
+    margin-left: 15px;
+}
+.cardContainer > .cardImage{
+    /* position: absolute;` */
+    margin-top: 5%;
+    width: 250px;
+    height: auto;
+    z-index: 9;
+    top: 1%;
+    left: 15%;
+    border-radius: 20px;
+    opacity: 90%;
+}
+.cardContainer > .cardInfo{
+    width: 250px;
+    /* position: absolute; */
+    bottom: 5%;
+    text-align: center;
+    color:white;
+}
+

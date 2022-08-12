@@ -18,7 +18,7 @@ int paths[10][100];
 0 0 0 0 0 0 0
 0 0 0 0 0 0 0
 0 0 0 0 0 0 0
-*/
+*/	
 
 void dfs(int now) {
 	int s = 0;
