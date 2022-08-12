@@ -10,6 +10,7 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    height: min-content;
 }
 header{
     width: 100%;
@@ -34,6 +35,9 @@ header a {
 header form{
     display: flex;
     align-items: center;
+}
+.playlist{
+    display: flex;
 }
 /* The search bar */
 #search{
@@ -65,11 +69,19 @@ img{
     border-radius: 10px;
 }
 h2{
+    padding-left: 28px;
+    margin-top: 15px;
+    padding-top: 10px;
     font-size: 45px;
     font-weight: bold;
     text-align: left;
-    padding-left: 3%;
-    margin-top: 2%;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+}
+h3{
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
     color: #fff;
     font-family: 'Oswald', sans-serif;
 }

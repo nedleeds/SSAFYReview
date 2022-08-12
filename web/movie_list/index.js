@@ -1,5 +1,5 @@
 const APIKEY = "35d3f9c1f03d43cf8a96c9631718ac61";
-const SEARCHAPI = `"https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=ko-KO&query="`;
+const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?api_key=35d3f9c1f03d43cf8a96c9631718ac61&language=ko-KO&query=";
 const IMGPATH = 'https://www.themoviedb.org/t/p/w440_and_h660_face';
 const request = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
@@ -22,54 +22,72 @@ function getCardContainer(cur){
     `
   }
 
-async function rederMovie(){
+async function renderMovie(){
     const nowPlayingData = await request("movie/now_playing");
-    console.log(nowPlayingData.data);
+    const popularData = await request("movie/popular");
+    // console.log(nowPlayingData.data);
+    // console.log(popularData.data);
     const nowPlayingList = nowPlayingData.data.results.reduce((acc, cur) => {
         acc.push(cur);
         return acc
     }, [])
 
-    const cardContainer = nowPlayingList.reduce((acc, cur) => {
+    const popularList = popularData.data.results.reduce((acc, cur) => {
+        acc.push(cur);
+        return acc
+    }, [])
+
+    const nowPlayingContainer = nowPlayingList.reduce((acc, cur) => {
         acc = acc + getCardContainer(cur)
         return acc;
     }, "")
-    console.log(cardContainer);
-    document.querySelector('.movieListContainer').insertAdjacentHTML('beforeend', cardContainer);
-    
+    const popularContainer = popularList.reduce((acc, cur) => {
+        acc = acc + getCardContainer(cur)
+        return acc;
+    }, "")
 
-
-    const slider = document.querySelector('.items');
-    let isMouseDown = false;
-    let startX, scrollLeft;
-
-    slider.addEventListener('mousedown', (e) => {
-    isMouseDown = true;
-    slider.classList.add('active');
-
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        main.innerHTML = '';
+        const searchTerm = search.value;
+        /*  Adding the value wriiten in the search bar to the search Api,
+        in order to get the movies we search for. */
+        if (searchTerm) {
+            searchMovie(SEARCHAPI + searchTerm);
+            search.value = "";
+        }
     });
 
-    slider.addEventListener('mouseleave', () => {
-    isMouseDown = false;
-    slider.classList.remove('active');
-    });
+    const theme = document.querySelector('h1')
+    theme.addEventListener('click', function(e){
+        window.location.reload();
+        getMovie();
+    })
+    // console.log(nowPlayingContainer);
+    // console.log(popularContainer);
+    document.querySelector('.MC1').insertAdjacentHTML('beforeend', nowPlayingContainer);    
+    document.querySelector('.MC2').insertAdjacentHTML('beforeend', popularContainer);    
+}
 
-    slider.addEventListener('mouseup', () => {
-    isMouseDown = false;
-    slider.classList.remove('active');
-    });
+async function searchMovie(url=NaN){
+    fetch(url).then(res => res.json())
+    .then(function(data){
+        console.log(data.results);
+        data.results.forEach(element => {
+            const el = document.createElement('div');
+            const image = document.createElement('img');
+            const text = document.createElement('h3');
 
-    slider.addEventListener('mousemove', (e) => {
-    if (!isMouseDown) return;
-
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1;
-    slider.scrollLeft = scrollLeft - walk;
+            text.innerHTML = `
+                🎬&nbsp;&nbsp;${element.title}<br>
+                ⭐️&nbsp;&nbsp;${element.vote_average} - ${element.vote_count}명
+                `;
+            image.src = IMGPATH + element.poster_path;
+            el.appendChild(image);
+            el.appendChild(text);
+            main.appendChild(el);
+        }); 
     });
 }
 
-rederMovie();
-
+renderMovie();
