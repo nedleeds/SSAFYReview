@@ -6,6 +6,19 @@ using namespace std;
 struct Node {
 	int left, right;
 }node;
+
+struct Node2 {
+	int data;
+	struct Node2 *left, *right;
+};
+
+Node2* newNode(int currNode) {
+	Node2* temp = new Node2;
+	temp->data = currNode;
+	temp->left = temp->right = NULL;
+	return temp;
+}
+
 vector<Node> adjList[1001];
 vector<int> path1;
 vector<int> path2;
@@ -103,12 +116,15 @@ int main() {
 		int from;
 		cin >> from >> node.left >> node.right;
 		adjList[from].push_back(node);
+		struct Node2* root = newNode(from);
+		root->left = newNode(node.left);
+		root->right= newNode(node.right);
 	}
 
 	int startNode = 1;
 	visited[startNode] = 1;
 	dfs_1(startNode);
-	print_path(path);
+	print_path(path1);
 
 	init();
 	cout << startNode << ' ';
@@ -119,7 +135,7 @@ int main() {
 	init();
 	visited[startNode] = 1;
 	dfs_3(startNode);
-	path.push_back(startNode);
+	path3.push_back(startNode);
 	print_path(path3);
 
 
