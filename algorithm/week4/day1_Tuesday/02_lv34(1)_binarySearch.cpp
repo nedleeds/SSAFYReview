@@ -9,7 +9,6 @@ int binarySearch(int target) {
 
 	while (left <= right) {
 		int mid = (left + right) / 2;
-		cout << mid << '\n';
 		if (arr[mid] == target) {
 			return 1;
 		}
