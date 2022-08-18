@@ -4,15 +4,17 @@ using namespace std;
 int dp[36];
 
 int fibo_with_dp(int n) {
-	if (n <= 1)
-		dp[n] = n;
-	return n;
-
 	if (dp[n] > 0)
 		return dp[n];
 
-	int first = fibo_with_dp(n - 1);
-	int second = fibo_with_dp(n - 2);
+	if (n <= 1) {
+		dp[n] = n;
+		return n;
+	}
+
+
+	int first = fibo_with_dp(n - 2);
+	int second = fibo_with_dp(n - 1);
 	dp[n] = first + second;
 
 	return dp[n];
@@ -38,7 +40,7 @@ int main() {
 	cin >> n;
 
 
-	cout << fibo_wo_dp(n-1) << '\n';
+	cout << fibo_with_dp(n - 1) << '\n';
 
 	return 0;
 }
