@@ -1,46 +1,52 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int dir[] = { 2, 7 };
+int steps[] = { 2, 7 };
 int MAP[151];
+int DP[151];
 int mapSize;
-int visited[10001];
+int initialMAX = -2134567890;
 
-int score;
-int maxScore = -2134567890;
-void dp(int now) {
-	if (now >= mapSize){
-		if (maxScore < score) {
-			maxScore = score;
-		}
-		return;
+int maxScore = initialMAX;
+int dp(int now) {
+	if (now > mapSize){
+		DP[now] = MAP[now];
+		return MAP[now];
 	}
 
+	int maxNextScore = initialMAX;
 	for (int i = 0; i < 2; i++) {
-		int next = now + dir[i];
-		if (next < 1 || next > mapSize)
+		int next = now + steps[i];
+		if (next < 0 || next > mapSize)
 			continue;
-		if (visited[next] != 0)
+		if (DP[next] != -2134567890)
 			continue;
+		int nextScore = max(maxNextScore, dp(next));
 
-		score = score + MAP[next];
-		
-		dp(next);
-		score = score - MAP[next];
+		if (maxNextScore < nextScore)
+			maxNextScore = nextScore;
 	}
+	int nowScore = maxNextScore + MAP[now];
+	DP[now] = nowScore;
+	return nowScore;
 }
+
+void initDP(int initValue) {
+	for (int i = 0; i < 151; i++)
+		DP[i] = initValue;
+}
+
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie();
 	cout.tie();
 
-
 	cin >> mapSize;
 	for (int i = 1; i <= mapSize; i++)
 		cin >> MAP[i];
 
-	dp(0);
-	cout << maxScore << '\n';
+	initDP(initialMAX);
+	cout << dp(0) << '\n';
 
 	return 0;
 }
