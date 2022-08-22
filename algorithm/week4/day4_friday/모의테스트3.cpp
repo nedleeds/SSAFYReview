@@ -15,7 +15,7 @@ int checkNum;
 void dfs(Pos now) {
 	for (int i = 0; i < 4; i++) {
 		Pos next = { now.row + dr[i], now.col + dc[i] };
-		if (next.row < 0 || next.col < 0 || next.row > rowMax || next.col > 10)
+		if (next.row < 0 || next.col < 0 || next.row >= rowMax || next.col >= 10)
 			continue;
 		if (visited[next.row][next.col] != 0)
 			continue;
@@ -76,6 +76,7 @@ int main() {
 	int flag = 1;
 	while (flag) {
 		cntBomb = 1;
+		initVisited();
 		for (int row = rowMax - 1; row >= 0; row--) {
 			for (int col = 0; col < 10; col++) {
 				if (arr[row][col] == 0) continue;
@@ -85,12 +86,11 @@ int main() {
 					if (visited[row][col] != 0)
 						continue;
 					visited[row][col] = checkNum;
-					path.push_back({ row, col });
 					dfs({ row, col });
 
 					// 펑!
-					cout << '\n' << '\n';
-					path.pop_back();
+					//cout << '\n' << '\n';
+					//path.pop_back();
 					if (path.size() >= K) {
 						for (int i = 0; i < path.size(); i++) {
 							Pos curr = path[i];
@@ -103,17 +103,16 @@ int main() {
 						path.pop_back();
 					int forDebug = 1;
 
-					for (int r = 0; r < rowMax; r++) {
+					/*for (int r = 0; r < rowMax; r++) {
 						for (int c = 0; c < 10; c++) {
 							cout << arr[r][c];
 						}
 						cout << '\n';
-					}
+					}*/
 
 				}
 			}
 			// 중력 + visited 초기화
-			initVisited();
 			if (cntBomb > 1)
 				doGravity();
 		}
