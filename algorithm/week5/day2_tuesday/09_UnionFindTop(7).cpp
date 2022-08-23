@@ -32,20 +32,16 @@ int main() {
 	int N, Q;
 	cin >> N >> Q;
 
-	for (int i = 0; i <= N; i++)
-		parents[i] = i;
+	/*for (int i = 0; i <= N; i++)
+		parents[i] = i;*/
 
 	vector<int> v;
 	int parent, child;
-	for (int i = 0; i < N - 1; i++) {
-		if (i >= 1) {
-			cin >> child;
-			//Union(parent, child);
-			parents[child] = parent;
-		}
-		else {
-			cin >> parent;
-		}
+	
+	for (int i = 2; i <= N; i++) {
+		int num;
+		cin >> num;
+		parents[i] = num;
 	} // create trees (Union)
 
 	// stacking all the Query
@@ -56,7 +52,7 @@ int main() {
 			// 0은 역순에서 Union 
 			int num;
 			cin >> num;
-			query.push_back({ command, num, parents[num] });
+			query.push_back({ command, num, num });
 		}
 		else {
 			// 1은 역순에서 Find 적용 대상
