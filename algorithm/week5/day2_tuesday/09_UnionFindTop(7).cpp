@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int parents[20001];
+int parents[200001];
 struct IN { int command, from, to; };
 vector<IN> query;
 
@@ -43,17 +43,22 @@ int main() {
 		cin >> num;
 		parents[i] = num;
 	} // create trees (Union)
-
+	parents[1] = 1;
 	// stacking all the Query
 	for (int i = 1; i < N + Q; i++) {
 		int command;
-		cin >> command;
-		if (command == 0) {
+		cin >> command;		if (command == 0) {
 			// 0은 역순에서 Union 
 			int num;
 			cin >> num;
-			query.push_back({ command, num, num });
+			//parents[num] = parents[parents[num]];
+			query.push_back({ command, num, parents[num]});
+			parents[num] = num;
+			/* 
+			0은 일단 끊어주는 역할. 그럼 부모노드 체크하고 끊어줘야지 !!
+			*/
 		}
+
 		else {
 			// 1은 역순에서 Find 적용 대상
 			int from, to;
