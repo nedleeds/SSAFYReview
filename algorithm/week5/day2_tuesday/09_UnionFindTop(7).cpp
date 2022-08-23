@@ -32,7 +32,7 @@ int main() {
 	int N, Q;
 	cin >> N >> Q;
 
-	for (int i = 0; i < N; i++)
+	for (int i = 0; i <= N; i++)
 		parents[i] = i;
 
 	vector<int> v;
@@ -40,8 +40,8 @@ int main() {
 	for (int i = 0; i < N - 1; i++) {
 		if (i >= 1) {
 			cin >> child;
-			Union(parent, child);
-			parent = child;
+			//Union(parent, child);
+			parents[child] = parent;
 		}
 		else {
 			cin >> parent;
@@ -49,15 +49,17 @@ int main() {
 	} // create trees (Union)
 
 	// stacking all the Query
-	for (int i = 0; i < N + Q - 1; i++) {
+	for (int i = 1; i < N + Q; i++) {
 		int command;
 		cin >> command;
 		if (command == 0) {
+			// 0은 역순에서 Union 
 			int num;
 			cin >> num;
-			query.push_back({ command, num, parents[num]});
+			query.push_back({ command, num, parents[num] });
 		}
 		else {
+			// 1은 역순에서 Find 적용 대상
 			int from, to;
 			cin >> from >> to;
 			query.push_back({ command, from, to });
@@ -67,11 +69,8 @@ int main() {
 	// pop + Do Union + check(command==1)
 	// + cut all the edges
 	vector<string> s;
-	for (int i = 0; i < N; i++)
-		parents[i] = i;
-
 	while (!query.empty()) {
-		IN input = query.back();
+		IN input = query.back(); // 역순 쿼리 -> 제일 위에서부터 체크
 		query.pop_back();
 
 		if (input.command == 0) {
@@ -86,6 +85,11 @@ int main() {
 		}
 	}
 
+	while(!s.empty()){
+		cout << s.back();
+		s.pop_back();
+	}
+	
 	int de = 1;
 	return 0;
 }
