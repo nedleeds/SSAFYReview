@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Touch's 포트폴리오</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <style>
+      a {
+        cursor: pointer;
+      }
+      .sort-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        border-top: 1px solid #dddddd;
+      }
+      .carousel-item img {
+        height: 100vh;
+      }
+
+      .skill-list {
+        flex-direction: column;
+        justify-content: center;
+        display: flex;
+        /* vertical-align: middle; */
+        height: 70vh;
+      }
+
+      .nav-link {
+        color:#dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="pl-5 pr-5 navbar navbar-dark bg-dark position-fixed w-100"
+        style="z-index: 99; color: #006cff;"
+      >
+        <a class="navbar-brand" href="#main-part">David. Moms</a>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active text-white" href="#main-part">Main</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about-part">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#language-part">Skill</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#stack-part">Stack</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#to-be-part">Closing</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="main-part">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide w-100 m-auto"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators">
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="0"
+              class="active"
+            ></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active h-50">
+              <img
+                class="d-block w-100"
+                src="./images/main1.jpg"
+                alt="First slide"
+              />
+              <div class="carousel-caption d-none d-md-block h-50">
+                <h1>저는 SSAFY 'C반' 출신 개발자<br>David. Moms 입니다.</h1>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="./images/main2.jpg"
+                alt="Second slide"
+              />
+              <div class="carousel-caption d-none d-md-block h-50">
+                <h1>저는 배우는 것을 좋아합니다.<br>그리고 개발을 사랑합니다.</h1>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="./images/main3.jpg"
+                alt="Third slide"
+              />
+              <div class="carousel-caption d-none d-md-block h-50">
+                <h1>선배들과 좋은 관계 속에서, <br>도움이 되고 싶습니다.<br>감사합니다.</h1>
+              </div>
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </section>
+      <section id="about-part" class="bg-light sort-center pt-5">
+        <div class="h1 bg-primary p-4 text-white w-100 text-center">
+          About
+        </div>
+        <div class="card ml-auto mr-auto mt-4" style="width: 18rem;">
+          <img
+            src="./images/profile.jpg"
+            class="card-img-top w-75 m-auto"
+            alt="..."
+          />
+          <div class="card-body text-center">
+            <h5 class="card-title h3">David. Moms</h5>
+            <p class="card-text">
+              IoT Developer<br>(Web + Embedded)
+            </p>
+          </div>
+        </div>
+        <div class="mt-5 text-center">
+          안녕하세요. 언제나 달려가는 개발자 David.Moms 입니다.
+          <br />
+          함께 일하시고 싶으시다면 언제든 연락주셔도 됩니다.          
+        </div>
+        <ul class="list-group list-group-flush w-50 m-auto">
+          <li class="list-group-item bg-light">
+            <svg
+              width="1.3em"
+              height="1.3em"
+              viewBox="0 0 16 16"
+              class="bi bi-telephone-fill"
+              fill="#006CFF"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"
+              />
+            </svg>
+            <span class="ml-2">010-9360-2485</span>
+          </li>
+          <li class="list-group-item bg-light">
+            <svg
+              width="1.3em"
+              height="1.3em"
+              viewBox="0 0 16 16"
+              class="bi bi-mailbox2"
+              fill="#006CFF"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12 3H4a4 4 0 0 0-4 4v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7a4 4 0 0 0-4-4zM8 7a3.99 3.99 0 0 0-1.354-3H12a3 3 0 0 1 3 3v6H8V7zm1 1.5h2.793l.853.854A.5.5 0 0 0 13 9.5h1a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.5-.5H9v1zM4.585 7.157C4.836 7.264 5 7.334 5 7a1 1 0 0 0-2 0c0 .334.164.264.415.157C3.58 7.087 3.782 7 4 7c.218 0 .42.086.585.157z"
+              />
+            </svg>
+
+            <span class="ml-2">inho.choi@mincoding.co.kr</span>
+          </li>
+          <li class="list-group-item bg-light">
+            <svg
+              width="1.3em"
+              height="1.3em"
+              viewBox="0 0 16 16"
+              class="bi bi-house-door-fill"
+              fill="#006CFF"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
+              />
+            </svg>
+            <span class="ml-2">경기도 성남시 분당구 정자동</span>
+          </li>
+          <li class="list-group-item bg-light">
+            <svg
+              width="1.3em"
+              height="1.3em"
+              viewBox="0 0 16 16"
+              class="bi bi-link-45deg"
+              fill="#006CFF"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
+              />
+              <path
+                d="M5.712 6.96l.167-.167a1.99 1.99 0 0 1 .896-.518 1.99 1.99 0 0 1 .518-.896l.167-.167A3.004 3.004 0 0 0 6 5.499c-.22.46-.316.963-.288 1.46z"
+              />
+              <path
+                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"
+              />
+              <path
+                d="M10 9.5a2.99 2.99 0 0 0 .288-1.46l-.167.167a1.99 1.99 0 0 1-.896.518 1.99 1.99 0 0 1-.518.896l-.167.167A3.004 3.004 0 0 0 10 9.501z"
+              />
+            </svg>
+            <span class="ml-2">mincoding.co.kr</span>
+          </li>
+        </ul>
+      </section>
+
+      <section id="language-part" class="pt-5" style="min-height: 100vh;">
+        <div class="h1 bg-primary p-4 text-white w-100 text-center">
+          Language Skill
+        </div>
+
+        <ul class="w-75 ml-auto mr-auto mt-5 skill-list">
+          <li class="list-group-item d-flex align-items-center p-4">
+            <div class="w-25">C</div>
+            <div class="progress w-50 m-auto">
+              <div
+                class="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: 85%;"
+              ></div>
+            </div>
+            <div class="w-25 text-center">85%</div>
+          </li>
+          <li class="list-group-item d-flex align-items-center p-4">
+            <div class="w-25">C++</div>
+            <div class="progress w-50 m-auto">
+              <div
+                class="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="78"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: 78%;"
+              ></div>
+            </div>
+            <div class="w-25 text-center">78%</div>
+          </li>
+
+          <li class="list-group-item d-flex align-items-center p-4">
+            <div class="w-25">Javascript</div>
+            <div class="progress w-50 m-auto">
+              <div
+                class="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="50"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: 70%;"
+              ></div>
+            </div>
+            <div class="w-25 text-center">70%</div>
+          </li>
+          <li class="list-group-item d-flex align-items-center p-4">
+            <div class="w-25">Python</div>
+            <div class="progress w-50 m-auto">
+              <div
+                class="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="50"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: 50%;"
+              ></div>
+            </div>
+            <div class="w-25 text-center">50%</div>
+          </li>
+        </ul>
+      </section>
+      <section id="stack-part" class="sort-center pt-5" style="height: 100%;">
+        <div class="h1 bg-primary p-4 text-white w-100 text-center">
+          Skill Stack
+        </div>
+        <table class="table w-75 mt-5">
+          <thead>
+            <tr>
+              <th scope="col">분야</th>
+              <th scope="col">분류</th>
+              <th scope="col">스택</th>
+              <th scope="col">Level</th>
+              <th scope="col">근거</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" rowspan="10" class="align-middle">
+                WEB
+              </th>
+              <td rowspan="4" class="align-middle">Front end</td>
+              <td>HTML/CSS</td>
+              <td>⭐⭐⭐⭐⭐</td>
+              <td>웹페이지 클론코딩 가능</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">2</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>Bootstrap</td>
+              <td>⭐⭐⭐</td>
+              <td>Bootstrap5 기준 Document 참고하여 개발 가능</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>Vue.js</td>
+              <td>⭐⭐⭐⭐</td>
+              <td>다양한 Web Project 개발 진행</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>React.js</td>
+              <td>학습예정</td>
+              <td>다양한 Web Project 개발 진행</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <td rowspan="3" class="align-middle">Backend</td>
+              <td>Node.js</td>
+              <td>⭐⭐⭐⭐</td>
+              <td>비동기 통신/REST/WEB Server 운영 개발</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>MySQL</td>
+              <td>⭐⭐⭐</td>
+              <td>활용에 능숙, but DB 성능 개선작업 불가</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>MongoDB</td>
+              <td>⭐⭐</td>
+              <td>Mongo DB Node.js + Mongo.DB 프로젝트 경험</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <td class="align-middle" rowspan="3">DevOps</td>
+              <td>AWS</td>
+              <td>⭐⭐⭐</td>
+              <td>EC2 활용하기</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>Nginx</td>
+              <td>⭐⭐</td>
+              <td>웹서버 운영</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>Jenkins</td>
+              <td>⭐</td>
+              <td>배포서버 운영</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr />
+        <!-- 임베디드 파트  -->
+        <table class="table w-75 mt-5">
+          <thead>
+            <tr>
+              <th scope="col">분야</th>
+              <th scope="col">분류</th>
+              <th scope="col">스택</th>
+              <th scope="col">Level</th>
+              <th scope="col">근거</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" rowspan="13" class="align-middle">
+                Embedded
+              </th>
+              <td rowspan="3" class="align-middle">Firmware</td>
+              <td>ARM</td>
+              <td>⭐⭐⭐⭐</td>
+              <td>Cortex-M3 / A72 아키텍처 이해 및 개발 경험</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">2</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>Raspiberry pi</td>
+              <td>⭐⭐⭐⭐⭐</td>
+              <td>Reaspberry pi 에서 C와 Python으로 Firmware 개발</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>NUCLEO-F103RB</td>
+              <td>학습예정</td>
+              <td>ST사 보드 + IAR 환경에서 개발</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <td>RTOS</td>
+              <td>FreeRTOS</td>
+              <td>⭐⭐⭐</td>
+              <td>Thread Programming / 모듈 제어 가능</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <td rowspan="3" class="align-middle">장비</td>
+              <td>회로도 이해</td>
+              <td>⭐⭐⭐</td>
+              <td>Datasheet / Schematic 분석 가능</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>기본 계측</td>
+              <td>⭐</td>
+              <td>멀티미터 / 오실로스코프 경험</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>Debugger</td>
+              <td>학습예정</td>
+              <td>ST-Link / V2, IAR 환경에서 디버깅</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <td class="align-middle" rowspan="2">Device Driver</td>
+              <td>Linux Kernel</td>
+              <td>⭐⭐⭐</td>
+              <td>자유롭게 사용 가능, Linux 커널 분석 경험</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <!-- <td>Thornton</td> -->
+              <td>Linux Device Driver</td>
+              <td>⭐⭐⭐</td>
+              <td>Device Tree / 캐릭터 Device Driver 개발 경험</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <td>Embedded</td>
+              <td>Qt</td>
+              <td>⭐⭐⭐⭐</td>
+              <td>C++ 대신, Python으로 개발 (PyQt)</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+              <td rowspan="2" class="align-middle">IoT</td>
+              <td>Connectivity</td>
+              <td>⭐⭐⭐</td>
+              <td>MQTT, LoRa, BLE, Wifi</td>
+            </tr>
+            <tr>
+              <!-- <th scope="row">3</th> -->
+
+              <td>Security</td>
+              <td>⭐⭐⭐</td>
+              <td>SSL/TLS</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="to-be-part" class="mt-5 pt-5" style="min-height: 100vh;">
+        <div class="h1 bg-primary p-4 text-white w-100 text-center">
+          Closing
+        </div>
+        <div class="card mb-3 mt-5 text-center">
+          <img
+            src="./images/closing.jpg"
+            class="card-img-top w-50 ml-auto mr-auto mt-5"
+            alt="..."
+          />
+          <div class="card-body">
+            <h3 class="card-title">저는 무한한 발전 가능성을 가지고 있습니다.</h3>
+            <p class="card-text">
+              현재 Moms Touch는 열리지 않았습니다. 그리고 헝그리 정신으로 웹 개발을 합니다. <br>
+              지금은 잠이 부족하지만, 개발은 항상 재미있기에 참을 수 있습니다. <br>
+              그리고 저는 웹 개발만큼, 치킨과 맥주를 좋아합니다. 많이 좋아합니다.<br>
+              만약 제가 필요하시다면, 언제든 연락 주세요. 멋진 삶을 살고 싶습니다.<br>
+              <br>
+              귀사에 도움이 될 것을 약속 드립니다. 감사합니다. <br><br>- David.Moms<br> <br> 
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- <footer class="bg-dark text-white p-3 text-center">
+      CopyRight 2020 홍길동 All right reserved
+    </footer> -->
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+    
+  </body>
+</html>

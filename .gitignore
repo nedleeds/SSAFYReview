@@ -12,3 +12,5 @@ x64
 *.aps
 resource.h
 *.dSYM
+**/node_modules/
+**/puppeteer/
