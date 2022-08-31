@@ -1,3 +1,8 @@
+// puppeteer 를 사용하기 전에
+// npm init 으로 json 파일만들고 패키지 생성
+// puppeteer - 크롬 환경을 제어하기 위한 라이브러리
+// 가장 빠른 크롤링 라이브러리중 하나
+// 다운 : npm i puppeteer
 const puppeteer = require("puppeteer");
 const { resourceLimits } = require("worker_threads");
 
