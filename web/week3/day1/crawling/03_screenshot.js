@@ -16,6 +16,7 @@ const main = async() => {
     await page.screenshot({path:'screenshot.jpg', fullPage: true})
     await browser.close();
 
+    // 네이버 웹툰 a 태그만 가져오는 코드
     // document.querySelectorAll(".img_list > li > dl > dt> a")
 }
 
