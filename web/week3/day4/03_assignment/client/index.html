@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        td{
+            text-align: center;
+            font-weight: bolder;
+        }
+        .error{
+            background-color: red;
+        }
+        .warn{
+            background-color: palevioletred;
+        }
+        .info{
+            background-color: darkorange;
+        }
+        .label{
+            font-weight: bold;
+            text-align: left;
+        }
+        .level{
+            text-align: left;
+            padding-left: 5%;
+        }
+    </style>
+</head>
+<body>
+    <button>요청하기</button>
+    <table>
+        <thead>
+            <tr class = label>
+                <td width="50px">#</th>
+                <td width="150px">message</td>
+                <td width="50px">level</td>
+                <td width="250px">timestamp</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        const button = document.querySelector("button");
+        
+        function logFormat(idx, tag, text, ts){
+
+            const logs = `<tr>
+                            <td>${idx}</td>
+                            <td class="${tag}">${text}</td>
+                            <td class=${tag}>${tag}</td>
+                            <td>${ts}</td>
+                        </tr>`;
+            document.querySelector('tbody').insertAdjacentHTML("beforeend", logs);
+        }
+
+        function displayLogs(idx, logData){
+            const lvl = logData.level;
+            const mssg = logData.message;
+            const ts = logData.timestamp;
+            return logFormat(idx, lvl, mssg, ts);
+            // console.log(`${tag} ${text} ${ts}`);
+        }
+
+        button.addEventListener('click', async () => {
+            try {
+                const jsonData = await axios.get("http://localhost:8080/api/logs/2022-09-02-15");
+                logData = jsonData.data;
+
+                
+                for (let i=0; i<logData.length; i++){
+                    document.querySelector('body').insertAdjacentHTML("beforeend", "<br>");
+                    // document.querySelector('.idx').textContent = `${i}`;
+                    displayLogs(i, logData[i]);
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
+        })
+    </script>
+</body>
+</html>
