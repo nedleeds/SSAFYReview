@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- axios github에서 CDN 가져옴 : 나 axios 쓸텨 -->
+    <button>요청하기</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const button = document.querySelector('button');
+        // cors 에러 발생
+        // 같은 IP 지만 PORT까지 일치해야 리소스 공유 가능
+        // 기본적으로 공유를 막아놓음. client -> live server(:5500번)
+        // backend -> express(:8080)
+        // 막은 이유: 보안
+        // 백엔드에서 cors를 허용해야 해당 접근이 가능하다
+        button.addEventListener('click', async function(){
+            try{
+                const result = await axios.get("http://localhost:8080/");
+                console.log(result);
+            }catch(error){
+                console.log(error);
+                
+            }
+        })
+    </script>
+</body>
+</html>
