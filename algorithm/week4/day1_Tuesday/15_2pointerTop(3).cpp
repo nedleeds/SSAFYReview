@@ -6,8 +6,8 @@ using namespace std;
 vector<int> samples;
 
 bool cmp(int a, int b) {
-	if (a < b) return false;
-	if (a > b) return true;
+	if (a < b) return true;
+	if (a > b) return false;
 	return false;
 }
 
@@ -34,19 +34,18 @@ int main() {
 	int right = samples.size() - 1;
 	int minLeft = 0;
 	int minRight = 0;
+	int minSum = 2134567890;
 
 	// iteration
-	while (left <= right) {
+	while (left < right) {
 		// get sum
 		int sum = samples[left] + samples[right];
 
 		// check sum
-		int minDiff = 2134567890;
-		if (abs(sum-0) < minDiff) {
-			minDiff = abs(sum - 0);
+		if (abs(sum) < minSum) {
+			minSum = abs(sum);
 			minLeft = left;
 			minRight = right;
-			cout << minLeft << ' ' << minRight << ' ' << sum << '\n';
 		}
 		// go next
 		if (sum > 0) {
@@ -55,7 +54,11 @@ int main() {
 		else if (sum < 0) {
 			left++;
 		}
+		else {
+			cout << samples[minLeft] << ' ' << samples[minRight] << '\n';
+			return 0;
+		}
 	}
-	cout << minLeft << ' ' << minRight << '\n';
+	cout << samples[minLeft] << ' ' << samples[minRight] << '\n';
 	return 0;
 }

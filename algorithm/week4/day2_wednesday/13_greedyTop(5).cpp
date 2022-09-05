@@ -16,16 +16,6 @@ bool cmp (Schedule a, Schedule b) {
 
 	return false;
 }
-/*
-* 6
-1 6
-3 8
-8 9
-2 4
-4 6
-7 9
-ans : 3
-*/
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie();
