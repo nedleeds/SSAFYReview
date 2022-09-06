@@ -211,5 +211,79 @@ app.post("/api/orders", async (req, res) => {
     }
 })
 
+// 주문 내역 가져오기
+app.get("/api/orders/:id", async (req, res) => {
+    try{
+        const data = await pool.query(
+            `
+            SELECT a.id, b.name, a.quantity, a.request_detail
+            FROM orders as a
+            INNER JOIN menus as b
+            ON a.menus_id = b.id
+            WHERE a.id = ?
+            `,
+            [req.params.id]
+        )
+        console.log(data[0]);
+        return res.json(data[0][0]);   
+    }
+    catch(error)
+    {
+        console.log(error);
+        return res.json({
+            success: false,
+            message: "주문 내역 조회에 실패하였습니다."
+        })
+    }
+})
+
+// 주문 내역 수정하기
+app.patch("/api/orders/:id", async (req, res) => {
+    try{
+        const data = await pool.query(
+            "UPDATE orders SET quantity =?, request_detail =?, menus_id =? where id =?", 
+            [   
+                req.body.quantity, 
+                req.body.request_detail, 
+                req.body.menus_id, 
+                req.params.id   
+            ]
+        );
+
+        return res.json({
+            success: true,
+            message: "주문 수정에 성공하셨습니다."
+        });
+    }
+    catch(error)
+    {
+        console.log(error);
+        return res.json({
+            success: false,
+            message: "주문 수정에 실패하였습니다."
+        });
+    }
+})
+
+
+// 주문 내역 삭제하기
+app.delete("/api/orders/:id", async (req, res)=>{
+    try 
+    {
+        const data = await pool.query("DELETE FROM orders WHERE id = ?", [req.params.id])
+        return res.json({
+            success: true,
+            message: "주문 삭제에 성공하셨습니다."
+        })    
+    } 
+    catch (error) 
+    {
+        console.log(error);
+        return res.json({
+            success: false,
+            message: "주문 삭제에 실패하였습니다."
+        })    
+    }
+})
 
 app.listen(PORT, () => console.log(`${PORT} 기동 중`));
