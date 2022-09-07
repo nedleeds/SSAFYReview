@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: white;
+            background-color: black;
+            font-size: 50px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input ref="input_ref" type="text">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+
+            data(){
+                return {
+                    
+                }
+            },
+            created(){
+                console.log("created");
+                console.log(this.$refs);
+                console.log(this.$refs.input_ref);
+            },
+            mounted(){
+                // ref 속성 접근하는걸
+                // this.$refs 라는 방식으로 접근
+                // Vue에서는 기본적으로 DOM 접근을 하지 않게 설계
+                // 예외적으로 DOM에 접근해야하는 경우에 ref를 활용
+                console.log("mounted");
+                console.log(this.$refs);
+                console.log(this.$refs.input_ref);
+                this.$refs.input_ref.focus();
+            }
+        })
+    </script>
+</body>
+</html>
+    

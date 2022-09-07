@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <!--  
+        div 요소를 app으로 설정 
+        -> 적용하고자하는 element를 설정하고 id를 app으로 설정
+    -->
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <button @click="clickButton">클릭</button>
+        <!-- @click이랑 v-on:click 동일하다 -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+
+            data(){
+                return {
+                    message: "클릭을 눌러주세요",
+                    nextMessage: "하하"
+                }
+            },
+            methods:{
+                clickButton(){
+                    this.message = this.nextMessage;
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: white;
+            background-color: black;
+            font-size: 15px;
+            padding: 5px;
+            font-weight: bold;
+        }
+        #app > p{
+            border-bottom: 1px rgb(92, 90, 90) solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p v-for="(t, index) in text" v-if="t.completed === false" v-bind:key="index">
+            {{ t.title }}
+        </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+
+            data(){
+                return {
+                    text: {}
+                }
+            },
+            async created(){
+                const result = await axios.get("https://koreanjson.com/todos")
+                console.log(result);
+                this.text = result.data;
+            },
+            mounted(){
+            }
+        })
+    </script>
+</body>
+</html>
+    

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // [과거]
+        // 1. 외부에서 데이터를 끌어온다
+        // 2. h1.textContent 등을 활용해서 데이터를 h1 element와 일치화
+        const h1 = document.createElement('h1');
+        document.body.append(h1);
+        
+        
+        // [MVVM 디자인 패턴] - Model View ViewModel 패턴
+        // viewModel -> 데이터와 엘리먼트의 일치화
+        const viewModel = {};
+        let model = "";
+
+        // viewModel에 model이라는 속성을 정의
+        Object.defineProperty(viewModel, 'model', {
+            get(){
+                return model;
+            },
+            set(value){
+                model = value;
+                h1.innerHTML = model;
+            }
+        })
+    </script>
+</body>
+</html>

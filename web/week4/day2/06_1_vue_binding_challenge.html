@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: white;
+            background-color: black;
+            font-size: 50px;
+            font-weight: bold;
+        }
+        .colorRed{
+            color: red;
+            font-size: 50px;
+            font-weight: bold;
+        }
+        .colorBlue{
+            color: blue;
+            font-size: 50px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1 :class="myColor"> {{ message }} </h1>
+        <button @click="clickButton">컬러바꾸기</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+
+            data(){
+                return {
+                    message: "HI",
+                    myColor: "colorBlue"
+                }
+            },
+            methods:{
+                clickButton(){
+                    if (this.myColor==="colorBlue"){
+                        this.myColor = "colorRed";
+                    }else{
+                        this.myColor = "colorBlue";
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

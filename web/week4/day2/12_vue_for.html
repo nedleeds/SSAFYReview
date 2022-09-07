@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- v-for: (값, 인덱스) in data -->
+        <ul>
+            <!-- key를 할당해서 중복 방지 -->
+            <li v-for="(todo, index) in todos" v-bind:key="index">
+                todo : {{ todo }}
+                index : {{ index }}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+
+            data(){
+                return {
+                    todos: ["밥먹기", "잠자기", "코딩하기"]
+                }
+            }
+        })
+    </script>
+</body>
+</html>

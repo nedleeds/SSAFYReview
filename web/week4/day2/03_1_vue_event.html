@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <!-- v-on:click = "methods에 정의한 메서드"-->
+        <button v-on:click="clickButton">클릭하시오</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+
+            data(){
+                return {
+                    message: "클릭 전...",
+                    nextMessage: "클릭 후..."
+                }
+            },
+
+            methods:{
+                clickButton(){
+                    // data에 접근하기 위해서는 this로 접근
+                    // (다른 메서드 접근도 this)
+                    console.log(this.message);
+                    console.log(this.nextMessage);
+                    this.message = this.nextMessage;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

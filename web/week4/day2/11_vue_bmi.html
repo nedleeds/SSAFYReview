@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <H1>BMI 계산기</H1>
+    <div id="app">
+        <div>신장: <input v-model="height" /></div>
+        <div>체중: <input v-model="weight" /></div>
+        <button @click="computeBMI">계산</button>
+        <div>{{ result }}</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+
+            data(){
+                return {
+                    weight: "",
+                    height: "",
+                    result: ""
+                }
+            },
+
+            methods:{
+                computeBMI(){
+                    let w = Number(this.weight);
+                    let h = Number(this.height)/100;
+                    console.log(w);
+                    console.log(h);
+                    const bmi = w / (h * h);
+
+                    if (bmt >= 25){
+                        this.result = "비만"
+                    }else if (bmt >= 23){
+                        this.result = "과체중"
+                    }else if (bmt >= 18.5){
+                        this.result = "정상"
+                    }else if (bmt >= 0) {
+                        this.result = "저체중"
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

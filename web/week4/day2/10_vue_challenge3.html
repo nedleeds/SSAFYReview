@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-if="seen1">
+            <div>a</div>
+            <div>b</div>
+            <div>c</div>
+        </div>
+        <div v-if="seen2">
+            <div>d</div>
+            <div>e</div>
+        </div>
+        <div v-if="seen3">
+            <div>f</div>
+            <div>g</div>
+        </div>
+    </div>
+    <button @click="changeSeen">GO</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+
+            data(){
+                return {
+                    seen1: true,
+                    seen2: false,
+                    seen3: false
+                }
+            },
+
+            methods:{
+                changeSeen(){
+                    if (this.seen1){
+                        this.seen1 = false,
+                        this.seen2 = true
+                    }else if(this.seen2){
+                        this.seen2 = false,
+                        this.seen3 = true
+                    }else{
+                        this.seen3 = false,
+                        this.seen1 = true
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
