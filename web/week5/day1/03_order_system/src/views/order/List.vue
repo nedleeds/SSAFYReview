@@ -1,6 +1,6 @@
 <template>
   <div>
-    List 입니다
+    주문 목록 입니다.
   </div>
 </template>
 

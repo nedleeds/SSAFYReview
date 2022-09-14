@@ -41,14 +41,21 @@ export const api = {
 
     orders:{
         findAll: () => request.get("/orders"),
+
         create: (menus_id, quantity, request_detail) => request.post('/orders',{
             menus_id: menus_id,
             quantity,
             request_detail
         }),
+
         // 구현해야할 목록
-        findOne: () => { },
-        update: (id) => { },
-        delete: (id) => {}
+        findOne: (id) => request.get(`/orders/${id}`),
+
+        update: (id, quantity, description) => request.patch(`/orders/${id}`,{
+            quantity: quantity,
+            description: description
+        }),
+
+        delete: (id) => request.delete(`/orders/${id}`)
     }
 }
