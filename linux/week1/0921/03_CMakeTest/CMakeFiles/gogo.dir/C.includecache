@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lee/win/SSAFYReview/linux/week1/0921/cMake_test/blue.c
+stdio.h
+-
+
+/home/lee/win/SSAFYReview/linux/week1/0921/cMake_test/main.c
+stdio.h
+-
+
+/home/lee/win/SSAFYReview/linux/week1/0921/cMake_test/pink.c
+stdio.h
+-
+

@@ -1,0 +1,3 @@
+/home/lee/win/SSAFYReview/linux/week1/0921/cMake_test/CMakeFiles/rebuild_cache.dir
+/home/lee/win/SSAFYReview/linux/week1/0921/cMake_test/CMakeFiles/edit_cache.dir
+/home/lee/win/SSAFYReview/linux/week1/0921/cMake_test/CMakeFiles/gogo.dir

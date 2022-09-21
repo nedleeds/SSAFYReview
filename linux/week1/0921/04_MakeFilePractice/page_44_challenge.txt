@@ -1,0 +1,5 @@
+// 6. 빌드 시스템.pdf
+1. Hi: BTS KFC, HE: 없음
+2. Hi: BBQ    , HE: 없음
+3. Hi: 13 KFC , HE: 13 KFC
+4. HI: 20     , HE: 20

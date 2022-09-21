@@ -1,0 +1,3 @@
+// 6. 빌드 시스템.pdf (build system.pdf)
+1. Hi: KFC T, HE: KFC T
+2. HI: BTS ABC T, HE: BTS ABC

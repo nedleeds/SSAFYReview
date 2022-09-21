@@ -61,5 +61,6 @@ int main() {
 
 	cout << minCost << '\n';
 
+
 	return 0;
 }

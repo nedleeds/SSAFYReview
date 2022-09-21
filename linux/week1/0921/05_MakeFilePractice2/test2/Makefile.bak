@@ -1,0 +1,19 @@
+CC = gcc
+CFLAGS = -g -Wall -O2
+SRCS = $(wildcard *.c)
+OBJS = $(SRCS:.c=.o)
+
+result : $(OBJS)
+	$(CC) -o $@ $^
+
+test1.o : test1.c a.h b.h
+	$(CC) $(CFLAGS) -c $<
+
+test2.o : test2.c a.h c.h
+	$(CC) $(CFLAGS) -c $<
+
+test3.o : test3.c a.h b.h c.h
+	$(CC) $(CFLAGS) -c $<
+
+clean : 
+	rm $(OBJS) result

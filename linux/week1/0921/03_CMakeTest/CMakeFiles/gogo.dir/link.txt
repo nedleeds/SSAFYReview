@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/gogo.dir/main.c.o CMakeFiles/gogo.dir/blue.c.o CMakeFiles/gogo.dir/pink.c.o  -o gogo 
