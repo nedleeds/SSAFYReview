@@ -1,4 +1,6 @@
-FILENAME=$HOME/test-$(date '+%H:%M:%s')
+#!/bin/bash
+
+FILENAME=$HOME/test-$(date '+%H:%M:%S')
 
 rm -rf $HOME/test-*
 touch $FILENAME
