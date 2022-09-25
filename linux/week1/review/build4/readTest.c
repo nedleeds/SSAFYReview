@@ -11,7 +11,7 @@ int main(){
 
   while(pS != NULL){
     printf("%s\n", pS);
-    pS = strtok(NULL, " ");
+    pS = strtok(NULL, " "); // NULL !!
   }
 
   return 0; 
