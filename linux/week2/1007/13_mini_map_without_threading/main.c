@@ -42,7 +42,7 @@ void* checkPosition(){
 		clear();
 		int mx = 0, my = 0;
 		getmaxyx(stdscr, mx, my);
-		move(mx/2, my/2);
+		move(mx/2, my/2-4);
 		printw("GAME OVER");
 	}
 	else if (map[nr][nc] == 'Y'){
