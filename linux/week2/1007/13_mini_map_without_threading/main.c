@@ -8,11 +8,14 @@
 
 char map[N][N + 1] = {
 	"##########",
-	"#  M ^^^^#",
-	"#^##  ^^ #",
+	"# M ^^^^ #",
+	"#^###a^^a#",
 	"#  ^ ^ ^ #",
-	"#^  ##   #",
-	"#  ^ Y   #",
+	"# a  #####",
+	"#  ^aa   #",
+	"#  ^^^^###",
+	"####  a###",
+	"#Y  ^  aa#",
 	"##########"
 };
 
@@ -38,7 +41,7 @@ void print(){
 	refresh();
 }
 
-void* checkPosition(){
+void* checkNow(){
 	if (map[nr][nc] == '#'){
 		printw("#");	
 	}
@@ -54,13 +57,15 @@ void* checkPosition(){
 	else if (map[nr][nc] == 'Y'){
 		usleep(50*1000);
 		clear();
-		int mx = 0, my = 0;
-		getmaxyx(stdscr, mx, my);
-		move(mx/2, my/2);
-		printw("WIN");
+		int row = 0, col = 0;
+		getmaxyx(stdscr, row, col);
+		move(row/2, col/2);
+		printw("WIN\n");
+		move(row/2+1, col/2-2);
+		printw("HP[%d]",hp);
 		isFinish = true;
 	}
-	else if (map[nr][nc] =='^'){
+	else if (map[nr][nc] =='^' || map[nr][nc] == 'a'){
 		map[nr][nc] = ' ';
 	}
 
@@ -82,6 +87,10 @@ bool checkNext(int row, int col){
 		hp-=10;
 		hp = (hp<0) ? 0 : hp;
 	}
+	else if (map[row][col] == 'a'){
+		hp+=10;
+		hp = (hp>100) ? 100 : hp;
+	}
 }
 
 int main(){
@@ -96,8 +105,10 @@ int main(){
 
 	while(1){
 		print();
-		checkPosition();
+		checkNow();
 		int ch = getch();
+		// monster move
+
 		if (ch == ERR) ch =0;
 		clear();
 
@@ -118,8 +129,10 @@ int main(){
 			if (checkNext(nr + 1, nc))
 				nr++;
 		}
-		if (isFinish)
+		if (isFinish){
+			sleep(3);
 			break;
+		}
 	}
 
 	getch();
