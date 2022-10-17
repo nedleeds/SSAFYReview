@@ -20,3 +20,4 @@ while True:
 	
 	btn.when_pressed = lazor_turn	
 	pause()
+
