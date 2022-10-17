@@ -1,7 +1,7 @@
 from gpiozero import LED
 from time import sleep
 
-led_set = [LED(17), LED(22), LED(26)]
+led_set = [LED(10), LED(9), LED(11)]
 mode = [0 for _ in range(len(led_set))]
 
 def led_toggle(n):
