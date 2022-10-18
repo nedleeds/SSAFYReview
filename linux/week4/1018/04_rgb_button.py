@@ -25,7 +25,7 @@ def turn_on_rgb():
     R.value = color_list[0]
     G.value = color_list[1]
     B.value = color_list[2]
-    sleep(1)
+    sleep(0.1)
 
 def red_on():
     print('Red was pressed')    
@@ -52,6 +52,7 @@ def main():
     print('Press the Button - R, G, B')
     
     n = 0
+    turn_on_rgb()
     R_Btn.when_pressed = red_on
     G_Btn.when_pressed = green_on
     B_Btn.when_pressed = blue_on
