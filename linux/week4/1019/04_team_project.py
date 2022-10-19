@@ -11,8 +11,8 @@ X = [255, 255, 255]
 
 wall2 = [
     ['O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'],
-    ['O', 'X', 'X', 'X', 'X', 'X', 'X', 'O'],
-    ['O', 'O', 'O', 'O', 'O', 'O', 'X', 'O'],
+    ['O', 'X', 'X', 'X', 'X', 'O', 'X', 'O'],
+    ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'],
     ['O', 'X', 'X', 'X', 'X', 'O', 'X', 'O'],
     ['O', 'O', 'X', 'O', 'O', 'O', 'X', 'O'],
     ['O', 'O', 'X', 'O', 'X', 'X', 'X', 'O'],
@@ -22,8 +22,8 @@ wall2 = [
 
 wall = [
     O, X, O, O, O, O, O, O,
-    O, X, X, X, X, X, X, O,
-    O, O, O, O, O, O, X, O,
+    O, X, X, X, X, O, X, O,
+    O, O, O, O, O, O, O, O,
     O, X, X, X, X, O, X, O,
     O, O, X, O, O, O, X, O,
     O, O, X, O, X, X, X, O,
@@ -40,9 +40,11 @@ paths = {
             ],
 
     'wall': [
-                (0, 1), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), 
-                (2, 6), (3, 6), (4, 6), (5, 6), (5, 5), (5, 4),
-                (3, 1), (3, 2), (3, 3), (3, 4), (4, 2), (5, 2), (6, 1), (6, 2),
+                (0, 1), (1, 1), (1, 2), (1, 3), (1, 4),  (1, 6), 
+                (3, 6), (4, 6),
+                (3, 1), (3, 2), (3, 3), (3, 4), (4, 2), 
+                (5, 2), (5, 6), (5, 5), (5, 4),
+                (6, 1), (6, 2),
                 (7, 4), (7, 5), (7, 6)
             ]
 }
@@ -122,8 +124,8 @@ def display_position(mode = 'path', path_list = []):
 
     for pos in path_list:
         if type(pos) == tuple:
-            row, col = convert_row_col(pos[0], pos[1])
-            sense.set_pixel(row, col,
+            # row, col = convert_row_col(pos[0], pos[1])
+            sense.set_pixel(pos[1], pos[0], 
                             color_code[mode][0], 
                             color_code[mode][1], 
                             color_code[mode][2])
@@ -180,6 +182,7 @@ def draw(start_y, start_x):
 
 def problem_1_2():
     global wall, sense
+    sense.show_message("1,2", 0.3 ,text_colour=[255, 255, 0])
 
     dot = Dot()
     # display_wall()
@@ -193,7 +196,7 @@ def problem_1_2():
         sleep(.1)
 
 def problem_3():
-    sense.show_message("!! GAME START !!")
+    sense.show_message("3", 0.3 ,text_colour=[255, 255, 0])
     sense.clear()
     start = [0, 0, 'S']
     finish = [7, 7, 'F']
@@ -202,12 +205,16 @@ def problem_3():
     for p in paths[mode]:
         sense.set_pixel(start[0], start[1], 0, 255, 0)
         sense.set_pixel(finish[0], finish[1], 0, 255, 0)
-        display_position('wall', paths['wall'])
+        display_wall()
+        # display_position('wall', paths['wall'])
         display_position(mode, p)
         sleep(1)
         sense.clear()
 
+    de = 1
+
 def problem_4():
+    sense.show_message("4", 0.3 ,text_colour=[255, 255, 0])
     sense.set_pixels(wall)
     start_y, start_x = 0, 0
     
