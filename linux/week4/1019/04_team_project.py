@@ -1,13 +1,11 @@
 from sense_hat import SenseHat 
-# from sense_emu import SenseHat
-from signal import pause
-from time import sleep
 from collections import deque
+from time import sleep
 
 sense = SenseHat()
 
 O = [0, 0, 0]
-X = [255, 255, 255]
+X = [0, 0, 255]
 
 wall2 = [
     ['O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'],
@@ -29,6 +27,18 @@ wall = [
     O, O, X, O, X, X, X, O,
     O, X, X, O, O, O, O, O,
     O, O, O, O, X, X, X, O
+]
+
+smile = [
+    
+    O, O, O, O, O, O, O, O,
+    O, X, O, O, O, O, X, O,
+    X, O, X, O, O, X, O, X,
+    O, O, O, O, O, O, O, O,
+    O, O, O, O, O, O, O, O,
+    X, O, O, O, O, O, O, X,
+    X, O, O, O, O, O, O, X,
+    O, X, X, X, X, X, X, O,
 ]
 
 paths = {
@@ -124,7 +134,6 @@ def display_position(mode = 'path', path_list = []):
 
     for pos in path_list:
         if type(pos) == tuple:
-            # row, col = convert_row_col(pos[0], pos[1])
             sense.set_pixel(pos[1], pos[0], 
                             color_code[mode][0], 
                             color_code[mode][1], 
@@ -182,31 +191,31 @@ def draw(start_y, start_x):
 
 def problem_1_2():
     global wall, sense
-    sense.show_message("1,2", 0.3 ,text_colour=[255, 255, 0])
+    sense.low_light = True
+    sense.show_message("1,2", 0.1 ,text_colour=[255, 255, 0])
 
     dot = Dot()
-    # display_wall()
     sense.set_pixels(wall)
 
     while True:
         dot.set_diff()
         dot.move_dot()
         dot.print_pos()
-        # draw(dot.row, dot.col)
         sleep(.1)
 
 def problem_3():
-    sense.show_message("3", 0.3 ,text_colour=[255, 255, 0])
+    global sense
+    sense.low_light = True
+    sense.show_message("3", 0.1 ,text_colour=[255, 255, 0])
     sense.clear()
-    start = [0, 0, 'S']
-    finish = [7, 7, 'F']
+    start = [0, 0]
+    finish = [7, 7]
     
     mode = 'path'
     for p in paths[mode]:
         sense.set_pixel(start[0], start[1], 0, 255, 0)
         sense.set_pixel(finish[0], finish[1], 0, 255, 0)
         display_wall()
-        # display_position('wall', paths['wall'])
         display_position(mode, p)
         sleep(1)
         sense.clear()
@@ -214,6 +223,8 @@ def problem_3():
     de = 1
 
 def problem_4():
+    global sense
+    sense.low_light = True
     sense.show_message("4", 0.3 ,text_colour=[255, 255, 0])
     sense.set_pixels(wall)
     start_y, start_x = 0, 0
@@ -232,19 +243,28 @@ def problem_4():
         sleep(0.1)
         if (dot.row == 7 and dot.col == 7):
             sense.clear()
-            sense.show_message("!! GAME OVER !!")
+            sense.set_pixels(smile)
+            sleep(1)
+            sense.clear()
+            sense.set_pixels(smile)
+            sleep(1)
+            sense.clear()
+            sense.set_pixels(smile)
+            sleep(1)
             return
 
 
 def main():
     global sense
-
-    display_off()
     sense.low_light = True
 
+    display_off()
+
     # problem_1_2()
-    problem_3()
+    # problem_3()
     problem_4()
    
+    display_off()
 
 main()
+
