@@ -17,6 +17,7 @@ BORDER = 5
 WHITE = 1
 BLACK = 0
 image_idx = 0
+font_idx = 0
 
 # Use for SPI
 spi = board.SPI()
@@ -30,7 +31,7 @@ GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP) #ground 연결 -> PUD_UP
 GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
-def display_image(channel, img_path = './image/jdragon.png', center_cropping = True, resizing = True, dx = 20, dy = -5):
+def display_image(img_path = './image/jdragon.png', center_cropping = True, resizing = True, dx = 20, dy = -5):
     def clear_display():
         oled.fill(0)
         oled.show()
@@ -58,7 +59,6 @@ def display_image(channel, img_path = './image/jdragon.png', center_cropping = T
         2: './image/cat.png'
     }
     
-    print(f'{channel} has been pressed')
     im = Image.open(images[image_idx % 3]).convert('1')
 
     if (im.size[0] < im.size[1]):
@@ -80,8 +80,7 @@ def display_image(channel, img_path = './image/jdragon.png', center_cropping = T
 
     image_idx += 1
 
-
-def display_font(W=WIDTH, H=HEIGHT, position=(32, 32), words='안녕', font_size = 15):
+def display_font(W=WIDTH, H=HEIGHT, position=(32, 32), words='안녕', font_size = 12):
     from PIL import Image, ImageDraw, ImageFont
 
     def clear_display():
@@ -107,22 +106,59 @@ def display_font(W=WIDTH, H=HEIGHT, position=(32, 32), words='안녕', font_size
     im_font = im_font.rotate(90)
     show_image(im_font)
 
-def display_datetime(channel):
+def display_datetime():
     from datetime import datetime
-    print(f'{channel} has been pressed')
     now = datetime.now()
     time_str = now.strftime('%I:%M:%S')
     display_font(position=(29, 20), words=f'{time_str}', font_size = 20)
 
+def mode_switch(channel):
+    # 빨간 버튼 누르면 모드 변경 -> mode_index 바꾸기
+    global mode_idx
+    print(f'{channel} has been pressed')
+    idx = mode_idx % 3
+
+    if idx == 0:
+        display_datetime()
+        flag['date'] = 1
+        flag['image'] = 0
+
+    elif idx == 1:
+        display_image()
+        flag['image'] = 1
+        flag['date'] = 0
+
+    mode_idx += 1 
+
+def screen_switch(channel):
+    global image_idx, font_idx
+
+    print(f'{channel} has been pressed')
+
+    if flag['date']:
+        print(f'font idx {font_idx}')
+        if font_idx % 2 == 0:
+            display_font(words = "전투력 측정 중...")
+        else:
+            display_datetime()
+        font_idx += 1
+
+    if flag['image']:
+        image_idx += 1
+    
+
+
 # interrupt 선언
 # GPIO.RISING  : LOW  -> HIGH 되는 순간
 # GPIO.FALLING : HGIHG -> LOW 되는 순간
-GPIO.add_event_detect(26, GPIO.RISING, callback=display_datetime, bouncetime=200)
-GPIO.add_event_detect(21, GPIO.RISING, callback=display_image   , bouncetime=200)
+GPIO.add_event_detect(21, GPIO.RISING, callback=mode_switch   , bouncetime=1000) #red
+GPIO.add_event_detect(26, GPIO.RISING, callback=screen_switch, bouncetime=1000) #green
 
 # 메인 루프
 try:
-    image_idx = 0
+    
+    mode_idx = 0
+    flag = {'date':0, 'image': 0}
     while 1:
         print(".")
         time.sleep(0.1)
