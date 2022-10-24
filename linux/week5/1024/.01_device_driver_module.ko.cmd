@@ -1,0 +1,1 @@
+cmd_/home/lee/win/SSAFYReview/linux/week5/1024/01_device_driver_module.ko := ld -r  -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/lee/win/SSAFYReview/linux/week5/1024/01_device_driver_module.ko /home/lee/win/SSAFYReview/linux/week5/1024/01_device_driver_module.o /home/lee/win/SSAFYReview/linux/week5/1024/01_device_driver_module.mod.o;  true
