@@ -13,20 +13,22 @@ void gogo(){
         exit(1);
     }
     else{
-        printf("pass\n");
+		s[0] = '\0';
+		alram(3);
     }
 }
 
 int main(){
     signal(SIGALRM, gogo);
 
-    printf("input>> ");
-    alarm(3);
-    scanf("%s", s);
-    if (strlen(s) != 0){
-        input_flag = 1;
-    }
+	while(1){
+    	alarm(3);
+    	printf("input>> ");
+    	scanf("%s", s);
+    	if (strlen(s) != 0){
+        	input_flag = 1;
+    	}
+	}
 
-    while(1) sleep(1);
     return 0;
 }
