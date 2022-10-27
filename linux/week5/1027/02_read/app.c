@@ -16,6 +16,13 @@ int main()
     }
 
     // read char
+    // char buf[100];
+    // read(fd, buf, 100);
+    // printf("%s\n", buf);
+
+    // wrtie 7 char
+    write(fd, "KFC JJANG\n", 20);
+
     char buf[100];
     read(fd, buf, 100);
     printf("%s\n", buf);

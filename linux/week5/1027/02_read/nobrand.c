@@ -18,9 +18,25 @@ static int nobrand_release(struct inode *inode, struct file *filp)
     return 0;
 }
 
+static ssize_t nobrand_read(struct file *filp, char *buf, size_t count, loff_t *ppos)
+{
+    buf[0] = 'H';
+    buf[1] = 'I';
+    buf[2] = '\0';
+    return count;
+}
+
+static ssize_t nobrand_write(struct file *filp, const char*buf, size_t count, loff_t *ppos)
+{
+    printk(KERN_INFO "app message: %s\n", buf);
+    return count;
+}
+
 static struct file_operations fops = {
     .open = nobrand_open,
     .release = nobrand_release,
+    .read = nobrand_read,
+    .write = nobrand_write,
 };
 
 static int nobrand_init(void)
