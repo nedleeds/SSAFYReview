@@ -1,1 +1,0 @@
-cmd_/home/lee/win/SSAFYReview/linux/week5/1024/modules.order := {   echo /home/lee/win/SSAFYReview/linux/week5/1024/01_device_driver_module.ko; :; } | awk '!x[$$0]++' - > /home/lee/win/SSAFYReview/linux/week5/1024/modules.order

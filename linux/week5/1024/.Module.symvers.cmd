@@ -1,1 +1,0 @@
-cmd_/home/lee/win/SSAFYReview/linux/week5/1024/Module.symvers := sed 's/\.ko$$/\.o/' /home/lee/win/SSAFYReview/linux/week5/1024/modules.order | scripts/mod/modpost -m -a  -o /home/lee/win/SSAFYReview/linux/week5/1024/Module.symvers -e -i Module.symvers   -T -

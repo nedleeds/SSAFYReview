@@ -1,1 +1,0 @@
-cmd_/home/lee/win/SSAFYReview/linux/week5/1024/01_device_driver_module.mod := { echo  /home/lee/win/SSAFYReview/linux/week5/1024/01_device_driver_module.o;  echo; } > /home/lee/win/SSAFYReview/linux/week5/1024/01_device_driver_module.mod

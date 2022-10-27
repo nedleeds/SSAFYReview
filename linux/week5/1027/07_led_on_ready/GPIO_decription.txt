@@ -1,0 +1,22 @@
+Legacy 기준 main peripheral 시작 주소 - 0x7C00 0000 
+GPIO Base Address			 - 0x7E20 0000
+둘의 차이 			 - 0x0220 0000
+
+Low 페리페럴 기준 main 페리페럴 시작 주소 - 0xFC00 0000
+따라서 GPIO BASE ADDRESS 는 0xFC00 0000 + 0x0220 0000인
+0xFE20 0000 이 된다
+
+GPFSEL1에 FSEL18 존재(GPIO Pin 18번) 
+-> 해당 offset: 0x04
+-> Outpu mode 설정: 001
+
+GPSET0 (The output set registers are used to set a GPIO pin.)
+-> offset: 0x1C (GPIO Pin Output Set 0)
+-> addr: 0FE20 0000 + 0x1C
+
+GPCLR0 
+설명: (The output clear registers are used to clear a GPIO pin. 
+The CLRn field defines the respective GPIO pin to clear, writing
+a “0” to the field has no effect.)
+-> offset: 0x28
+-> bit: 18번에 1넣으면 clear 진행 즉, 0x0001 0000 넣으면 18번 pin clear

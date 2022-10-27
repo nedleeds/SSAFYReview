@@ -2,11 +2,18 @@
 #include <linux/fs.h>
 #include <linux/uaccess.h>
 #include <linux/string.h>
+#include <asm/io.h>
 
 #define NOD_MAJOR 100
 #define NOD_NAME "nobrand"
 
 MODULE_LICENSE("GPL");
+
+static volatile uint32_t *BASE;
+static volatile uint32_t *GPFSEL1;
+static volatile uint32_t *GPSET0;
+static volatile uint32_t *GPCLR0;
+
 
 static int nobrand_open(struct inode *inode, struct file *filp)
 {
@@ -24,12 +31,14 @@ static void ledon(void)
 {
     printk(KERN_INFO "LED ON");
     printk(KERN_INFO "");
+    *GPSET0 = (1 << 18);
 }
 
 static void ledoff(void)
 {
     printk(KERN_INFO "LED OFF");
     printk(KERN_INFO "");
+    *GPCLR0 = (1 << 18);
 }
 
 static long nobrand_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
@@ -54,6 +63,16 @@ static struct file_operations fops = {
 
 static int nobrand_init(void)
 {
+    BASE = (uint32_t *)ioremap(0xFE200000, 256);
+    GPFSEL1 = BASE + (0x04 / 4);
+    GPSET0 = BASE + (0x1C / 4);
+    GPCLR0 = BASE + (0x28 / 4);
+
+    *GPFSEL1 &= ~(0x7 << 24);
+    *GPFSEL1 |= (1 << 24);
+
+    printk("GPIO PIN : %x\n", *GPFSEL1);
+
     if (register_chrdev(NOD_MAJOR, NOD_NAME, &fops) < 0)
     {
         printk("INIT FALE\n");
@@ -65,6 +84,9 @@ static int nobrand_init(void)
 
 static void nobrand_exit(void)
 {
+    *GPCLR0 = (1 << 18);
+    iounmap(BASE);
+
     unregister_chrdev(NOD_MAJOR, NOD_NAME);
     printk(KERN_INFO "bye\n");
 }
