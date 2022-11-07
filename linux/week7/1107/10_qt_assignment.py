@@ -5,7 +5,7 @@ class QT_OBJ():
     def __init__(self):
         self.app = QApplication()
         self.win = QMainWindow()
-        self.statusBar = self.win.statusBar()
+        self.status_bar = self.win.status_bar()
         self.menu = {}
 
     def set_widget(self, title, pos):
@@ -17,27 +17,42 @@ class QT_OBJ():
         self.menu[mode] = menu.addMenu(mode)
 
     def set_status_bar(self, status):
-        self.statusBar.showMessage(status)
-
+        self.status_bar.showMessage(status)
 
     def set_center_menu(self):
-        layer = {
+        '''
+        전체 layout 
+        main : vertical
+        name_line = QlineEdit()
+        btn = {
+            'add': QPushButton("추가")
+            'del': QPushButton("제거")
+        }
+        '''
+        layout = {
             'menu': QVBoxLayout(),
             'button': QHBoxLayout()
         }
-
-        # layout 설정
-        main = QWidget()
-        self.win.setCentralWidget(main)
-        label = QLabel("\t인맥을 관리합시다.", main)
-        label.adjustSize()
-
+        # QForm 의 addRow 메서드: label + widget 동시에 추가
         form = QFormLayout()
-        line1 = QLineEdit()
+        
+        # layout 설정
+        label_wid = QWidget()
+        self.win.setCentralWidget(label_wid)
+        label = QLabel("\t인맥을 관리합시다.", label_wid)
+        label.adjustSize()
+        form.addRow(label)
+        
+        # line 설정
+        name_line = QLineEdit()
+        form.addRow("name", name_line)
+
+        
 
 
 def main():
     qt = QT_OBJ()
+    
     qt.set_widget(title="인맥 관리 프로그램", pos=(400, 150, 700, 450))
     qt.set_menu_bar("추가")
     qt.set_menu_bar("제거")
