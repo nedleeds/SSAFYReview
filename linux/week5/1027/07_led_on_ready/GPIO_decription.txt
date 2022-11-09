@@ -1,6 +1,11 @@
-Legacy 기준 main peripheral 시작 주소 - 0x7C00 0000 
-GPIO Base Address			 - 0x7E20 0000
-둘의 차이 			 - 0x0220 0000
+Legacy 기준 main peripheral 시작 주소 
+: 0x7C00 0000 
+
+GPIO Base Address			 
+: 0x7E20 0000
+
+둘의 차이 			 
+: 0x0220 0000
 
 Low 페리페럴 기준 main 페리페럴 시작 주소 - 0xFC00 0000
 따라서 GPIO BASE ADDRESS 는 0xFC00 0000 + 0x0220 0000인

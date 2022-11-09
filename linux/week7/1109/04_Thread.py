@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from time import sleep
-from Thread import Ui_Form
+from .design.design_04 import Ui_Form
 
 
 class pbThread(QThread):

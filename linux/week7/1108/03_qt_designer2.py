@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import *
-from design03 import Ui_MainWindow
+from .design.design_03 import Ui_MainWindow
 import hashlib
 
 class MyApp(QMainWindow, Ui_MainWindow):

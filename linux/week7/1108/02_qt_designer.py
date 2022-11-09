@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import *
-from test import Ui_MainWindow
+# from test import Ui_MainWindow
+from .design.design_02 import Ui_MainWindow
 
 class MyApp(QMainWindow, Ui_MainWindow):
     def __init__(self):

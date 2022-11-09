@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
-from QProgressBar import Ui_Form
+from .design.design_02 import Ui_Form
 
 
 class myapp(QWidget, Ui_Form):
