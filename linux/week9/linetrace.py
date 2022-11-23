@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import matplotlib.pyplot as plt
 
 def middle_five_box_area(img, col_split = 7, row_split = 3, draw_box = True):
     # col_split 은 홀수 추천. -> 3 개의 가운데 영역을 판단에 사용하기 때문
@@ -72,8 +73,52 @@ def line_status_check(box_area, p1, p2) -> int:
             
     return -1   
 
-def main():
+def tracing(box_cnt):
+    print(box_cnt)
+    right_cnt = sum(box_cnt[3:])
+    left_cnt = sum(box_cnt[:2])
+    
+    right_percent = int((right_cnt / (left_cnt + right_cnt)) * 100)
+    left_percent = int((left_cnt / (left_cnt + right_cnt)) * 100)
+    diff_percent = abs(right_percent - left_percent)
+    
+    if right_percent > left_percent:
+        if diff_percent > 50:
+            print('go right harder')
+        elif 10 < diff_percent:
+            print('go right')
+        else:
+            print('go straight')
+    elif right_percent < left_percent:
+        if diff_percent > 50:
+            print('go left harder')
+        elif 10 < diff_percent:
+            print('go left')
+        else:
+            print('go straight')
+    else:
+        print("go straight")
 
+def main():
+    # cap = cv2.VideoCapture(0)
+    # # cap.set(cv2.CAP_PROP_FPS, 60) # newly added code
+    # # cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+    # # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
+    
+    # while True:
+    #     rval, frame = cap.read()
+    #     if frame is not None:
+    #         cv2.imshow('video', frame)
+    #         plt.show()
+
+    #     if cv2.waitKey(1) & 0xFF == ord('q'):
+    #         break
+    
+    # cap.release()
+    # # cv2.imshow("output", output)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
+    
     src = cv2.imread("linux/week9/road.png")    
     edges = cv2.Canny(src, 5000, 1500, apertureSize = 5, L2gradient = True)
     gray = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
@@ -98,7 +143,7 @@ def main():
                 # print(f'x1,y1:{x1},{y1}', end="--")
                 # print(f'x2,y2:{x2},{y2}')
 
-    print(box_cnt)
+    tracing(box_cnt)
     
     cv2.imshow("src", src)
     cv2.waitKey(0)
